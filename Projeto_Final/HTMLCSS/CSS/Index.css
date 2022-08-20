@@ -8,13 +8,16 @@ tagline {
     font-family: "Open Sans Hebrew", "Open Sans", sans-serif;
     font-weight: bold;
 }
+img{
+    width: 250px;
 
+}
 form {
     float: left;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
     width: 300px;
-    height: 200px;
+    height: 300px;
     padding: 20px;
     border-radius: 20px;
     position: absolute;
@@ -22,7 +25,7 @@ form {
     left: 50%;
     margin: -70px 0 0 -170px;
 }
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
     background-color:#e6e6e6 ;
     border: none;
     width: 200px;

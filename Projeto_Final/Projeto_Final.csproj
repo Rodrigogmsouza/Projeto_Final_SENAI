@@ -426,7 +426,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTMLCSS\CSS\Index.css" />
-    <Content Include="IMG\BG.jpg" />
+    <Content Include="IMG\cenai.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
