@@ -425,7 +425,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\Index.css" />
+    <Content Include="HTMLCSS\CSS\Index.css" />
     <Content Include="IMG\BG.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -433,7 +433,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HTML\Index.cshtml" />
+    <Content Include="HTMLCSS\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
