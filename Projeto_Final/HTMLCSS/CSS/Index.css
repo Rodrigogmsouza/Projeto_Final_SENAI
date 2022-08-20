@@ -1,4 +1,50 @@
 ﻿
-bg{
-    background-image: url("../IMG/BG.jpg");
+body {
+    background: rgb(206,95,246);
+    background: linear-gradient(53deg, rgba(206,95,246,1) 0%, rgba(204,255,252,1) 100%);
+}
+
+tagline {
+    font-family: "Open Sans Hebrew", "Open Sans", sans-serif;
+    font-weight: bold;
+}
+
+form {
+    float: left;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -70px 0 0 -170px;
+}
+input[type=text], input[type=password] {
+    background-color:#e6e6e6 ;
+    border: none;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+button {
+    background-color: #c5f6f1;
+    border: none;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+button:hover {
+        background-color: #b3ddd9;
+
 }
