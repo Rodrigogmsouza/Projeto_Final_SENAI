@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/Index.css" />
+    <title>CENAI - CADASTRO</title>
+</head>
+<body>
+        
+    <form>
+        <div class="cadastro">
+            <center>
+                    <tagline>Registro de aluno/professor/colaborador</tagline><br />
+
+                    <select name="tipo_reg" id="regid" required>
+                        <option value="aluno">ALUNO</option>
+                        <option value="profe">PROFESSOR</option>
+                        <option value="colabo">COLABORADOR</option>
+                    </select><br />
+                    <input type="text" id="nomeid" class="campo_nome" placeholder="Nome do ..." maxlength="15" required /><br />
+                        <input type="radio" id="genid1" name="gen" class="campo_genero1" value="Masculino" required />
+                            <label for="genid1">Masculino</label><br />
+                        <input type="radio" id="genid2" name="gen" class="campo_genero2" value="Feminino" required/>
+                            <label for="genid1">Feminino</label><br />
+                        <input type="radio" id="genid3" name="gen" class="campo_genero3" value="Outro" required/>
+                            <label for="genid1">Outro</label><br />
+                    <input type="tel" name="telid" class="campo_tel" placeholder="telefone/celular" minxlength="11" maxlength="11" required />
+                    <input type="email" id="emailid" class="campo_email" placeholder="xyz@gmail.com" required /><br />
+                    <input type="password" id="senhaid1" class="campo_senha1" placeholder="senha" minlength="6" required /><br />
+                    <input type="password" id="senhaid2" class="campo_senha2" placeholder="verifique senha" minlength="6" required /><br />
+                    <button type="submit">LOGIN</button><br />
+            </center>
+        </div>
+    </form>
+</body>
+</html>
