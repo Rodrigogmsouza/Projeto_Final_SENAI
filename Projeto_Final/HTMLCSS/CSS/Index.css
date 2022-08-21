@@ -1,7 +1,12 @@
 ﻿
-body {
-    background: rgb(206,95,246);
-    background: linear-gradient(53deg, rgba(206,95,246,1) 0%, rgba(204,255,252,1) 100%);
+body, html {
+    height: 100%;
+}
+
+.bg {
+    background-image: url(../../IMG/bg.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 
 tagline {
@@ -12,18 +17,29 @@ img{
     width: 250px;
 
 }
+
 form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: saturate(180%);
+    backdrop-filter: blur(999px);
+    
+}
+
+.login {
+    
     float: left;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
     width: 300px;
     height: 300px;
     padding: 20px;
     border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -70px 0 0 -170px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.5);
 }
 input[type=email], input[type=password] {
     background-color: #e6e6e6;
