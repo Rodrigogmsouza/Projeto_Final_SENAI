@@ -431,6 +431,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTMLCSS\CSS\Index.css" />
+    <Content Include="JS\Index.js" />
     <Content Include="IMG\bg.jpg" />
     <Content Include="IMG\cenai.png" />
     <Content Include="Web.config" />
@@ -455,7 +456,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CSHARP\BANCODEDADOS\" />
-    <Folder Include="JAVASCRIPT\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
