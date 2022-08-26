@@ -430,6 +430,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTMLCSS\CSS\registro.css" />
     <Content Include="HTMLCSS\CSS\Index.css" />
     <Content Include="JS\Index.js" />
     <Content Include="IMG\bg.jpg" />
@@ -441,7 +442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTMLCSS\Index.cshtml" />
-    <Content Include="HTMLCSS\cadastro.cshtml" />
+    <Content Include="HTMLCSS\registro.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
