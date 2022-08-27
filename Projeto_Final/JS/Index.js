@@ -21,4 +21,5 @@ function unHide() {
     regid = getSelection("regid");
     if (regid == "profe")
         document.getElementById("teste").hidden = false;
+
 }
