@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Projeto_Final.CSHARP;
 
-namespace WebApplication_C.Classes
+namespace Projeto_Final.CSHARP
 {
     public class BancoDeDados
     {
@@ -26,7 +27,7 @@ namespace WebApplication_C.Classes
             //server = "localhost";
             server = "10.200.119.241";
             //database = "connectcsharptomysql";
-            database = "nathalia_rodrigo";
+            database = "rodrigo_pf";
             //uid = "username";
             uid = "admin";
             //password = "password";
@@ -90,6 +91,27 @@ namespace WebApplication_C.Classes
             {
                 Console.WriteLine(ex.Message);
                 return false;
+            }
+        }
+
+        //registro aluno
+        public static void Registro_Pessoa(pessoa Pessoa)
+        {
+            string query = "INSERT INTO pessoa(cpf, nome, genero, telefone, senha) VALUES " +
+                "('" + Pessoa.cpf + "','" + Pessoa.nome + "'," +
+                "'" + Pessoa.genero + "','" + Pessoa.telefone + "'," +
+                "'" + Pessoa.senha + "')";
+            //open connection
+            if (OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                CloseConnection();
             }
         }
     }
