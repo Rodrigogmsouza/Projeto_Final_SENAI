@@ -2,11 +2,14 @@
 @{
     BancoDeDados.DBConnect();
     pessoa Pessoa = new pessoa();
+    Pessoa.nivacesso = Request.Form["nivacesso"];
     Pessoa.cpf = Request.Form["cpfid"];
     Pessoa.nome = Request.Form["nomeid"];
     Pessoa.genero = Request.Form["genid"];
     Pessoa.telefone = Request.Form["telid"];
     Pessoa.senha = Request.Form["senhaid2"];
+
+   // BancoDeDados.Registro_Pessoa(Pessoa);
 
 }
 
@@ -20,20 +23,42 @@
     <title>CENAI</title>
 </head>
 <body div class="bg">
+    <p>
+        Dados do cliente:   <br />
+        @Pessoa.cpf
+        <br />
+        @Pessoa.nome
+        <br />
+        @Pessoa.senha
+        <br />
+        @Pessoa.telefone
+        <br />
+        @Pessoa.genero
+        <br />
+        @Pessoa.nivacesso
+        <br />
+        <br />
 
-    <form method="post">
+
+
+    </p>
+
+    <form method="post" onsubmit="return checkPassword(this)">
         <div class="container">
             <div class="registro">
                 <center>
-                    <div class="tipo_reg">
-                        <select name="tipo_reg" id="regid" required>
-                            <option value="aluno">ALUNO</option>
-                            <option value="profe">PROFESSOR</option>
-                            <option value="colabo">COLABORADOR</option>
+                    <!--NIVEL DE ACESSO-->
+                    <div class="nivel">
+
+                        <label for="nivacesso">Nivel de Acesso</label>
+                        <select name="nivacesso" id="nivacesso" required>
+
+                            <option value="1">Usuario</option>
+                            <option value="2">Professor</option>
+                            <option value="3">Administrador</option>
                         </select><br />
 
                     </div>
-                    
                     <!--NOME-->
                     <input type="text" id="nomeid" class="campo_nome"
                            placeholder="Nome do ..." maxlength="15" required /><br />
@@ -59,8 +84,9 @@
                            placeholder="senha" minlength="6" required /><br />
                     <input type="password" id="senhaid2" class="campo_senha2"
                            placeholder="verifique senha" minlength="6" required /><br />
+
                     <!--ENVIAR-->
-                    <button>REGISTRAR</button><br />
+                    <input type="submit" placeholder="REGISTRAR" /><br />
                 </center>
 
             </div>

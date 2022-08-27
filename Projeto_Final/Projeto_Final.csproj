@@ -445,7 +445,7 @@
   <ItemGroup>
     <Content Include="HTMLCSS\Index.cshtml" />
     <Content Include="HTMLCSS\registro.cshtml" />
-    <Content Include="HTMLCSS\registro_temp1.cshtml" />
+    <Content Include="HTMLCSS\temp_reg.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

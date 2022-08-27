@@ -7,6 +7,7 @@ namespace Projeto_Final.CSHARP
 {
     public class pessoa
     {
+        public string nivacesso { get; set; }
         public string cpf { get; set; }
         public string nome { get; set; }
         public string genero { get; set; }

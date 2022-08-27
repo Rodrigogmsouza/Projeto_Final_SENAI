@@ -97,10 +97,7 @@ namespace Projeto_Final.CSHARP
         //registro aluno
         public static void Registro_Pessoa(pessoa Pessoa)
         {
-            string query = "INSERT INTO pessoa(cpf, nome, genero, telefone, senha) VALUES " +
-                "('" + Pessoa.cpf + "','" + Pessoa.nome + "'," +
-                "'" + Pessoa.genero + "','" + Pessoa.telefone + "'," +
-                "'" + Pessoa.senha + "')";
+            string query = "INSERT INTO `pessoa`(`cpf`, `nome`, `genero`, `telefone`, `senha`, `nivel_acesso`) VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.genero + "','" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')";
             //open connection
             if (OpenConnection() == true)
             {
