@@ -25,7 +25,7 @@ namespace Projeto_Final.CSHARP
         private static void Initialize()
         {
             //server = "localhost";
-            server = "10.200.119.241";
+            server = "192.168.1.112";
             //database = "connectcsharptomysql";
             database = "rodrigo_pf";
             //uid = "username";
@@ -97,7 +97,7 @@ namespace Projeto_Final.CSHARP
         //registro aluno
         public static void Registro_Pessoa(pessoa Pessoa)
         {
-            string query = "INSERT INTO `pessoa`(`cpf`, `nome`, `genero`, `telefone`, `senha`, `nivel_acesso`) VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.genero + "','" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')";
+            string query = "INSERT INTO `pessoa`(`cpf`, `nome`, `email`, `telefone`, `senha`, `nivel_acesso`) VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.email + "','" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')";
             //open connection
             if (OpenConnection() == true)
             {

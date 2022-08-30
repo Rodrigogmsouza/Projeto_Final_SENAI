@@ -15,16 +15,16 @@
 </head>
 <body div class="bg">
 
-    <form  method="post" onsubmit="return checkPassword(this)" action="~/HTMLCSS/temp_reg.cshtml">
+    <form method="post" onsubmit="return checkPassword(this)" action="~/HTMLCSS/temps/temp_reg.cshtml">
         <div class="container">
             <div class="registro">
                 <center>
                     <!--NIVEL DE ACESSO-->
                     <div class="nivel">
-                        
-                        <label for="nivacesso">Nivel de Acesso</label> 
+
+                        <label for="nivacesso">Nivel de Acesso</label>
                         <select name="nivacesso" id="nivacesso" required>
-                            
+
                             <option value="1">Usuario</option>
                             <option value="2">Professor</option>
                             <option value="3">Administrador</option>
@@ -33,28 +33,21 @@
                     </div>
                     <!--NOME-->
                     <input type="text" name="nomeid" id="nomeid" class="campo_nome"
-                           placeholder="Nome do ..." maxlength="15" required /><br />
+                           placeholder="Nome do ..." maxlength="25" required /><br />
                     <!--CPF-->
-                    <input type="text" name ="cpfid" id="cpfid" class="campo_cpf"
+                    <input type="text" name="cpfid" id="cpfid" class="campo_cpf"
                            placeholder="CPF do ..." maxlength="14" required /><br />
-                    <!--GENERO-->
-                    <input type="radio" id="genid1" name="gen"
-                           class="campo_genero1" value="Masculino" required />
-                    <label for="genid1">Masculino</label><br />
-                    <input type="radio" id="genid2" name="gen" class="campo_genero2"
-                           value="Feminino" required />
-                    <label for="genid1">Feminino</label><br />
-                    <input type="radio" id="genid3" name="gen" class="campo_genero3"
-                           value="Outro" required />
-                    <label for="genid1">Outro</label><br />
+                    <!--EMAIL-->
+                    <input type="email" name="emailid" id="emailid" class="campo_email"
+                           placeholder="Email do" maxlength="30" required /><br />
                     <!--TELEFONE-->
                     <input type="tel" name="telid" class="campo_tel"
                            placeholder="telefone/celular" minxlength="11"
-                           maxlength="11" required /><br />
+                           maxlength="14" required /><br />
                     <!--SENHA-->
-                    <input type="password" id="senhaid1" name="senhaid1"class="campo_senha1"
+                    <input type="password" id="senhaid1" name="senhaid" class="campo_senha1"
                            placeholder="senha" minlength="6" required /><br />
-                    <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
+                    <input type="password" id="senhaid2" name="senhaid1" class="campo_senha2"
                            placeholder="verifique senha" minlength="6" required /><br />
 
                     <!--ENVIAR-->
