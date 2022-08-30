@@ -14,4 +14,5 @@ namespace Projeto_Final.CSHARP
         public string telefone { get; set; }
         public string senha { get; set; }
     }
+
 }
