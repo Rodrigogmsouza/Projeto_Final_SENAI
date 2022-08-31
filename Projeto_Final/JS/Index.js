@@ -12,14 +12,7 @@
 
     // If Not same return False.    
     else if (senhaid1 != senhaid2) {
-        alert("\nSenhas não Correspondem: Tente Novamente!")
+        alert("\nSenhas não Correspondem. Tente Novamente!")
         return false;
     }
-}
-
-function unHide() {
-    regid = getSelection("regid");
-    if (regid == "profe")
-        document.getElementById("teste").hidden = false;
-
 }

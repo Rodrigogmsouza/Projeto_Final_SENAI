@@ -31,6 +31,30 @@ form {
     
 }
 
+input[type=text], input[type=password] {
+    background-color: #e6e6e6;
+    border: none;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    background-color: #c5f6f1;
+    border: none;
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+    input[type=submit]:hover {
+        background-color: #b3ddd9;
+    }
+
 .login {
     
     float: left;
@@ -41,3 +65,7 @@ form {
     background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 26px 42px rgba(0, 0, 0, 0.5);
 }
+
+
+
+    
