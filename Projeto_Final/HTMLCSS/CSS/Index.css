@@ -7,6 +7,7 @@ body, html {
     background-image: url(../../IMG/bg.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    overflow: hidden;
 }
 
 tagline {
@@ -31,7 +32,18 @@ form {
     
 }
 
-input[type=text], input[type=password] {
+.login {
+    
+    float: left;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.5);
+}
+
+input[type=password], input[type=text]{
     background-color: #e6e6e6;
     border: none;
     width: 200px;
@@ -40,6 +52,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     border-radius: 5px;
 }
+
 
 input[type=submit] {
     background-color: #c5f6f1;
@@ -54,18 +67,6 @@ input[type=submit] {
     input[type=submit]:hover {
         background-color: #b3ddd9;
     }
-
-.login {
-    
-    float: left;
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.5);
-}
-
 
 
     
