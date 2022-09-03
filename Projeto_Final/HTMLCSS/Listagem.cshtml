@@ -24,17 +24,13 @@
     </div>
     
     
-    <div class="lista" id="lista" style="visibility:hidden" >
-        <center>
-            @{
-             List<string> listagempessoa = BancoDeDados.Listagem_Pessoa();
-            }
-            @foreach (string s in listagempessoa)
-            {
-                <p>@s</p>
-            }
-        </center>
-    </div>
+<div class="lista" id="lista" style="visibility:hidden" >
+    <center>
+    @{List<pessoa> lista = BancoDeDados.Listagem_Pessoa();}
+    @foreach (pessoa listagempessoa in lista){
+        <p>@listagempessoa.cpf, @listagempessoa.nome</p>}
+    </center>
+</div>
 
     <script src="~/JS/Index.js"></script>
 </body>

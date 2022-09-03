@@ -134,11 +134,12 @@ namespace Projeto_Final.CSHARP
             }
         }
 
-        public static List<string> Listagem_Pessoa()
+        public static List<pessoa> Listagem_Pessoa()
         {
-            string query = "SELECT nome FROM pessoa";
-            List<string> pessoa = new List<string>();
+            string query = "SELECT cpf, nome FROM pessoa";
 
+            //Create a list to store the result
+            List < pessoa > listapessoa = new List<pessoa>();
 
             //Open connection
             if (OpenConnection() == true)
@@ -148,12 +149,15 @@ namespace Projeto_Final.CSHARP
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-
                 //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    pessoa.Add(dataReader[0] + "");
-                }
+
+                    while (dataReader.Read())
+                    {
+                        pessoa listagempessoa = new pessoa();
+                        listagempessoa.cpf = dataReader[0] + ""; 
+                        listagempessoa.nome = dataReader[1] + "";
+                        listapessoa.Add(listagempessoa);
+                    }
 
                 //close Data Reader
                 dataReader.Close();
@@ -162,15 +166,15 @@ namespace Projeto_Final.CSHARP
                 CloseConnection();
 
                 //return list to be displayed
-                return pessoa;
+                return listapessoa;
             }
             else
             {
-                return pessoa;
+                return listapessoa;
             }
         }
 
-        
+
 
 
     }
