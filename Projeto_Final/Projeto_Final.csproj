@@ -493,6 +493,7 @@
     <Content Include="HTMLCSS\registro.cshtml" />
     <Content Include="HTMLCSS\temps\temp_reg.cshtml" />
     <Content Include="HTMLCSS\Listagem.cshtml" />
+    <Content Include="HTMLCSS\main.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
