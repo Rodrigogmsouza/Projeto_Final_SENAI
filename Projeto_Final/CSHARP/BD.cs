@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Projeto_Final.CSHARP;
+using System.Text;
 
 namespace Projeto_Final.CSHARP
 {
     public class BancoDeDados
     {
-        private static MySqlConnection conn;
+        public static MySqlConnection conn;
         private static string server;
         private static string database;
         private static string uid;
@@ -22,7 +23,7 @@ namespace Projeto_Final.CSHARP
         }
 
         //Initialize values
-        private static void Initialize()
+        public static void Initialize()
         {
             //server = "localhost";
             server = "10.200.119.241";
@@ -50,7 +51,7 @@ namespace Projeto_Final.CSHARP
         }
 
         //open connection to database
-        private static bool OpenConnection()
+        public static bool OpenConnection()
         {
             try
             {
@@ -80,7 +81,7 @@ namespace Projeto_Final.CSHARP
         }
 
         //Close connection
-        private static bool CloseConnection()
+        public static bool CloseConnection()
         {
             try
             {
@@ -94,85 +95,6 @@ namespace Projeto_Final.CSHARP
             }
         }
 
-        //registro aluno
-        public static void Registro_Pessoa(pessoa Pessoa)
-        {
-            string query = "INSERT INTO `pessoa`(`cpf`, `nome`, `email`, `telefone`, `senha`, `nivel_acesso`) VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.email + "','" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')";
-            //open connection
-            if (OpenConnection() == true)
-            {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                //Execute command
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                CloseConnection();
-            }
-        }
-
-        public static int CountPessoa()
-        {
-
-            string query = "SELECT Count(*) FROM pessoa";
-            int Count = -1;
-
-            if (OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                Count = int.Parse(cmd.ExecuteScalar() + "");
-
-                CloseConnection();
-
-                return Count;
-            }
-            else
-            {
-                return Count;
-            }
-        }
-
-        public static List<pessoa> Listagem_Pessoa()
-        {
-            string query = "SELECT cpf, nome FROM pessoa";
-
-            //Create a list to store the result
-            List < pessoa > listapessoa = new List<pessoa>();
-
-            //Open connection
-            if (OpenConnection() == true)
-            {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-
-                    while (dataReader.Read())
-                    {
-                        pessoa listagempessoa = new pessoa();
-                        listagempessoa.cpf = dataReader[0] + ""; 
-                        listagempessoa.nome = dataReader[1] + "";
-                        listapessoa.Add(listagempessoa);
-                    }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                CloseConnection();
-
-                //return list to be displayed
-                return listapessoa;
-            }
-            else
-            {
-                return listapessoa;
-            }
-        }
 
 
 

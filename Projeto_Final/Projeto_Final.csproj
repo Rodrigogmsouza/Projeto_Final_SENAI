@@ -484,6 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSHARP\BD.cs" />
+    <Compile Include="CSHARP\Funcoes.cs" />
     <Compile Include="CSHARP\registro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

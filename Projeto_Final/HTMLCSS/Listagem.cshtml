@@ -26,7 +26,7 @@
     
 <div class="lista" id="lista" style="visibility:hidden" >
     <center>
-    @{List<pessoa> lista = BancoDeDados.Listagem_Pessoa();}
+    @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
     @foreach (pessoa listagempessoa in lista){
         <p>@listagempessoa.cpf, @listagempessoa.nome</p>}
     </center>
