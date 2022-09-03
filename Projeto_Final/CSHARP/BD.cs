@@ -25,7 +25,7 @@ namespace Projeto_Final.CSHARP
         private static void Initialize()
         {
             //server = "localhost";
-            server = "192.168.1.112";
+            server = "10.200.119.241";
             //database = "connectcsharptomysql";
             database = "rodrigo_pf";
             //uid = "username";
@@ -112,7 +112,65 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        public static int CountPessoa()
+        {
 
+            string query = "SELECT Count(*) FROM pessoa";
+            int Count = -1;
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+
+                CloseConnection();
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
+        }
+
+        public static List<string> Listagem_Pessoa()
+        {
+            string query = "SELECT nome FROM pessoa";
+            List<string> pessoa = new List<string>();
+
+
+            //Open connection
+            if (OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    pessoa.Add(dataReader[0] + "");
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                CloseConnection();
+
+                //return list to be displayed
+                return pessoa;
+            }
+            else
+            {
+                return pessoa;
+            }
+        }
+
+        
 
 
     }

@@ -1,0 +1,41 @@
+﻿@using Projeto_Final.CSHARP
+@{
+    BancoDeDados.DBConnect();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/Listagem.css" />
+    <title>CENAI</title>
+</head>
+<body div class="bg">
+    
+    <div class="container">
+        <center>
+            <h1>Clique aqui para listar as pessoas cadastradas.</h1>
+            <div class="botao" onclick="poof('lista')">
+                <input type="submit" value="LISTAR!" />
+            </div>
+        </center>
+    </div>
+    
+    
+    <div class="lista" id="lista" style="visibility:hidden" >
+        <center>
+            @{
+             List<string> listagempessoa = BancoDeDados.Listagem_Pessoa();
+            }
+            @foreach (string s in listagempessoa)
+            {
+                <p>@s</p>
+            }
+        </center>
+    </div>
+
+    <script src="~/JS/Index.js"></script>
+</body>
+</html>

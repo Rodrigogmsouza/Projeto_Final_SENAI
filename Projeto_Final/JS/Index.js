@@ -16,3 +16,8 @@
         return false;
     }
 }
+
+function poof(i) {
+    var a = document.getElementById(i);
+    a.style["visibility"] = 'visible';
+}

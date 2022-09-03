@@ -15,9 +15,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Projeto_Final</RootNamespace>
     <AssemblyName>Projeto_Final</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -473,6 +474,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTMLCSS\CSS\Listagem.css" />
     <Content Include="HTMLCSS\CSS\registro.css" />
     <Content Include="HTMLCSS\CSS\Index.css" />
     <Content Include="JS\Index.js" />
@@ -489,6 +491,7 @@
     <Content Include="HTMLCSS\Index.cshtml" />
     <Content Include="HTMLCSS\registro.cshtml" />
     <Content Include="HTMLCSS\temps\temp_reg.cshtml" />
+    <Content Include="HTMLCSS\Listagem.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
