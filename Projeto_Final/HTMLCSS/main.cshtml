@@ -8,13 +8,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/HTMLCSS/CSS/Index.css" />
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/main.css" />
     <title>CENAI</title>
 </head>
 <body div class="bg">
-    <iframe src="~/HTMLCSS/registro.cshtml" ></iframe>
+    <div class="sidebar">
+        <button class="active" href="">Home</button>
+        <button onclick="poof('registro')">Registro</button>
+        <button href="#contact">Contact</button>
+        <button href="#about">About</button>
+    </div>
 
-    <h1 id="batata" style="visibility:hidden">BATATA</h1>
+    <div class="content" id="content">
+        <iframe src="~/HTMLCSS/registro.cshtml" id="registro" ></iframe>
+    </div>
+
+
     <script src="~/JS/Index.js"></script>
 </body>
 </html>
