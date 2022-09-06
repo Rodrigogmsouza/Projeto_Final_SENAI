@@ -21,8 +21,3 @@ function poof(i) {
     var a = document.getElementById(i);
     a.style["visibility"] = 'visible';
 }
-
-//function Iframe() {
-    document.getElementById("content").innerHTML = "<iframe src=\"~/HTMLCSS/registro.cshtml\" height=\"200\" width=\"300\" ></iframe>";
-
-} 

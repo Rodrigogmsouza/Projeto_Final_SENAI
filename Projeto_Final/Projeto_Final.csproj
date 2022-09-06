@@ -473,6 +473,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTMLCSS\CSS\sidebar.css" />
     <Content Include="HTMLCSS\CSS\main.css" />
     <Content Include="HTMLCSS\CSS\Listagem.css" />
     <Content Include="HTMLCSS\CSS\registro.css" />
