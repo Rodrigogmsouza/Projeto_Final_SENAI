@@ -15,7 +15,7 @@
 
     .sidebar a {
         display: block;
-        width:200px;
+        width: 200px;
         color: black;
         padding: 16px;
         border: none;
@@ -23,12 +23,12 @@
     }
 
         .sidebar a.active {
-            background-color: #04AA6D;
+            background-color: #78aaa6;
             color: white;
         }
 
         .sidebar a:hover:not(.active) {
-            background-color: #555;
+            background-color: #b3ddd9;
             color: white;
         }
 

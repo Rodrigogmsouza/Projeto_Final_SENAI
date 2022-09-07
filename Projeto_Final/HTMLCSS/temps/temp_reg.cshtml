@@ -25,49 +25,57 @@
 </head>
 <body div class="bg">
     <section>
+        <div class="sidebar">
+            <a href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
+            <a class="active" href="~/HTMLCSS/registro.cshtml">Registro</a>
+            <a href="~/HTMLCSS/Listagem.cshtml">Listagem</a>
+            <a href="#about">About</a>
+        </div>
         <aside>
-            <form method="post" onsubmit="return checkPassword(this); return formataCPF(this);" action="~/HTMLCSS/temps/temp_reg.cshtml">
-                <div class="container">
-                    <center>
-                        <div class="registro">
-                            <!--NIVEL DE ACESSO-->
-                            <div class="nivel">
+            <div class="content">
+                <form method="post" onsubmit="return checkPassword(this);" action="~/HTMLCSS/temps/temp_reg.cshtml">
+                    <div class="container">
+                        <center>
+                            <div class="registro">
+                                <!--NIVEL DE ACESSO-->
+                                <div class="nivel">
 
-                                <label for="nivacesso">Nivel de Acesso</label><br />
-                                <select name="nivacesso" id="nivacesso" required>
+                                    <label for="nivacesso">Nivel de Acesso</label><br />
+                                    <select name="nivacesso" id="nivacesso" required>
 
-                                    <option value="1">Usuario</option>
-                                    <option value="2">Professor</option>
-                                    <option value="3">Administrador</option>
-                                </select><br />
+                                        <option value="1">Usuario</option>
+                                        <option value="2">Professor</option>
+                                        <option value="3">Administrador</option>
+                                    </select><br />
+
+                                </div>
+                                <!--NOME-->
+                                <input type="text" name="nomeid" id="nomeid" class="campo_nome"
+                                       placeholder="Nome Completo" maxlength="25" required /><br />
+                                <!--CPF-->
+                                <input type="text" name="cpfid" id="cpf" class="campo_cpf"
+                                       placeholder="Insira seu CPF(apenas numeros)" maxlength="11" required /><br />
+                                <!--EMAIL-->
+                                <input type="email" name="emailid" id="emailid" class="campo_email"
+                                       placeholder="xyz@gmail.com" maxlength="30" required /><br />
+                                <!--TELEFONE-->
+                                <input type="tel" name="telid" class="campo_tel"
+                                       placeholder="telefone/celular" minxlength="11"
+                                       maxlength="14" required /><br />
+                                <!--SENHA-->
+                                <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
+                                       placeholder="senha" minlength="6" required /><br />
+                                <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
+                                       placeholder="verifique senha" minlength="6" required /><br />
+
+                                <!--ENVIAR-->
+                                <input type="submit" placeholder="REGISTRAR" /><br />
 
                             </div>
-                            <!--NOME-->
-                            <input type="text" name="nomeid" id="nomeid" class="campo_nome"
-                                   placeholder="Nome do ..." maxlength="25" required /><br />
-                            <!--CPF-->
-                            <input type="text" name="cpfid" id="cpfid" class="campo_cpf"
-                                   placeholder="CPF do ..." maxlength="14" required /><br />
-                            <!--EMAIL-->
-                            <input type="email" name="emailid" id="emailid" class="campo_email"
-                                   placeholder="Email do" maxlength="30" required /><br />
-                            <!--TELEFONE-->
-                            <input type="tel" name="telid" class="campo_tel"
-                                   placeholder="telefone/celular" minxlength="11"
-                                   maxlength="14" required /><br />
-                            <!--SENHA-->
-                            <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
-                                   placeholder="senha" minlength="6" required /><br />
-                            <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
-                                   placeholder="verifique senha" minlength="6" required /><br />
-
-                            <!--ENVIAR-->
-                            <input type="submit" placeholder="REGISTRAR" /><br />
-
-                        </div>
-                    </center>
-                </div>
-            </form>
+                        </center>
+                    </div>
+                </form>
+            </div>
         </aside>
     </section>
     <script src="~/JS/Index.js"></script>
