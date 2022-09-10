@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text;
 
 namespace Projeto_Final.CSHARP
 {
     public class Funcoes
     {
         BancoDeDados Banco = new BancoDeDados();
-        
+
         //registro aluno
         public static void Registro_Pessoa(pessoa Pessoa)
         {
@@ -68,5 +69,70 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        public static bool Login(string cpf, string senha)
+        {
+            string query = "SELECT Count(*) FROM pessoa WHERE cpf = '" + cpf + "' AND Senha = '" + senha + "'";
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                try
+                {
+                    //Recebe o numero de usuários encontrados com os parametros enviados
+                    int count = int.Parse(cmd.ExecuteScalar() + "");
+
+                    //close Connection
+                    BancoDeDados.CloseConnection();
+
+                    //Se encontrou o usuário no BD seta a resposta para true
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static string Nivel_acesso(pessoa usuario)
+        {
+
+            string query = "SELECT nivel_acesso FROM pessoa WHERE cpf = '" + usuario.cpf + "'";
+
+            string nivel = "";
+
+            //Open Connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+
+                //ExecuteScalar will return one value
+                nivel = cmd.ExecuteScalar() + "";
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                return nivel;
+            }
+            else
+            {
+                return nivel;
+            }
+        }
     }
 }
+    

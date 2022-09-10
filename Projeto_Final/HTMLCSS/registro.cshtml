@@ -35,15 +35,15 @@
                                     <label for="nivacesso">Nivel de Acesso</label><br />
                                     <select name="nivacesso" id="nivacesso" required>
 
-                                        <option value="1">Usuario</option>
-                                        <option value="2">Professor</option>
-                                        <option value="3">Administrador</option>
+                                        <option value="usuario">Usuario</option>
+                                        <option value="professor">Professor</option>
+                                        <option value="administrador">Administrador</option>
                                     </select><br />
 
                                 </div>
                                 <!--NOME-->
                                 <input type="text" name="nomeid" id="nomeid" class="campo_nome"
-                                       placeholder="Nome Completo" maxlength="25" required /><br />
+                                       placeholder="Nome Completo" minlenght="3" maxlength="40" required /><br />
                                 <!--CPF-->
                                 <input type="text" name="cpfid" id="cpf" class="campo_cpf"
                                        placeholder="Insira seu CPF(apenas numeros)" maxlength="11" required /><br />
@@ -56,9 +56,9 @@
                                        maxlength="14" required /><br />
                                 <!--SENHA-->
                                 <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
-                                       placeholder="senha" minlength="6" required /><br />
+                                       placeholder="senha" minlength="6" maxlength="16" required /><br />
                                 <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
-                                       placeholder="verifique senha" minlength="6" required /><br />
+                                       placeholder="verifique senha" minlength="6" maxlength="16" required /><br />
 
                                 <!--ENVIAR-->
                                 <input type="submit" placeholder="REGISTRAR" /><br />

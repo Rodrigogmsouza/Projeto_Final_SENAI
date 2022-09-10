@@ -1,5 +1,15 @@
 ﻿@{ 
+    //Variavel de controle
+    Boolean logado = false;
 
+    //Cria o obj cookie e recebe o mesmo pelo obj Request
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
 }
 
 <!DOCTYPE html>
@@ -17,11 +27,23 @@
         <a class="active" href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
         <a href="~/HTMLCSS/registro.cshtml">Registro</a>
         <a href="~/HTMLCSS/Listagem.cshtml">Listagem</a>
-        <a href="#about">About</a>
+        <a onclick="LogOff()">Fazer Logoff</a>
     </div>
 
     <div class="content" id="content">
-        
+        @if (logado)
+        {
+            <h1>Você está Logado</h1>
+            //Imprime o valor do cookie
+            //cookie.Value.ToString();
+            <p>Seu nível de permissão é: @cookie.Value.ToString()</p>
+            <br />
+            <br />
+        }
+        else
+        {
+            <h1> Algo deu ERRADO </h1>
+        }
     </div>
 
 

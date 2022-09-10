@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Projeto_Final</RootNamespace>
     <AssemblyName>Projeto_Final</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
@@ -513,6 +513,7 @@
     <Content Include="HTMLCSS\temps\temp_reg.cshtml" />
     <Content Include="HTMLCSS\Listagem.cshtml" />
     <Content Include="HTMLCSS\main.cshtml" />
+    <Content Include="HTMLCSS\temps\temp_index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
