@@ -9,6 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--css-->
     <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
     <link rel="stylesheet" href="~/HTMLCSS/CSS/Listagem.css" />
     <title>CENAI</title>
@@ -34,7 +39,6 @@
                 </center>
             </div>
 
-
             <div class="lista" id="lista" style="visibility:hidden">
                 <center>
                     <table>
@@ -44,6 +48,7 @@
                             <th>EMAIL</th>
                             <th>TELEFONE</th>
                             <th>NIVEL DE ACESSO</th>
+                            <th>OPÇÕES</th>
                         </tr>
                         @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
                         @foreach (pessoa listagempessoa in lista)
@@ -54,6 +59,14 @@
                             <td>@listagempessoa.email</td>
                             <td>@listagempessoa.telefone</td>
                             <td>@listagempessoa.nivacesso</td>
+                            <td>
+                                <button type="button" class="btn_edit">
+                                    <span class="glyphicon glyphicon-edit"></span> Editar
+                                </button>
+                                <button type="button" class="btn_remove">
+                                    <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                </button>
+                            </td>
                         </tr>
                             
                         }
