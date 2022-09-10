@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text;
+using System.Threading.Tasks;
+using Projeto_Final.CSHARP;
 
 namespace Projeto_Final.CSHARP
 {
@@ -11,28 +13,35 @@ namespace Projeto_Final.CSHARP
     {
         BancoDeDados Banco = new BancoDeDados();
 
-        //registro aluno
+        // registro aluno
         public static void Registro_Pessoa(pessoa Pessoa)
         {
-            string query = "INSERT INTO `pessoa`(`cpf`, `nome`, `email`, `telefone`, `senha`, `nivel_acesso`) VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.email + "','" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')";
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO pessoa");
+            sb.AppendLine("(cpf, nome, email, telefone, senha, nivel_acesso)");
+            sb.AppendLine("VALUES ('" + Pessoa.cpf + "','" + Pessoa.nome + "','" + Pessoa.email + "',");
+            sb.AppendLine("'" + Pessoa.telefone + "','" + Pessoa.senha + "','" + Pessoa.nivacesso + "')");
             //open connection
             if (BancoDeDados.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
 
-                //Execute command
-                cmd.ExecuteNonQuery();
+
 
                 //close connection
                 BancoDeDados.CloseConnection();
             }
         }
 
+        // listagem
         public static List<pessoa> Listagem_Pessoa()
         {
-            string query = "SELECT cpf, nome FROM pessoa";
+            StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("SELECT cpf, nome, email, telefone, nivel_acesso FROM pessoa");
             //Create a list to store the result
             List<pessoa> listapessoa = new List<pessoa>();
 
@@ -40,7 +49,7 @@ namespace Projeto_Final.CSHARP
             if (BancoDeDados.OpenConnection() == true)
             {
                 //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -51,6 +60,10 @@ namespace Projeto_Final.CSHARP
                     pessoa listagempessoa = new pessoa();
                     listagempessoa.cpf = dataReader[0] + "";
                     listagempessoa.nome = dataReader[1] + "";
+                    listagempessoa.email = dataReader[2] + "";
+                    listagempessoa.telefone = dataReader[3] + "";
+                    listagempessoa.nivacesso = dataReader[4] + "";
+
                     listapessoa.Add(listagempessoa);
                 }
 
@@ -69,6 +82,7 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // login
         public static bool Login(string cpf, string senha)
         {
             string query = "SELECT Count(*) FROM pessoa WHERE cpf = '" + cpf + "' AND Senha = '" + senha + "'";
@@ -82,7 +96,7 @@ namespace Projeto_Final.CSHARP
                 try
                 {
                     //Recebe o numero de usuários encontrados com os parametros enviados
-                    int count = int.Parse(cmd.ExecuteScalar() + "");
+                    int count = int.Parse(cmd.ExecuteScalar().ToString());
 
                     //close Connection
                     BancoDeDados.CloseConnection();
@@ -107,10 +121,13 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // nivel de acesso
         public static string Nivel_acesso(pessoa usuario)
         {
 
-            string query = "SELECT nivel_acesso FROM pessoa WHERE cpf = '" + usuario.cpf + "'";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("SELECT nivel_acesso FROM pessoa");
+            sb.AppendLine("WHERE cpf = '"+ usuario.cpf +"'");
 
             string nivel = "";
 
@@ -118,7 +135,7 @@ namespace Projeto_Final.CSHARP
             if (BancoDeDados.OpenConnection() == true)
             {
                 //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
 
                 //ExecuteScalar will return one value
                 nivel = cmd.ExecuteScalar() + "";

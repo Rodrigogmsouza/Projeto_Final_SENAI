@@ -41,14 +41,20 @@
                         <tr>
                             <th>CPF</th>
                             <th>NOME</th>
+                            <th>EMAIL</th>
+                            <th>TELEFONE</th>
+                            <th>NIVEL DE ACESSO</th>
                         </tr>
                         @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
                         @foreach (pessoa listagempessoa in lista)
                         {
-                            <tr>
-                                <td>@listagempessoa.cpf</td>
-                                <td>@listagempessoa.nome</td>
-                            </tr>
+                        <tr>
+                            <td>@listagempessoa.cpf</td>
+                            <td>@listagempessoa.nome</td>
+                            <td>@listagempessoa.email</td>
+                            <td>@listagempessoa.telefone</td>
+                            <td>@listagempessoa.nivacesso</td>
+                        </tr>
                             
                         }
                     </table>
