@@ -1,0 +1,41 @@
+﻿@using Projeto_Final.CSHARP;
+
+@{
+
+    //Conecta com o BD
+    BancoDeDados.DBConnect();
+    pessoa usuario = new pessoa();
+    string nivel = Funcoes.Nivel_acesso(usuario);
+
+    //Variavel de controle
+    Boolean logado = false;
+
+    //Cria o obj cookie e recebe o mesmo pelo obj Request
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+
+    if (logado)
+    {
+        if (cookie.Value.ToString() == "administrador"|| cookie.Value.ToString() == "professor")
+        {
+            <text>
+                <script>
+                    window.location.href = "/HTMLCSS/listagem.cshtml";
+                </script>
+            </text> }
+        else
+        {
+            //Redireciona o usuário para a pagina inicial
+            <text>
+                <script>
+                    window.location.href = "/HTMLCSS/main.cshtml";
+                    alert("NIVEL DE ACESSO NÃO PERMITIDO");
+                </script>
+            </text> }
+    }
+}

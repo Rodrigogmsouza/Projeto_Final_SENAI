@@ -10,6 +10,7 @@ body, html {
 }
 
 .container {
+    
     backdrop-filter: saturate(180%);
     backdrop-filter: blur(999px);
     max-width: 300px;

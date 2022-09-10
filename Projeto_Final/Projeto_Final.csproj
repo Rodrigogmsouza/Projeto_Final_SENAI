@@ -514,6 +514,8 @@
     <Content Include="HTMLCSS\Listagem.cshtml" />
     <Content Include="HTMLCSS\main.cshtml" />
     <Content Include="HTMLCSS\temps\temp_index.cshtml" />
+    <Content Include="HTMLCSS\temps\temp_regII.cshtml" />
+    <Content Include="HTMLCSS\temps\temp_list.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

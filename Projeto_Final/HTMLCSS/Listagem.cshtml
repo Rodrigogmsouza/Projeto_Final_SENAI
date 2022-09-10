@@ -14,33 +14,38 @@
     <title>CENAI</title>
 </head>
 <body div class="bg">
-
-    <div class="sidebar">
-        <a  href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
-        <a href="~/HTMLCSS/registro.cshtml">Registro</a>
-        <a class="active" href="~/HTMLCSS/Listagem.cshtml">Listagem</a>
-        <a href="#about">About</a>
-    </div>
-
-    <div class="container">
-        <center>
-            <h1>Clique aqui para listar as pessoas cadastradas.</h1>
-            <div class="botao" onclick="poof('lista')">
-                <input type="submit" value="LISTAR!" />
+    <section>
+        <nav>
+            <div class="sidebar">
+                <a href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
+                <a href="~/HTMLCSS/temps/temp_regII.cshtml">Registro de Usuarios</a>
+                <a class="active" href="~/HTMLCSS/Listagem.cshtml">Listagem de Usuarios</a>
+                <a onclick="LogOff()">Fazer Logoff</a>
             </div>
-        </center>
-    </div>
+        </nav>
+
+        <div class="content" id="content">
+            <div class="container">
+                <center>
+                    <h1>Clique aqui para listar as pessoas cadastradas.</h1>
+                    <div class="botao" onclick="poof('lista')">
+                        <input type="submit" value="LISTAR!" />
+                    </div>
+                </center>
+            </div>
 
 
-    <div class="lista" id="lista" style="visibility:hidden">
-        <center>
-            @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
-            @foreach (pessoa listagempessoa in lista)
-            {
-                <p>@listagempessoa.cpf, @listagempessoa.nome</p>}
-        </center>
-    </div>
-
+            <div class="lista" id="lista" style="visibility:hidden">
+                <center>
+                    @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
+                    @foreach (pessoa listagempessoa in lista)
+                    {
+                        <p>@listagempessoa.cpf, @listagempessoa.nome</p>}
+                </center>
+            </div>
+        </div>
+    </section>
+    
     <script src="~/JS/Index.js"></script>
 </body>
 </html>
