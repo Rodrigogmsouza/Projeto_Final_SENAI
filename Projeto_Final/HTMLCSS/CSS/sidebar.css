@@ -15,22 +15,30 @@
 
     .sidebar a {
         display: block;
-        width: 200px;
+        width: 168px;
         color: black;
         padding: 16px;
         border: none;
         text-decoration: none;
     }
-
-        .sidebar a.active {
-            background-color: #78aaa6;
-            color: white;
+        .logoff {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        
         }
 
-            .sidebar a:hover:not(.active) {
-                background-color: #b3ddd9;
+            .sidebar a.active {
+                background-color: #78aaa6;
                 color: white;
             }
+
+                .sidebar a:hover:not(.active) {
+                    background-color: #b3ddd9;
+                    color: white;
+                }
+
+                
 
 div.content {
     margin-left: 200px;
@@ -60,3 +68,4 @@ div.content {
         float: none;
     }
 }
+

@@ -31,3 +31,5 @@ function LogOff() {
     document.cookie = 'UserLogin=; expires = ' + data + '; path = /';
     window.location.href = "/HTMLCSS/Index.cshtml";
 }
+
+

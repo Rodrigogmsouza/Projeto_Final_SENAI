@@ -20,7 +20,7 @@
                 <a href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
                 <a href="~/HTMLCSS/temps/temp_regII.cshtml">Registro de Usuarios</a>
                 <a class="active" href="~/HTMLCSS/Listagem.cshtml">Listagem de Usuarios</a>
-                <a onclick="LogOff()">Fazer Logoff</a>
+                <a class="logoff"  onclick="LogOff()">Fazer Logoff</a>
             </div>
         </nav>
 
@@ -37,10 +37,22 @@
 
             <div class="lista" id="lista" style="visibility:hidden">
                 <center>
-                    @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
-                    @foreach (pessoa listagempessoa in lista)
-                    {
-                        <p>@listagempessoa.cpf, @listagempessoa.nome</p>}
+                    <table>
+                        <tr>
+                            <th>CPF</th>
+                            <th>NOME</th>
+                        </tr>
+                        @{List<pessoa> lista = Funcoes.Listagem_Pessoa();}
+                        @foreach (pessoa listagempessoa in lista)
+                        {
+                            <tr>
+                                <td>@listagempessoa.cpf</td>
+                                <td>@listagempessoa.nome</td>
+                            </tr>
+                            
+                        }
+                    </table>
+                    
                 </center>
             </div>
         </div>

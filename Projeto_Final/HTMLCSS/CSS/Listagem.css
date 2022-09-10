@@ -17,4 +17,19 @@ input[type=submit]:hover {
     background-color: #b3ddd9;
 }
 
-    
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+}
+
+td, th {
+    border: 1px solid #808081;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #808080;
+}
