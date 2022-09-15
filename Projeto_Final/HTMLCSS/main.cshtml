@@ -23,28 +23,30 @@
     <title>CENAI</title>
 </head>
 <body div class="bg">
-    <div class="sidebar">
-        <a class="active" href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
-        <a href="~/HTMLCSS/temps/temp_regII.cshtml">Registro de Usuarios</a>
-        <a href="~/HTMLCSS/temps/temp_list.cshtml">Listagem de Usuarios</a>
-        <a class="logoff" onclick="LogOff()">Fazer Logoff</a>
-    </div>
+    <section>
+        <nav>
+            <div class="sidebar">
+                <a class="active" href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
+                <a href="~/HTMLCSS/temps/temp_regII.cshtml">Registro de Usuarios</a>
+                <a href="~/HTMLCSS/temps/temp_list.cshtml">Listagem de Usuarios</a>
+                <a class="logoff" onclick="LogOff()">Fazer Logoff</a>
+            </div>
+        </nav>
+        <div class="content" id="content">
+            @if (logado)
+            {
 
-    <div class="content" id="content">
-        @if (logado)
-        {
-            
-            <p>Seu nível de permissão é: @cookie.Value.ToString()</p>
-            <br />
-            <br />
-        }
-        else
-        {
-            <h1> Algo deu ERRADO </h1>
-        }
-    </div>
+                <p>Seu nível de permissão é: @cookie.Value.ToString()</p>
+                <br />
+                <br />
+            }
+            else
+            {
+                <h1> Algo deu ERRADO </h1>
+            }
+        </div>
 
-
+    </section>
     <script src="~/JS/Index.js"></script>
 </body>
 </html>

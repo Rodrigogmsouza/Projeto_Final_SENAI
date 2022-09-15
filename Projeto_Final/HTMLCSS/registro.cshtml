@@ -17,13 +17,15 @@
 </head>
 <body div class="bg">
 <section>
+    <nav>
         <div class="sidebar">
             <a href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
             <a class="active" href="~/HTMLCSS/temps/temp_reg.cshtml">Registro de Usuarios</a>
             <a href="~/HTMLCSS/temps/temp_list.cshtml">Listagem de Usuarios</a>
             <a class="logoff" onclick="LogOff()">Fazer Logoff</a>
         </div>
-        <aside>
+    </nav>
+        <main>
             <div class="content">
                 <form method="post" onsubmit="return checkPassword(this);" action="~/HTMLCSS/temps/temp_reg.cshtml">
                     <div class="container">
@@ -68,7 +70,7 @@
                     </div>
                 </form>
             </div>
-        </aside>
+        </main>
     </section>
     <script src="~/JS/Index.js"></script>
 </body>
