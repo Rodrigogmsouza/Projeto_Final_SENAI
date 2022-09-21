@@ -31,12 +31,22 @@
 
         <div class="content" id="content">
             <div class="container">
-                <center>
-                    <h1>Clique aqui para listar as pessoas cadastradas.</h1>
+                <form>
+                    <!--Pesquisa por CPF-->
+                    <input type="text" pattern="[0-9]" name="cpfid" id="cpf" class="campo_cpf"
+                           placeholder="pesquisar por CPF" maxlength="11" /><br />
+                    <!--DROPDOWN TIPO DE USUARIO-->
+                    <select name="nivacesso" id="nivacesso">
+                        <option value="1" selected disabled>Pesquisar Por Nivel De Acesso</option>
+                        <option value="usuario">Usuario</option>
+                        <option value="professor">Professor</option>
+                        <option value="administrador">Administrador</option>
+                    </select><br />
+                    <!--BOTÁO LISTAR-->
                     <div class="botao" onclick="poof('lista')">
                         <input type="submit" value="LISTAR!" />
                     </div>
-                </center>
+                </form>
             </div>
 
             <div class="lista" id="lista" style="visibility:hidden">

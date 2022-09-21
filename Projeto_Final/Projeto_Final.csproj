@@ -496,6 +496,9 @@
     <Content Include="HTMLCSS\CSS\Listagem.css" />
     <Content Include="HTMLCSS\CSS\registro.css" />
     <Content Include="HTMLCSS\CSS\Index.css" />
+    <Content Include="IMG\img1.jpg" />
+    <Content Include="IMG\img2.jpg" />
+    <Content Include="IMG\img3.jpg" />
     <Content Include="JS\Index.js" />
     <Content Include="IMG\bg.jpg" />
     <Content Include="IMG\cenai.png" />
