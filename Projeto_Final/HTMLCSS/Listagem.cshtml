@@ -31,24 +31,16 @@
 
         <div class="content" id="content">
             <div class="container">
-                <form>
-                    <!--Pesquisa por CPF-->
-                    <input type="text" pattern="[0-9]" name="cpfid" id="cpf" class="campo_cpf"
-                           placeholder="pesquisar por CPF" maxlength="11" /><br />
-                    <!--DROPDOWN TIPO DE USUARIO-->
-                    <select name="nivacesso" id="nivacesso">
-                        <option value="1" selected disabled>Pesquisar Por Nivel De Acesso</option>
-                        <option value="usuario">Usuario</option>
-                        <option value="professor">Professor</option>
-                        <option value="administrador">Administrador</option>
-                    </select><br />
-                    <!--BOTÁO LISTAR-->
-                    <div class="botao" onclick="poof('lista')">
-                        <input type="submit" value="LISTAR!" />
-                    </div>
-                </form>
+                <div class="opcoes">
+                    <a href="" >Pesquisa por CPF</a>
+                
+                    <a href="#Niv">Pesquisa por Nivel de Acesso</a>
+               
+                    <a onclick="poof('lista')">Listar Todos</a>
+                </div>
+                    
             </div>
-
+            <br />
             <div class="lista" id="lista" style="visibility:hidden">
                 <center>
                     <table>
@@ -70,12 +62,12 @@
                             <td>@listagempessoa.telefone</td>
                             <td>@listagempessoa.nivacesso</td>
                             <td>
-                                <button type="button" class="btn_edit">
+                                <a href="#Editar" class="btn_edit">
                                     <span class="glyphicon glyphicon-edit"></span> Editar
-                                </button>
-                                <button type="button" class="btn_remove">
+                                </a>
+                                <a href="#Remover" class="btn_remove">
                                     <span class="glyphicon glyphicon-remove-circle"></span> Remover
-                                </button>
+                                </a>
                             </td>
                         </tr>
                             
