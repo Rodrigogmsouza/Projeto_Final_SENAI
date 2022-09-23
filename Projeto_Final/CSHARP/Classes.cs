@@ -15,4 +15,9 @@ namespace Projeto_Final.CSHARP
         public string senha { get; set; }
     }
 
+    public class turma
+    {
+        public string nome_curso { get; set; }
+        public string turno { get; set; }
+    }
 }

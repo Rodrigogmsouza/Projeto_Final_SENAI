@@ -18,6 +18,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--FONTE-->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <!--ICONES-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,1,-25" />
+    <!--CSS-->
     <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
     <link rel="stylesheet" href="~/HTMLCSS/CSS/main.css" />
 
@@ -26,11 +31,64 @@
 <body div class="bg">
     <section>
         <nav>
-            <div class="sidebar">
-                <a class="active" href="~/HTMLCSS/main.cshtml">Pagina Inicial</a>
-                <a href="~/HTMLCSS/temps/temp_regII.cshtml">Registro de Usuarios</a>
-                <a href="~/HTMLCSS/temps/temp_list.cshtml">Listagem de Usuarios</a>
-                <a class="logoff" onclick="LogOff()">Fazer Logoff</a>
+            <!--SIDEBAR-->
+            <div class="sidenav">
+                <!--PAGINA INICIAL-->
+                <a class="active" href="#">
+                    <span class="material-symbols-outlined">home</span>
+                    Pagina Inicial
+                </a>
+                <!--REGISTRO-->
+                <button class="dropdown-btn">
+                    <span class="material-symbols-outlined">app_registration</span>
+                    Registro
+                    <span class="material-symbols-outlined">expand_more</span>
+                </button>
+                <!--REGISTRO OPCOES-->
+                <div class="dropdown-container">
+                    <a href="#">Usuarios</a>
+                    <a href="#">Turmas</a>
+                    <a href="#">Salas</a>
+                </div>
+                <!--LISTAGEM-->
+                <button class="dropdown-btn">
+                    <span class="material-symbols-outlined">list_alt</span>
+                    Listagem
+                    <span class="material-symbols-outlined">expand_more</span>
+                </button>
+                <!--LISTAGEM OPCOES-->
+                <div class="dropdown-container">
+                    <a href="#">Usuarios</a>
+                    <a href="#">Turmas</a>
+                    <a href="#">Salas</a>
+                </div>
+                <!--PESQUISA-->
+                <button class="dropdown-btn">
+                    <span class="material-symbols-outlined">search</span>
+                    Pesquisa
+                    <span class="material-symbols-outlined">expand_more</span>
+                </button>
+                <!--PESQUISA OPCOES-->
+                <div class="dropdown-container">
+                    <a href="#">Usuarios</a>
+                    <a href="#">Turmas</a>
+                    <a href="#">Salas</a>
+                </div>
+                <!--PROVAS-->
+                <a href="#">
+                    <span class="material-symbols-outlined">quiz</span>
+                    Prova
+                </a>
+                <!--AREA DO USUARIO-->
+                <a href="#">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    Área do Usuario
+                </a>
+                <!--LOGOUT-->
+                <a href="#" class="logoff">
+                    <span class="material-symbols-outlined">logout</span>
+                    Fazer Logoff
+                </a>
             </div>
         </nav>
 
@@ -75,7 +133,7 @@
                 </div>
                 <br />
                 <!-- Paragrafos -->
-                
+
 
 
 

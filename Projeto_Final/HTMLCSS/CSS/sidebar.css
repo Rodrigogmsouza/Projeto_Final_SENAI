@@ -1,71 +1,73 @@
-﻿body {
-    margin: 0;
-    font-family: "Lato", sans-serif;
-}
-
-.sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
+﻿.sidenav {
+    font-family: 'Abel';
     height: 100%;
-    overflow: hidden;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
-    .sidebar a {
-        display: block;
-        width: 200px;
-        color: black;
-        padding: 16px;
-        border: none;
-        text-decoration: none;
+button {
+    font-family: 'Abel';
+}
+
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+    .sidenav a:hover, .dropdown-btn:hover {
+        color: #f1f1f1;
     }
-        .logoff {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 200px;
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.logoff {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+}
+/* Main content */
+.content {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
         }
-
-            .sidebar a.active {
-                background-color: #78aaa6;
-                color: white;
-            }
-
-                .sidebar a:hover:not(.active) {
-                    background-color: #b3ddd9;
-                    color: white;
-                }
-
-                
-
-div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
 }
-
-@media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-        .sidebar a {
-            float: left;
-        }
-
-    div.content {
-        margin-left: 0;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
-}
-

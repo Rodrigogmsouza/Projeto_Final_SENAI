@@ -520,6 +520,7 @@
     <Content Include="HTMLCSS\temps\temp_index.cshtml" />
     <Content Include="HTMLCSS\temps\temp_regII.cshtml" />
     <Content Include="HTMLCSS\temps\temp_list.cshtml" />
+    <Content Include="HTMLCSS\registro_turma.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
