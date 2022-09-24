@@ -1,0 +1,15 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    sala Sala = new sala();
+    Sala.idsala = Request.Form["salaid"];
+
+    Funcoes.dltsala(Sala);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Listagem/listagem_sala.cshtml";
+        </script>
+    </text>
+}

@@ -641,19 +641,21 @@ namespace Projeto_Final.CSHARP
         
         // deletar salas
 
-        public static void Delete_Sala(sala salas)
+        public static void dltsala(sala Sala)
         {
             StringBuilder sb = new StringBuilder();
-
             sb.AppendLine("DELETE FROM sala WHERE");
-            sb.AppendLine("id_sala = '"+ salas.idsala +"' ");
-
+            sb.AppendLine("sala.id_sala = '"+Sala.idsala+"' ");
+            //open connection
             if (BancoDeDados.OpenConnection() == true)
             {
+                //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteReader();
+                //close connection
                 BancoDeDados.CloseConnection();
             }
+
         }
 
         // login

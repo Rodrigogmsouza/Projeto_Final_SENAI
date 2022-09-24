@@ -1,6 +1,8 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+
+    sala Sala = new sala();
 }
 
 <!DOCTYPE html>
@@ -99,16 +101,7 @@
         </nav>
 
         <div class="content" id="content">
-            <div class="container">
-                <div class="opcoes">
-                    <center>
-                        <a onclick="poof('lista')">Listar Salas</a>
-                    </center>
-                </div>
-                    
-            </div>
-            <br />
-            <div class="lista" id="lista" style="visibility:hidden">
+            <div class="lista" id="lista">
                 <center>
                     <table>
                         <tr>
@@ -119,15 +112,13 @@
                         @foreach (sala salas in lista)
                         {
                             <tr>
-                                <td hidden>@salas.idsala</td>
                                 <td>Sala @salas.numsala</td>
                                 <td>
-                                    <a href="#Editar" class="btn_edit">
-                                        <span class="glyphicon glyphicon-edit"></span> Editar
-                                    </a>
-                                    <a onclick="@{Funcoes.Delete_Sala(salas)} " class="btn_remove">
-                                  <span class="glyphicon glyphicon-remove-circle"></span> Remover
-                              </a>
+                                    <form method="post" action="~/HTMLTEMP/Exclusao/delete_sala.cshtml">
+                                        <input type="text" style="visibility:hidden" id="salaid" name="salaid" value="@salas.idsala" />
+                                        <input type="submit" value="Remover" />
+                                        
+                                    </form>
                                 </td>
                             </tr>
                         }
