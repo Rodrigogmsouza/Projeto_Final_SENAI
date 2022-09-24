@@ -1,19 +1,10 @@
-﻿@{ 
-    //Variavel de controle
-    Boolean logado = false;
-
-    //Cria o obj cookie e recebe o mesmo pelo obj Request
-
-    HttpCookie cookie = Request.Cookies["UserLogin"];
-
-    if (cookie != null)
-    {
-        logado = true;
-    }
+﻿@using Projeto_Final.CSHARP
+@{
+    BancoDeDados.DBConnect();
 }
 
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +13,12 @@
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
     <!--ICONES-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,1,-25" />
-    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--css-->
     <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
-    <link rel="stylesheet" href="~/HTMLCSS/CSS/main.css" />
-
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/Listagem.css" />
     <title>CENAI</title>
 </head>
 <body div class="bg">
@@ -34,7 +27,7 @@
             <!--SIDEBAR-->
             <div class="sidenav" onclick="Dropdownbtn()">
                 <!--PAGINA INICIAL-->
-                <a class="active" href="~/HTMLCSS/main.cshtml">
+                <a href="~/HTMLCSS/main.cshtml">
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
@@ -47,7 +40,7 @@
                 <!--MATRICULA OPCOES-->
                 <div class="dropdown-container">
                     <a href="~/HTMLCSS/Registro/matricula.cshtml">Fazer Matricula</a>
-                    <a href="~/HTMLCSS/Listagem/Lista_alunos/aluno_turma.cshtml">Alunos Matriculados</a>
+                    <a class="active" href="~/HTMLCSS/Listagem/Lista_alunos/aluno_turma.cshtml">Alunos Matriculados</a>
                 </div>
                 <!--REGISTRO-->
                 <button class="dropdown-btn">
@@ -105,54 +98,44 @@
             </div>
         </nav>
 
-        <main>
-            <div class="content" id="content">
-                <!-- Slideshow -->
-                <div class="slideshow-container">
+        <div class="content" id="content">
 
-                    <!-- Full-width images with number and caption text -->
-                    <div class="mySlides fade">
-                        <div class="numbertext">1 / 4</div>
-                        <a href="#"><img src="~/IMG/img1.jpg" style="width:100%"></a>
-                        <div class="text">CURSO WEB DESIGN</div>
-                    </div>
+            <br />
+            <div class="lista" id="lista">
+                <center>
+                    <table>
+                        <tr>
+                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno_turma.cshtml">TURMA</a></th>
+                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno_curso.cshtml">CURSO</a></th>
+                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno.cshtml">ALUNO</a></th>
+                        </tr>
+                        @{List<matricula> lista = Funcoes.Listagem_Matricula_Turma();}
 
-                    <div class="mySlides fade">
-                        <div class="numbertext">2 / 4</div>
-                        <a href="#"><img src="~/IMG/img2.jpg" style="width:100%"></a>
-                        <div class="text">CURSO DE ARDUINO</div>
-                    </div>
+                        @foreach (matricula matriculados in lista)
+                        {
+                            <tr>
+                                <td>@matriculados.idmatricula</td>
+                                <td>@matriculados.idaluno</td>
+                                <td>@matriculados.idturma</td>
+                                <td>
+                                    <a href="#Editar" class="btn_edit">
+                                        <span class="glyphicon glyphicon-edit"></span> Editar
+                                    </a>
+                                    <a href="#Remover" class="btn_remove">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                    </a>
+                                </td>
+                            </tr>
+                        }
 
-                    <div class="mySlides fade">
-                        <div class="numbertext">3 / 4</div>
-                        <a href="#"><img src="~/IMG/img3.jpeg" style="width:100%"></a>
-                        <div class="text">CURSO DE INTERNET DAS COISAS (IOT)</div>
-                    </div>
+                    </table>
 
-                    <div class="mySlides fade">
-                        <div class="numbertext">4 / 4</div>
-                        <a href="#"><img src="~/IMG/img4.jpg" style="width:100%"></a>
-                        <div class="text">CURSO DE PROGRAMAÇÃO ORIENTADA A OBJETOS (POO)</div>
-                    </div>
-                </div>
-                <br />
-
-                <!-- Pontinhos -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                </div>
-                <br />
-                <!-- Paragrafos -->
-
-
-
-
+                </center>
             </div>
-        </main>
+        </div>
     </section>
-    <script src="~/JS/Index.js"></script>
+
+    <script src="~/JS/Index.js">
+    </script>
 </body>
 </html>

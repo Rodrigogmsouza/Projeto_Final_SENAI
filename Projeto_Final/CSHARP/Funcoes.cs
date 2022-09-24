@@ -122,7 +122,7 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT cpf, nome, email, telefone, nivel_acesso FROM pessoa");
+            sb.AppendLine("SELECT * FROM pessoa");
             //Create a list to store the result
             List<pessoa> listapessoa = new List<pessoa>();
 
@@ -143,7 +143,7 @@ namespace Projeto_Final.CSHARP
                     listagempessoa.nome = dataReader[1] + "";
                     listagempessoa.email = dataReader[2] + "";
                     listagempessoa.telefone = dataReader[3] + "";
-                    listagempessoa.nivacesso = dataReader[4] + "";
+                    listagempessoa.nivacesso = dataReader[5] + "";
 
                     listapessoa.Add(listagempessoa);
                 }
@@ -168,7 +168,7 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT cpf, nome FROM pessoa");
+            sb.AppendLine("SELECT * FROM pessoa");
             sb.AppendLine("WHERE nivel_acesso = 'usuario'");
             //Create a list to store the result
             List<pessoa> listaalunos = new List<pessoa>();
@@ -188,6 +188,9 @@ namespace Projeto_Final.CSHARP
                     pessoa listagemalunos = new pessoa();
                     listagemalunos.cpf = dataReader[0] + "";
                     listagemalunos.nome = dataReader[1] + "";
+                    listagemalunos.email = dataReader[2] + "";
+                    listagemalunos.telefone = dataReader[3] + "";
+                    listagemalunos.nivacesso = dataReader[5] + "";
                     listaalunos.Add(listagemalunos);
                 }
 
@@ -205,6 +208,299 @@ namespace Projeto_Final.CSHARP
                 return listaalunos;
             }
         }
+
+        // listagem MATRICULA
+
+        public static List<matricula> Listagem_Matricula()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, pessoa.nome FROM matricula");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("ORDER BY pessoa.nome");
+
+            //Create a list to store the result
+            List<matricula> matriculas = new List<matricula>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    matricula matriculados = new matricula();
+
+                    matriculados.idmatricula = dataReader[0] + "";
+                    matriculados.idaluno = dataReader[1] + "";
+                    matriculados.idturma = dataReader[2] + "";
+
+                    matriculas.Add(matriculados);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return matriculas;
+            }
+            else
+            {
+                return matriculas;
+            }
+        }
+
+            // lista matricula ORDER BY Turma
+            public static List<matricula> Listagem_Matricula_Turma()
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, pessoa.nome FROM matricula");
+                sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+                sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+                sb.AppendLine("ORDER BY turma.id_turma");
+
+                //Create a list to store the result
+                List<matricula> matriculas = new List<matricula>();
+
+                //Open connection
+                if (BancoDeDados.OpenConnection() == true)
+                {
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+
+                    while (dataReader.Read())
+                    {
+                        matricula matriculados = new matricula();
+
+                        matriculados.idmatricula = dataReader[0] + "";
+                        matriculados.idaluno = dataReader[1] + "";
+                        matriculados.idturma = dataReader[2] + "";
+
+                        matriculas.Add(matriculados);
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    BancoDeDados.CloseConnection();
+
+                    //return list to be displayed
+                    return matriculas;
+                }
+                else
+                {
+                    return matriculas;
+                }
+            }
+
+            // lista matricula ORDER BY Curso
+            public static List<matricula> Listagem_Matricula_Curso()
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, pessoa.nome FROM matricula");
+                sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+                sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+                sb.AppendLine("ORDER BY turma.nome_curso");
+
+                //Create a list to store the result
+                List<matricula> matriculas = new List<matricula>();
+
+                //Open connection
+                if (BancoDeDados.OpenConnection() == true)
+                {
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+
+                    while (dataReader.Read())
+                    {
+                        matricula matriculados = new matricula();
+
+                        matriculados.idmatricula = dataReader[0] + "";
+                        matriculados.idaluno = dataReader[1] + "";
+                        matriculados.idturma = dataReader[2] + "";
+
+                        matriculas.Add(matriculados);
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    BancoDeDados.CloseConnection();
+
+                    //return list to be displayed
+                    return matriculas;
+                }
+                else
+                {
+                    return matriculas;
+                }
+            }
+
+        // listagem PROFESSORES
+        public static List<pessoa> Listagem_Professor()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT * FROM pessoa");
+            sb.AppendLine("WHERE nivel_acesso = 'professor'");
+            sb.AppendLine("ORDER BY nome");
+            //Create a list to store the result
+            List<pessoa> listaprofe = new List<pessoa>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    pessoa listagemprofe = new pessoa();
+                    listagemprofe.cpf = dataReader[0] + "";
+                    listagemprofe.nome = dataReader[1] + "";
+                    listagemprofe.email = dataReader[2] + "";
+                    listagemprofe.telefone = dataReader[3] + "";
+                    listagemprofe.nivacesso = dataReader[5] + "";
+
+
+                    listaprofe.Add(listagemprofe);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaprofe;
+            }
+            else
+            {
+                return listaprofe;
+            }
+        }
+
+                /* listagem PROFESSORES por TURMA
+                public static List<pessoa> Listagem_Profe_Turma()
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    sb.AppendLine("SELECT pessoa.nome, turma.id_turma, turma.nome_curso");
+                    sb.AppendLine("FROM pessoa");
+                    sb.AppendLine("INNER JOIN turma ON");
+                    sb.AppendLine("pessoa.cpf = turma.id_profe");
+                    sb.AppendLine("ORDER BY turma.id_turma");
+                    //Create a list to store the result
+                    List<pessoa> listaprofe = new List<pessoa>();
+
+                    //Open connection
+                    if (BancoDeDados.OpenConnection() == true)
+                    {
+                        //Create Command
+                        MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                        //Create a data reader and Execute the command
+                        MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                        //Read the data and store them in the list
+
+                        while (dataReader.Read())
+                        {
+                            pessoa listagemprofe = new pessoa();
+                            listagemprofe.nome = dataReader[0] + "";
+                            listagemprofe.email = dataReader[1] + "";
+                            listagemprofe.telefone = dataReader[2] + "";
+                            listaprofe.Add(listagemprofe);
+                        }
+
+                        //close Data Reader
+                        dataReader.Close();
+
+                        //close Connection
+                        BancoDeDados.CloseConnection();
+
+                        //return list to be displayed
+                        return listaprofe;
+                    }
+                    else
+                    {
+                        return listaprofe;
+                    }
+                }
+
+                // listagem PROFESSORES por CURSO
+                public static List<pessoa> Listagem_Profe_Curso()
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    sb.AppendLine("SELECT pessoa.nome, turma.id_turma, turma.nome_curso");
+                    sb.AppendLine("FROM pessoa");
+                    sb.AppendLine("INNER JOIN turma ON");
+                    sb.AppendLine("pessoa.cpf = turma.id_profe");
+                    sb.AppendLine("ORDER BY turma.nome_curso");
+                    //Create a list to store the result
+                    List<pessoa> listaprofe = new List<pessoa>();
+
+                    //Open connection
+                    if (BancoDeDados.OpenConnection() == true)
+                    {
+                        //Create Command
+                        MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                        //Create a data reader and Execute the command
+                        MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                        //Read the data and store them in the list
+
+                        while (dataReader.Read())
+                        {
+                            pessoa listagemprofe = new pessoa();
+                            listagemprofe.nome = dataReader[0] + "";
+                            listagemprofe.email = dataReader[1] + "";
+                            listagemprofe.telefone = dataReader[2] + "";
+                            listaprofe.Add(listagemprofe);
+                        }
+
+                        //close Data Reader
+                        dataReader.Close();
+
+                        //close Connection
+                        BancoDeDados.CloseConnection();
+
+                        //return list to be displayed
+                        return listaprofe;
+                    }
+                    else
+                    {
+                        return listaprofe;
+                    }
+                }
+                
+        */
 
         // listagem SALAS
         public static List<sala> Listagem_Sala()
@@ -299,7 +595,10 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT * FROM turma");
+            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, turma.turno,");
+            sb.AppendLine("pessoa.nome, sala.numero_sala FROM turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = turma.id_profe");
+            sb.AppendLine("INNER JOIN sala ON sala.id_sala = turma.id_sala");
             //Create a list to store the result
             List<turma> listaturma = new List<turma>();
 
@@ -339,53 +638,23 @@ namespace Projeto_Final.CSHARP
                 return listaturma;
             }
         }
+        
+        // deletar salas
 
-        // listagem PROFESSORES
-        public static List<pessoa> Listagem_Professor()
+        public static void Delete_Sala(sala salas)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT cpf, nome FROM pessoa");
-            sb.AppendLine("WHERE nivel_acesso = 'professor'");
-            //Create a list to store the result
-            List<pessoa> listaprofe = new List<pessoa>();
+            sb.AppendLine("DELETE FROM sala WHERE");
+            sb.AppendLine("id_sala = '"+ salas.idsala +"' ");
 
-            //Open connection
             if (BancoDeDados.OpenConnection() == true)
             {
-                //Create Command
                 MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-
-                while (dataReader.Read())
-                {
-                    pessoa listagemprofe = new pessoa();
-                    listagemprofe.cpf = dataReader[0] + "";
-                    listagemprofe.nome = dataReader[1] + "";
-
-                    listaprofe.Add(listagemprofe);
-                }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
+                cmd.ExecuteNonQuery();
                 BancoDeDados.CloseConnection();
-
-                //return list to be displayed
-                return listaprofe;
-            }
-            else
-            {
-                return listaprofe;
             }
         }
-
-        // listagem PROFESSORES por TURMA
-
 
         // login
         public static bool Login(string cpf, string senha)
@@ -457,4 +726,5 @@ namespace Projeto_Final.CSHARP
         }
     }
 }
+    
     

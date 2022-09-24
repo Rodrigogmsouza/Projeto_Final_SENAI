@@ -532,6 +532,9 @@
     <Content Include="HTML TEMP\Passagem\registrando_setor.cshtml" />
     <Content Include="HTMLCSS\Registro\matricula.cshtml" />
     <Content Include="HTML TEMP\Passagem\matriculando.cshtml" />
+    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_turma.cshtml" />
+    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno.cshtml" />
+    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_curso.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -544,6 +547,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
