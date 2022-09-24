@@ -17,6 +17,7 @@ namespace Projeto_Final.CSHARP
 
     public class turma
     {
+        public string idturma { get; set; }
         public string nome_curso { get; set; }
         public string turno { get; set; }
         public string idsala { get; set; }
@@ -27,6 +28,13 @@ namespace Projeto_Final.CSHARP
     {
         public string idsala { get; set; }
         public string numsala { get; set; }
+    }
+
+    public class matricula
+    {
+        public string idmatricula { get; set; }
+        public string idaluno { get; set; }
+        public string idturma { get; set; }
     }
 
     public class setor

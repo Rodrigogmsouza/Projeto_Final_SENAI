@@ -94,6 +94,28 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // matricula
+
+        public static void Matricula(matricula Matricula)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO matricula");
+            sb.AppendLine("(id_aluno, id_turma)");
+            sb.AppendLine("VALUES ('" + Matricula.idaluno + "','" + Matricula.idturma + "')");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+
+
+
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+        }
 
         // listagem
         public static List<pessoa> Listagem_Pessoa()
@@ -138,6 +160,49 @@ namespace Projeto_Final.CSHARP
             else
             {
                 return listapessoa;
+            }
+        }
+
+        // listagem ALUNOS
+        public static List<pessoa> Listagem_Alunos()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT cpf, nome FROM pessoa");
+            sb.AppendLine("WHERE nivel_acesso = 'usuario'");
+            //Create a list to store the result
+            List<pessoa> listaalunos = new List<pessoa>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    pessoa listagemalunos = new pessoa();
+                    listagemalunos.cpf = dataReader[0] + "";
+                    listagemalunos.nome = dataReader[1] + "";
+                    listaalunos.Add(listagemalunos);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaalunos;
+            }
+            else
+            {
+                return listaalunos;
             }
         }
 
@@ -234,7 +299,7 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT nome_curso, turno, id_sala, id_profe FROM turma");
+            sb.AppendLine("SELECT * FROM turma");
             //Create a list to store the result
             List<turma> listaturma = new List<turma>();
 
@@ -251,10 +316,11 @@ namespace Projeto_Final.CSHARP
                 while (dataReader.Read())
                 {
                     turma turmas = new turma();
-                    turmas.nome_curso = dataReader[0] + "";
-                    turmas.turno = dataReader[1] + "";
-                    turmas.idsala = dataReader[2] + "";
-                    turmas.idprofe = dataReader[3] + "";
+                    turmas.idturma = dataReader[0] + "";
+                    turmas.nome_curso = dataReader[1] + "";
+                    turmas.turno = dataReader[2] + "";
+                    turmas.idsala = dataReader[3] + "";
+                    turmas.idprofe = dataReader[4] + "";
 
                     listaturma.Add(turmas);
                 }
@@ -296,7 +362,7 @@ namespace Projeto_Final.CSHARP
 
                 while (dataReader.Read())
                 {
-                    pessoa listagemprofe= new pessoa();
+                    pessoa listagemprofe = new pessoa();
                     listagemprofe.cpf = dataReader[0] + "";
                     listagemprofe.nome = dataReader[1] + "";
 
@@ -317,6 +383,8 @@ namespace Projeto_Final.CSHARP
                 return listaprofe;
             }
         }
+
+        // listagem PROFESSORES por TURMA
 
 
         // login

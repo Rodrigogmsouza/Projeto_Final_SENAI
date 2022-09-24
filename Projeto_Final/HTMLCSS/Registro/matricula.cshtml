@@ -1,7 +1,7 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
-    turma Turma = new turma();
+    matricula Matricula = new matricula();
 }
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,1,-25" />
     <!--CSS-->
     <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
-    <link rel="stylesheet" href="~/HTMLCSS/CSS/registro_turma.css" />
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/registro.css" />
 
     <title>CENAI</title>
 </head>
@@ -26,12 +26,12 @@
         <!--SIDEBAR-->
         <div class="sidenav" onclick="Dropdownbtn()">
             <!--PAGINA INICIAL-->
-            <a  href="~/HTMLCSS/main.cshtml">
+            <a href="~/HTMLCSS/main.cshtml">
                 <span class="material-symbols-outlined">home</span>
                 Pagina Inicial
             </a>
             <!--MATRICULA-->
-            <a href="#">
+            <a class="active" href="#">
                 <span class="material-symbols-outlined">person_add</span>
                 Matricula
             </a>
@@ -44,9 +44,9 @@
             <!--REGISTRO OPCOES-->
             <div class="dropdown-container">
                 <a href="~/HTML TEMP/Checagem/check_registro.cshtml">Usuarios</a>
-                <a class="active" href="~/HTMLCSS/Registro/registro_turma.cshtml">Turmas</a>
+                <a href="~/HTMLCSS/Registro/registro_turma.cshtml">Turmas</a>
                 <a href="~/HTMLCSS/Registro/registro_sala.cshtml">Salas</a>
-                <a href="~/HTMLCSS/Registro/registro_setores.cshtml">Setores</a>
+                <a  href="~/HTMLCSS/Registro/registro_setores.cshtml">Setores</a>
             </div>
             <!--LISTAGEM-->
             <button class="dropdown-btn">
@@ -92,42 +92,31 @@
     </nav>
         <main>
             <div class="content">
-                <form method="post" action="~/HTML TEMP/Passagem/registrando_turma.cshtml">
+                <form method="post" action="~/HTML TEMP/Passagem/matriculando.cshtml">
                     <div class="container">
                         <center>
                             <div class="registro">
-                                <!--NOME-->
-                                <input type="text" name="nomeid" id="nomeid" class="campo_nome"
-                                       placeholder="Nome Do Curso" minlenght="3" maxlength="30" required /><br />
-                                <!--TURNO-->
-                                <P>Escolha o Turno</P>
-                                <span class="material-symbols-outlined">clear_day</span>
-                                <input type="radio" id="dia" name="turno" value="matutino" required> MATUTINO<br />
-                                <span class="material-symbols-outlined">wb_twilight</span>
-                                <input type="radio" id="tarde" name="turno" value="vespertino" required> VESPERTINO<br />
-                                <span class="material-symbols-outlined">nightlight</span>
-                                <input type="radio" id="noite" name="turno" value="noturno" required> NOTURNO<br />
-                                <!--SALA-->
-                                <select name="sala" id="sala">
-                                    <option value="1" selected disabled>Escolha a Sala</option>
-                                    @{List<sala> lista = Funcoes.Listagem_Sala();}
-                                    @foreach (sala salas in lista)
+                                <!--ALUNO-->
+                                <select name="idaluno" id="idaluno">
+                                    <option value="1" disabled selected>ESCOLHA O ALUNO</option>
+                                    @{List<pessoa> lista_alunos = Funcoes.Listagem_Alunos(); }
+                                    @foreach (pessoa listagemalunos in lista_alunos)
                                     {
-                                        <option value="@salas.idsala">Sala @salas.numsala</option>
+                                        <option value="@listagemalunos.cpf">@listagemalunos.nome</option>
                                     }
                                 </select>
-                                <!--PROFESSOR-->
-                                <select name="professor" id="professor">
-                                    <option value="1" selected disabled>Escolha um professor</option>
-                                    @{List<pessoa> listaprofe = Funcoes.Listagem_Professor();}
-                                    @foreach (pessoa listagemprofe in listaprofe)
-                                    {
-                                        <option value="@listagemprofe.cpf">@listagemprofe.nome</option>
-                                    }
-                                </select>
+                                <!--TURMA-->
+                                <select name="idturma" id="idturma">
+                                    <option value="1" disabled selected>ESCOLHA A TURMA</option>
+                                    @{List<turma> lista = Funcoes.Listagem_Turmas();}
+                                    @foreach (turma turmas in lista)
+                                    { 
+                                        <option value="@turmas.idturma">@turmas.nome_curso</option>
 
+                                    }
+                                </select>
                                 <!--ENVIAR-->
-                                <input type="submit" placeholder="REGISTRAR" /><br />
+                                <input type="submit" placeholder="MATRICULAR" /><br />
 
                             </div>
                         </center>
