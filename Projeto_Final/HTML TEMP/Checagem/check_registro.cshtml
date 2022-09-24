@@ -19,23 +19,37 @@
         logado = true;
     }
 
+    else
+    {
+        <text>
+            <script>
+                window.location.href = "/HTMLCSS/main.cshtml";
+                alert("ALGO DEU ERRADO");
+            </script>
+        </text>
+    }
+
+
     if (logado)
     {
         if (cookie.Value.ToString() == "administrador")
         {
             <text>
                 <script>
-                    window.location.href = "/HTMLCSS/registro.cshtml";
+                    window.location.href = "/HTMLCSS/Registro/registro.cshtml";
                 </script>
-            </text> }
+            </text> 
+        }
         else
         {
-            //Redireciona o usuário para a pagina inicial
+                        //Redireciona o usuário para a pagina inicial
             <text>
                 <script>
                     window.location.href = "/HTMLCSS/main.cshtml";
                     alert("NIVEL DE ACESSO NÃO PERMITIDO");
                 </script>
-            </text> }
+            </text> 
+        }
+
     }
 }

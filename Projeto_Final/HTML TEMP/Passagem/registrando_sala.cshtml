@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    sala Sala = new sala();
+
+    Sala.numsala = Request.Form["salaid"];
+
+    Funcoes.Registro_Sala(Sala);
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Registro/registro_sala.cshtml";
+            alert("SALA REGISTRADA COM SUCESSO!");
+        </script>
+    </text>
+}

@@ -1,0 +1,19 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    turma Turma = new turma();
+
+    Turma.nome_curso = Request.Form["nomeid"];
+    Turma.turno = Request.Form["turno"];
+    Turma.idsala = Request.Form["sala"];
+    Turma.idprofe = Request.Form["professor"];
+
+    Funcoes.Registro_Turma(Turma);
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Registrando/registro_turma.cshtml";
+            alert("TURMA REGISTRADA COM SUCESSO!");
+        </script>
+    </text>
+}

@@ -491,6 +491,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTMLCSS\CSS\registro_turma.css" />
     <Content Include="HTMLCSS\CSS\sidebar.css" />
     <Content Include="HTMLCSS\CSS\main.css" />
     <Content Include="HTMLCSS\CSS\Listagem.css" />
@@ -513,14 +514,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTMLCSS\Index.cshtml" />
-    <Content Include="HTMLCSS\registro.cshtml" />
-    <Content Include="HTMLCSS\temps\temp_reg.cshtml" />
-    <Content Include="HTMLCSS\Listagem.cshtml" />
+    <Content Include="HTMLCSS\Registro\registro.cshtml" />
+    <Content Include="HTMLCSS\Listagem\Listagem.cshtml" />
     <Content Include="HTMLCSS\main.cshtml" />
-    <Content Include="HTMLCSS\temps\temp_index.cshtml" />
-    <Content Include="HTMLCSS\temps\temp_regII.cshtml" />
-    <Content Include="HTMLCSS\temps\temp_list.cshtml" />
-    <Content Include="HTMLCSS\registro_turma.cshtml" />
+    <Content Include="HTML TEMP\Checagem\check_login.cshtml" />
+    <Content Include="HTML TEMP\Checagem\check_registro.cshtml" />
+    <Content Include="HTML TEMP\Checagem\check_listagem.cshtml" />
+    <Content Include="HTMLCSS\Registro\registro_turma.cshtml" />
+    <Content Include="HTML TEMP\Passagem\registrando.cshtml" />
+    <Content Include="HTML TEMP\Passagem\registrando_turma.cshtml" />
+    <Content Include="HTMLCSS\Listagem\listagem_turma.cshtml" />
+    <Content Include="HTMLCSS\Registro\registro_sala.cshtml" />
+    <Content Include="HTMLCSS\Listagem\listagem_sala.cshtml" />
+    <Content Include="HTML TEMP\Passagem\registrando_sala.cshtml" />
+    <Content Include="HTMLCSS\Listagem\listagem_setores.cshtml" />
+    <Content Include="HTMLCSS\Registro\registro_setores.cshtml" />
+    <Content Include="HTML TEMP\Passagem\registrando_setor.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

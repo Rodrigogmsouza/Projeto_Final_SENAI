@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    setor Setor = new setor();
+
+    Setor.nomesetor = Request.Form["setorid"];
+
+    Funcoes.Registro_Setor(Setor);  
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Registro/registro_setores.cshtml";
+            alert("SETOR REGISTRADO COM SUCESSO!");
+        </script>
+    </text>
+}

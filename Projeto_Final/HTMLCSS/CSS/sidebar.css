@@ -33,17 +33,11 @@ button {
         color: #f1f1f1;
     }
 
-.active {
+a.active {
     background-color: green;
     color: white;
 }
 
-.logoff {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-}
 /* Main content */
 .content {
     margin-left: 200px; /* Same as the width of the sidenav */

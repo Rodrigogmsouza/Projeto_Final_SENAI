@@ -1,4 +1,25 @@
-﻿function checkPassword(form) {
+﻿
+
+// FAZ A SIDEBAR FUNCIONAR
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+};
+
+// CHECA SE SENHAS CORRESPONDEM
+
+function checkPassword(form) {
     senhaid1 = form.senhaid1.value;
     senhaid2 = form.senhaid2.value;
 
@@ -17,10 +38,14 @@
     }
 }
 
+// MUDA VISIBILIDADE DE DIV
+
 function poof(i) {
     var a = document.getElementById(i);
     a.style["visibility"] = 'visible';
 }
+
+// LOG OFF
 
 function LogOff() {
     // Data no passado
@@ -31,6 +56,8 @@ function LogOff() {
     document.cookie = 'UserLogin=; expires = ' + data + '; path = /';
     window.location.href = "/HTMLCSS/Index.cshtml";
 }
+
+// MUDA SLIDES DA MAIN.CSHTML
 
 let slideIndex = 0;
 showSlides();
@@ -51,3 +78,4 @@ function showSlides() {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 5000); // Change image every 5 seconds
 }
+

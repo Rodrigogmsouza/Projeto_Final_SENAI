@@ -18,14 +18,23 @@
     {
         logado = true;
     }
+    else
+    {
+        <text>
+            <script>
+                window.location.href = "/HTMLCSS/main.cshtml";
+                alert("ALGO DEU ERRADO");
+            </script>
+        </text>
+    }
 
     if (logado)
     {
-        if (cookie.Value.ToString() == "administrador"|| cookie.Value.ToString() == "professor")
+        if (cookie.Value.ToString() == "administrador" || cookie.Value.ToString() == "professor")
         {
             <text>
                 <script>
-                    window.location.href = "/HTMLCSS/listagem.cshtml";
+                    window.location.href = "/HTMLCSS/Listagem/listagem.cshtml";
                 </script>
             </text> }
         else

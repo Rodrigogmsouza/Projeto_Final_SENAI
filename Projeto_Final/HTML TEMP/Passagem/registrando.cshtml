@@ -1,0 +1,20 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    pessoa Pessoa = new pessoa();
+    Pessoa.nivacesso = Request.Form["nivacesso"];
+    Pessoa.cpf = Request.Form["cpfid"];
+    Pessoa.nome = Request.Form["nomeid"];
+    Pessoa.email = Request.Form["emailid"];
+    Pessoa.telefone = Request.Form["telid"];
+    Pessoa.senha = Request.Form["senhaid2"];
+
+    Funcoes.Registro_Pessoa(Pessoa);
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Registro/registro.cshtml";
+            alert("USUARIO REGISTRADO COM SUCESSO!");
+        </script>
+    </text>
+}

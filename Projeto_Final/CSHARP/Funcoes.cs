@@ -36,6 +36,65 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // registro setor
+
+        public static void Registro_Setor(setor Setor)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO setor (nome_setor)");
+            sb.AppendLine("VALUES ('" + Setor.nomesetor + "')");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+        }
+
+        // registro sala
+        public static void Registro_Sala(sala Sala)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO sala (numero_sala)");
+            sb.AppendLine("VALUES ('" + Sala.numsala + "')");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+        }
+
+        // registro turma
+
+        public static void Registro_Turma(turma Turma)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO turma");
+            sb.AppendLine("(nome_curso, turno, id_sala, id_profe)");
+            sb.AppendLine("VALUES ('" + Turma.nome_curso + "','" + Turma.turno + "',");
+            sb.AppendLine("'" + Turma.idsala + "','" + Turma.idprofe + "')");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+        }
+
+
         // listagem
         public static List<pessoa> Listagem_Pessoa()
         {
@@ -82,7 +141,182 @@ namespace Projeto_Final.CSHARP
             }
         }
 
-        
+        // listagem SALAS
+        public static List<sala> Listagem_Sala()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT id_sala, numero_sala FROM sala");
+            //Create a list to store the result
+            List<sala> listasalas = new List<sala>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    sala salas = new sala();
+                    salas.idsala = dataReader[0] + "";
+                    salas.numsala = dataReader[1] + "";
+
+                    listasalas.Add(salas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listasalas;
+            }
+            else
+            {
+                return listasalas;
+            }
+        }
+
+        // listagem SETORES
+
+        public static List<setor> Listagem_Setor()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT * FROM setor");
+            //Create a list to store the result
+            List<setor> listasetores = new List<setor>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    setor setores = new setor();
+                    setores.idsetor = dataReader[0] + "";
+                    setores.nomesetor = dataReader[1] + "";
+
+                    listasetores.Add(setores);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listasetores;
+            }
+            else
+            {
+                return listasetores;
+            }
+        }
+
+        // listagem TURMAS
+
+        public static List<turma> Listagem_Turmas()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT nome_curso, turno, id_sala, id_profe FROM turma");
+            //Create a list to store the result
+            List<turma> listaturma = new List<turma>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    turma turmas = new turma();
+                    turmas.nome_curso = dataReader[0] + "";
+                    turmas.turno = dataReader[1] + "";
+                    turmas.idsala = dataReader[2] + "";
+                    turmas.idprofe = dataReader[3] + "";
+
+                    listaturma.Add(turmas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaturma;
+            }
+            else
+            {
+                return listaturma;
+            }
+        }
+
+        // listagem PROFESSORES
+        public static List<pessoa> Listagem_Professor()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT cpf, nome FROM pessoa");
+            sb.AppendLine("WHERE nivel_acesso = 'professor'");
+            //Create a list to store the result
+            List<pessoa> listaprofe = new List<pessoa>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    pessoa listagemprofe= new pessoa();
+                    listagemprofe.cpf = dataReader[0] + "";
+                    listagemprofe.nome = dataReader[1] + "";
+
+                    listaprofe.Add(listagemprofe);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaprofe;
+            }
+            else
+            {
+                return listaprofe;
+            }
+        }
 
 
         // login
