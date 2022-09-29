@@ -536,6 +536,8 @@
     <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno.cshtml" />
     <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_curso.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_sala.cshtml" />
+    <Content Include="HTMLCSS\main_user.cshtml" />
+    <Content Include="HTMLCSS\main_professor.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
