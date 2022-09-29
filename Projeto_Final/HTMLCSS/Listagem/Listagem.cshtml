@@ -130,12 +130,20 @@
                             <td>@listagempessoa.telefone</td>
                             <td>@listagempessoa.nivacesso</td>
                             <td>
-                                <a href="#Editar" class="btn_edit">
-                                    <span class="glyphicon glyphicon-edit"></span> Editar
-                                </a>
-                                <a href="#Remover" class="btn_remove">
-                                    <span class="glyphicon glyphicon-remove-circle"></span> Remover
-                                </a>
+                                <form method="post" action="#editar">
+                                    <input type="text" style="visibility:hidden" id="userid" name="userid" value="@listagempessoa.cpf" />
+                                    <button class="btn_edit">
+                                        <span class="glyphicon glyphicon-edit"></span> Editar
+                                    </button>
+                                </form>
+
+                                <form method="post" action="~/HTMLTEMP/Exclusao/delete_user.cshtml">
+                                    <input type="text" style="visibility:hidden" id="userid" name="userid" value="@listagempessoa.cpf" />
+                                    
+                                    <button class="btn_remove">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                             

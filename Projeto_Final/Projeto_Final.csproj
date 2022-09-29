@@ -538,6 +538,10 @@
     <Content Include="HTMLTEMP\Exclusao\delete_sala.cshtml" />
     <Content Include="HTMLCSS\main_user.cshtml" />
     <Content Include="HTMLCSS\main_professor.cshtml" />
+    <Content Include="HTMLTEMP\Exclusao\delete_user.cshtml" />
+    <Content Include="HTMLTEMP\Exclusao\delete_turma.cshtml" />
+    <Content Include="HTMLTEMP\Exclusao\delete_setor.cshtml" />
+    <Content Include="HTMLTEMP\Exclusao\delete_matricula.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

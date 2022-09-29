@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+
+    setor Setor = new setor();
+    Setor.idsetor = Request.Form["setorid"];
+
+    Funcoes.dltsetor(Setor);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Listagem/listagem_setores.cshtml";
+        </script>
+    </text>
+}

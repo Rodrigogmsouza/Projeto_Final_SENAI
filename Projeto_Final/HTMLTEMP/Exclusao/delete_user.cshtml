@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+
+    pessoa Pessoa = new pessoa();
+    Pessoa.cpf = Request.Form["userid"];
+
+    Funcoes.dltsuser(Pessoa);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Listagem/Listagem.cshtml";
+        </script>
+    </text>
+}

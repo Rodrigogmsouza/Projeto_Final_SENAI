@@ -121,12 +121,12 @@
                             <tr>
                                 <td>@setores.nomesetor</td>
                                 <td>
-                                    <a href="#Editar" class="btn_edit">
-                                        <span class="glyphicon glyphicon-edit"></span> Editar
-                                    </a>
-                                    <a href="#Remover" class="btn_remove">
-                                        <span class="glyphicon glyphicon-remove-circle"></span> Remover
-                                    </a>
+                                    <form method="post" action="~/HTMLTEMP/Exclusao/delete_setor.cshtml">
+                                        <input type="text" style="visibility:hidden" id="setorid" name="setorid" value="@setores.idsetor" />
+                                        <button>
+                                            <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         }

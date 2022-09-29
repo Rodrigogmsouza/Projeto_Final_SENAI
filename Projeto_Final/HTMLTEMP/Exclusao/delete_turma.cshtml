@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+
+    turma Turma = new turma();
+    Turma.idturma = Request.Form["turmaid"];
+
+    Funcoes.dltturma(Turma);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Listagem/listagem_turma.cshtml";
+        </script>
+    </text>
+}

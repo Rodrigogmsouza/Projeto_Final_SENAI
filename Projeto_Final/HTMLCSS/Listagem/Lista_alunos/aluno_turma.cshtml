@@ -118,12 +118,20 @@
                                 <td>@matriculados.idaluno</td>
                                 <td>@matriculados.idturma</td>
                                 <td>
-                                    <a href="#Editar" class="btn_edit">
-                                        <span class="glyphicon glyphicon-edit"></span> Editar
-                                    </a>
-                                    <a href="#Remover" class="btn_remove">
-                                        <span class="glyphicon glyphicon-remove-circle"></span> Remover
-                                    </a>
+                                    <form method="post" action="#editar">
+                                        <input type="text" style="visibility:hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
+                                        <button class="btn_edit">
+                                            <span class="glyphicon glyphicon-edit"></span> Editar
+                                        </button>
+                                    </form>
+
+                                    <form method="post" action="~/HTMLTEMP/Exclusao/delete_matricula.cshtml">
+                                        <input type="text" style="visibility:hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
+
+                                        <button class="btn_remove">
+                                            <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         }

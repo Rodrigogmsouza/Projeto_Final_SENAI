@@ -12,6 +12,74 @@ namespace Projeto_Final.CSHARP
     public class Funcoes
     {
         BancoDeDados Banco = new BancoDeDados();
+        // login
+        public static bool Login(string cpf, string senha)
+        {
+            string query = "SELECT Count(*) FROM pessoa WHERE cpf = '" + cpf + "' AND Senha = '" + senha + "'";
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                try
+                {
+                    //Recebe o numero de usuários encontrados com os parametros enviados
+                    int count = int.Parse(cmd.ExecuteScalar().ToString());
+
+                    //close Connection
+                    BancoDeDados.CloseConnection();
+
+                    //Se encontrou o usuário no BD seta a resposta para true
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // nivel de acesso
+        public static string Nivel_acesso(pessoa usuario)
+        {
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("SELECT nivel_acesso FROM pessoa");
+            sb.AppendLine("WHERE cpf = '" + usuario.cpf + "'");
+
+            string nivel = "";
+
+            //Open Connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+
+                //ExecuteScalar will return one value
+                nivel = cmd.ExecuteScalar() + "";
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                return nivel;
+            }
+            else
+            {
+                return nivel;
+            }
+        }
 
         // registro aluno
         public static void Registro_Pessoa(pessoa Pessoa)
@@ -406,102 +474,6 @@ namespace Projeto_Final.CSHARP
             }
         }
 
-                /* listagem PROFESSORES por TURMA
-                public static List<pessoa> Listagem_Profe_Turma()
-                {
-                    StringBuilder sb = new StringBuilder();
-
-                    sb.AppendLine("SELECT pessoa.nome, turma.id_turma, turma.nome_curso");
-                    sb.AppendLine("FROM pessoa");
-                    sb.AppendLine("INNER JOIN turma ON");
-                    sb.AppendLine("pessoa.cpf = turma.id_profe");
-                    sb.AppendLine("ORDER BY turma.id_turma");
-                    //Create a list to store the result
-                    List<pessoa> listaprofe = new List<pessoa>();
-
-                    //Open connection
-                    if (BancoDeDados.OpenConnection() == true)
-                    {
-                        //Create Command
-                        MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
-                        //Create a data reader and Execute the command
-                        MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                        //Read the data and store them in the list
-
-                        while (dataReader.Read())
-                        {
-                            pessoa listagemprofe = new pessoa();
-                            listagemprofe.nome = dataReader[0] + "";
-                            listagemprofe.email = dataReader[1] + "";
-                            listagemprofe.telefone = dataReader[2] + "";
-                            listaprofe.Add(listagemprofe);
-                        }
-
-                        //close Data Reader
-                        dataReader.Close();
-
-                        //close Connection
-                        BancoDeDados.CloseConnection();
-
-                        //return list to be displayed
-                        return listaprofe;
-                    }
-                    else
-                    {
-                        return listaprofe;
-                    }
-                }
-
-                // listagem PROFESSORES por CURSO
-                public static List<pessoa> Listagem_Profe_Curso()
-                {
-                    StringBuilder sb = new StringBuilder();
-
-                    sb.AppendLine("SELECT pessoa.nome, turma.id_turma, turma.nome_curso");
-                    sb.AppendLine("FROM pessoa");
-                    sb.AppendLine("INNER JOIN turma ON");
-                    sb.AppendLine("pessoa.cpf = turma.id_profe");
-                    sb.AppendLine("ORDER BY turma.nome_curso");
-                    //Create a list to store the result
-                    List<pessoa> listaprofe = new List<pessoa>();
-
-                    //Open connection
-                    if (BancoDeDados.OpenConnection() == true)
-                    {
-                        //Create Command
-                        MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
-                        //Create a data reader and Execute the command
-                        MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                        //Read the data and store them in the list
-
-                        while (dataReader.Read())
-                        {
-                            pessoa listagemprofe = new pessoa();
-                            listagemprofe.nome = dataReader[0] + "";
-                            listagemprofe.email = dataReader[1] + "";
-                            listagemprofe.telefone = dataReader[2] + "";
-                            listaprofe.Add(listagemprofe);
-                        }
-
-                        //close Data Reader
-                        dataReader.Close();
-
-                        //close Connection
-                        BancoDeDados.CloseConnection();
-
-                        //return list to be displayed
-                        return listaprofe;
-                    }
-                    else
-                    {
-                        return listaprofe;
-                    }
-                }
-                
-        */
-
         // listagem SALAS
         public static List<sala> Listagem_Sala()
         {
@@ -657,75 +629,83 @@ namespace Projeto_Final.CSHARP
             }
 
         }
+        // deletar usuarios
 
-        // login
-        public static bool Login(string cpf, string senha)
+        public static void dltuser(pessoa Pessoa)
         {
-            string query = "SELECT Count(*) FROM pessoa WHERE cpf = '" + cpf + "' AND Senha = '" + senha + "'";
-
-            //Open connection
-            if (BancoDeDados.OpenConnection() == true)
-            {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, BancoDeDados.conn);
-                //Create a data reader and Execute the command
-                try
-                {
-                    //Recebe o numero de usuários encontrados com os parametros enviados
-                    int count = int.Parse(cmd.ExecuteScalar().ToString());
-
-                    //close Connection
-                    BancoDeDados.CloseConnection();
-
-                    //Se encontrou o usuário no BD seta a resposta para true
-                    if (count > 0)
-                    {
-                        return true;
-                    }
-                    return false;
-
-                }
-                catch (MySqlException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        // nivel de acesso
-        public static string Nivel_acesso(pessoa usuario)
-        {
-
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("SELECT nivel_acesso FROM pessoa");
-            sb.AppendLine("WHERE cpf = '"+ usuario.cpf +"'");
-
-            string nivel = "";
-
-            //Open Connection
+            sb.AppendLine("DELETE FROM pessoa WHERE");
+            sb.AppendLine("pessoa.cpf = '" + Pessoa.cpf + "' ");
+            //open connection
             if (BancoDeDados.OpenConnection() == true)
             {
-                //Create Mysql Command
+                //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
-
-                //ExecuteScalar will return one value
-                nivel = cmd.ExecuteScalar() + "";
-
-                //close Connection
+                cmd.ExecuteReader();
+                //close connection
                 BancoDeDados.CloseConnection();
+            }
 
-                return nivel;
-            }
-            else
-            {
-                return nivel;
-            }
         }
+
+        // deletar setores
+
+        public static void dltsetor(setor Setor)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("DELETE FROM setor WHERE");
+            sb.AppendLine("setor.id_setor = '" + Setor.idsetor + "' ");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+        // deletar turmas
+
+        public static void dltturma(turma Turma)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("DELETE FROM turma WHERE");
+            sb.AppendLine("turma.id_turma = '" + Turma.idturma + "' ");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+        // deletar matricula
+
+        public static void dltmatricula(matricula Matricula)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("DELETE FROM matricula WHERE");
+            sb.AppendLine("matricula.id_matricula = '" + Matricula.idmatricula + "' ");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+       
     }
 }
     

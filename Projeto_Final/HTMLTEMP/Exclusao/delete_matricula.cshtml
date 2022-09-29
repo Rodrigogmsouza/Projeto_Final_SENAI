@@ -1,0 +1,15 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    matricula Matricula = new matricula();
+    Matricula.idmatricula = Request.Form["matriculaid"];
+
+    Funcoes.dltmatricula(Matricula);
+    
+
+    <text>
+        <script>
+            window.location.href = "~/HTMLCSS/Listagem/Lista_alunos/aluno_turma.cshtml";
+        </script>
+    </text>
+}
