@@ -37,11 +37,7 @@ namespace Projeto_Final.CSHARP
         public string idturma { get; set; }
     }
     
-    public class sortby
-    {
-        public string nivacesso { get; set; }
-        public string orderby { get; set; }
-    }
+    
 
 
     public class setor
