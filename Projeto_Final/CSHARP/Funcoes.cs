@@ -715,6 +715,54 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // turmas por professor
+        public static List<turma> InfoProf_turmas(string usercpf)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, turma.turno,");
+            sb.AppendLine("sala.numero_sala FROM turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = turma.id_profe");
+            sb.AppendLine("INNER JOIN sala ON sala.id_sala = turma.id_sala");
+            sb.AppendLine("WHERE pessoa.cpf = '"+usercpf+"' ");
+            //Create a list to store the result
+            List<turma> listaturma = new List<turma>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    turma turmas = new turma();
+                    turmas.idturma = dataReader[0] + "";
+                    turmas.nome_curso = dataReader[1] + "";
+                    turmas.turno = dataReader[2] + "";
+                    turmas.idsala = dataReader[3] + "";
+
+                    listaturma.Add(turmas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaturma;
+            }
+            else
+            {
+                return listaturma;
+            }
+        }
         // deletar salas
 
         public static void dltsala(sala Sala)
