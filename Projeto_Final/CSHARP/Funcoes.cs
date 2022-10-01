@@ -639,7 +639,7 @@ namespace Projeto_Final.CSHARP
                     listagempessoa.nome = dataReader[1] + "";
                     listagempessoa.email = dataReader[2] + "";
                     listagempessoa.telefone = dataReader[3] + "";
-                    listagempessoa.nivacesso = dataReader[5] + "";
+                    listagempessoa.senha = dataReader[4] + "";
 
                     listapessoa.Add(listagempessoa);
                 }
