@@ -1,0 +1,204 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    
+    BancoDeDados.DBConnect();
+    //Variavel de controle
+    
+    Boolean logado = false;
+
+    //Cria o obj cookie e recebe o mesmo pelo obj Request
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserLogin"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+}
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--FONTE-->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!--ICONES-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,1,-25" />
+    <!--CSS-->
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
+    <link rel="stylesheet" href="~/HTMLCSS/CSS/main.css" />
+
+    <title>CENAI</title>
+</head>
+<body div class="bg">
+    <section>
+        <nav>
+            <!--SIDEBAR-->
+            <div class="sidenav" onclick="Dropdownbtn()">
+                <!--PAGINA INICIAL-->
+                <a class="active" href="~/HTMLCSS/main.cshtml">
+                    <span class="material-symbols-outlined">home</span>
+                    Pagina Inicial
+                </a>
+                <!--PROVAS-->
+                <a href="#">
+                    <span class="material-symbols-outlined">quiz</span>
+                    Provas
+                </a>
+                <!--AREA DO USUARIO-->
+                <a href="~/HTMLCSS/user_area.cshtml">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    Área do Usuario
+                </a>
+                <!--LOGOUT-->
+                <a class="logoff" onclick="LogOff()">
+                    <span class="material-symbols-outlined">logout</span>
+                    Fazer Logoff
+                </a>
+            </div>
+
+
+        </nav>
+
+        <main>
+            
+            <div class="content" id="content">
+                <div class="logo">
+                    <center>
+                        <img src="~/IMG/cenai.png" /><br />
+                    </center>
+                </div>
+                <!-- Slideshow -->
+                <div class="slideshow-container">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 4</div>
+                        <a href="#"><img src="~/IMG/img1.jpg" style="width:100%"></a>
+                        <div class="text">CURSO WEB DESIGN</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 4</div>
+                        <a href="#"><img src="~/IMG/img2.jpg" style="width:100%"></a>
+                        <div class="text">CURSO DE ARDUINO</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 4</div>
+                        <a href="#"><img src="~/IMG/img3.jpeg" style="width:100%"></a>
+                        <div class="text">CURSO DE INTERNET DAS COISAS (IOT)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 4</div>
+                        <a href="#"><img src="~/IMG/img4.jpg" style="width:100%"></a>
+                        <div class="text">CURSO DE PROGRAMAÇÃO ORIENTADA A OBJETOS (POO)</div>
+                    </div>
+                </div>
+                <br />
+
+                <!-- Pontinhos -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+                <br />
+
+
+                        <!-- Paragrafos -->
+                        <div class="texto-container">
+                            <div class="texto-texto">
+                                <p>
+                                    <strong>
+                                        Somos curiosos e tecnológicos. Somos Cenai. Desde 1942,
+                                        oferecemos educação e serviços que auxiliam no
+                                        desenvolvimento da indústria e dos gaúchos.
+                                    </strong>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Urna duis convallis convallis tellus id interdum velit. Quam adipiscing
+                                    vitae proin sagittis nisl rhoncus mattis. Praesent semper feugiat nib
+                                    h sed pulvinar proin gravida hendrerit lectus. Aliquet risus feugiat
+                                    in ante metus. Volutpat odio facilisis mauris sit amet massa vitae.
+                                    Risus sed vulputate odio ut enim. Purus sit amet volutpat consequat
+                                    mauris nunc congue. Cras sed felis eget velit aliquet sagittis id
+                                    consectetur. Eu consequat ac felis donec.
+
+                                    Ante metus dictum at tempor commodo ullamcorper a lacus.
+                                    Est ullamcorper eget nulla facilisi etiam dignissim diam
+                                    quis enim. Egestas tellus rutrum tellus pellentesque eu
+                                    tincidunt tortor aliquam. Quis viverra nibh cras pulvina
+                                    r mattis. Odio ut sem nulla pharetra. Ornare massa eget
+                                    egestas purus viverra accumsan in. A cras semper auctor
+                                    neque vitae tempus quam pellentesque. Habitasse platea d
+                                    ictumst quisque sagittis purus sit amet. Rhoncus aenean
+                                    vel elit scelerisque mauris. Lorem dolor sed viverra i
+                                    psum nunc aliquet bibendum enim. Aliquam ut porttitor
+                                    leo a diam sollicitudin tempor. Id cursus metus aliquam
+                                    eleifend. Elementum sagittis vitae et leo duis. At tellus
+                                    at urna condimentum mattis pellentesque id. Enim nec dui
+                                    nunc mattis enim. Penatibus et magnis dis parturient montes
+                                    nascetur. Iaculis nunc sed augue lacus viverra vitae. Malesuada
+                                    fames ac turpis egestas sed tempus urna et pharetra. At auctor
+                                    urna nunc id cursus metus aliquam eleifend mi.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="sidenews-container">
+                            <div class="sidenews-text">
+                                <hr class="green-line" /><br />
+                                <p> 25/08/2022 </p>
+                                <a href="https://www.senairs.org.br/noticia/unidades-do-senai-rs-comemoram-aniversario">
+                                    <h3>
+                                        Unidades do Cenai-RS comemoram aniversário
+                                    </h3>
+                                </a>
+                                <br />
+
+                                <p>Indústria e Desenvolvimento</p>
+                                <hr />
+
+                                <hr class="green-line" /><br />
+                                <p> 24/08/2022 </p>
+                                <a href="#">
+                                    <h3>
+                                        Mais cursos de Técnologia chegam ao Cenai-RS
+                                    </h3>
+                                </a>
+                                <br />
+
+                                <p>Indústria e Desenvolvimento</p>
+                                <hr />
+
+
+                                <hr class="green-line" /><br />
+                                <p> 19/08/2022 </p>
+                                <a href="https://www.senairs.org.br/industria-inteligente/programa-jovem-aprendiz">
+                                    <h3>
+                                        Jovem Aprendiz: tudo o que você precisa saber sobre o programa
+                                    </h3>
+                                </a>
+                                <br />
+
+                                <p>Indústria e Desenvolvimento</p>
+                                <hr />
+
+                            </div>
+                        </div>
+
+                </div>
+        </main>
+    </section>
+    <script src="~/JS/Index.js"></script>
+</body>
+</html>

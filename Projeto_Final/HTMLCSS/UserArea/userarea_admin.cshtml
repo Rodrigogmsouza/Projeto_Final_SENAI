@@ -116,50 +116,61 @@
             <div class="content" id="content">
                 <div class="userinfo-container">
                     <div class="userinfo">
+
                         <h1>INFORMAÇÕES DO USUARIO</h1>
-                        @{List<pessoa> lista = Funcoes.Info_User(usuario);}
-                        @foreach (pessoa listagempessoa in lista)
-                        {
-                            <h3>CPF</h3>
-                            <p>@listagempessoa.cpf</p>
+                        <center>
+                            @{List<pessoa> lista = Funcoes.Info_User(usuario);}
+                            @foreach (pessoa listagempessoa in lista)
+                            {
+                                <h3>CPF</h3>
+                                <p>@listagempessoa.cpf</p>
 
-                            <h3>NOME</h3>
-                            <p>@listagempessoa.nome</p>
+                                <h3>NOME</h3>
+                                <p>@listagempessoa.nome</p>
 
-                            <h3>EMAIL</h3>
-                            <p>@listagempessoa.email</p>
+                                <h3>EMAIL</h3>
+                                <p>@listagempessoa.email</p>
 
-                            <h3>TELEFONE</h3>
-                            <p>@listagempessoa.telefone</p>
+                                <h3>TELEFONE</h3>
+                                <p>@listagempessoa.telefone</p>
 
-                        }
-                        <a href="#Editar">
-                            Editar <span class="material-symbols-outlined">edit_note</span>
+                            }
+                        </center>
+                        <a class="editbtn" href="#Editar">
+                            EDITAR <span class="material-symbols-outlined">edit_note</span>
                         </a>
+
                     </div>
                 </div>
 
                     <div class="turmainfo-container">
                         <div class="turmainfo">
                             <h1>MATRICULA DO USUARIO</h1>
-                            @{List<matricula> lista_mat = Funcoes.InfoUser_matric(usercpf);}
-                            @foreach (matricula matriculados in lista_mat)
-                            {
-                                <h3>TURMA</h3>
-                                <p>@matriculados.idmatricula</p>
+                            <center>
+                                @{List<matricula> lista_mat = Funcoes.InfoUser_matric(usercpf);}
+                                @foreach (matricula matriculados in lista_mat)
+                                {
+                                    <h3>TURMA</h3>
+                                    <p>@matriculados.idmatricula</p>
 
-                                <h3>CURSO</h3>
-                                <p>@matriculados.idaluno</p>
+                                    <h3>CURSO</h3>
+                                    <p>@matriculados.idaluno</p>
 
-                                <h3>TURNO</h3>
-                                <p>@matriculados.idturma</p>
+                                    <h3>TURNO</h3>
+                                    <p>@matriculados.idturma</p>
 
-                                <h3>SALA</h3>
-                                <p>@matriculados.extraum</p>
+                                    <h3>SALA</h3>
+                                    <p>Sala @matriculados.extraum</p>
 
-                                <h3>PROFESSOR</h3>
-                                <p>@matriculados.extradois</p>
-                            }
+                                    <h3>PROFESSOR</h3>
+                                    <p>@matriculados.extradois</p>
+                                    <br />
+                                    <br />
+                                    <center>
+                                        <hr class="green-line" />
+                                    </center>
+                                }
+                            </center>
 
 
                         </div>
