@@ -546,6 +546,9 @@
     <Content Include="HTMLCSS\Main\main_teachside.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_prof.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_admin.cshtml" />
+    <Content Include="HTMLCSS\Provas\notas_aluno.cshtml" />
+    <Content Include="HTMLCSS\Provas\notas_prof.cshtml" />
+    <Content Include="HTMLTEMP\Checagem\check_userarea.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

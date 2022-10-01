@@ -1,0 +1,37 @@
+﻿@using Projeto_Final.CSHARP;
+
+@{
+    BancoDeDados.DBConnect();
+
+    pessoa usuario = new pessoa();
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    usuario.cpf = cookie.Value.ToString();
+    string Nivel = Funcoes.Nivel_acesso(usuario);
+
+    switch (Nivel)
+    {
+        case "administrador":
+            <text>
+                <script>
+                    window.location.href = "/HTMLCSS/UserArea/userarea_admin.cshtml";
+                </script>
+            </text>
+            break;
+
+        case "professor":
+            <text>
+                <script>
+                    window.location.href = "/HTMLCSS/UserArea/userarea_prof.cshtml";
+                </script>
+            </text>
+            break;
+        case "usuario":
+            <text>
+                <script>
+                    window.location.href = "/HTMLCSS/UserArea/userarea_aluno.cshtml";
+                </script>
+            </text>
+            break;
+    }
+
+}
