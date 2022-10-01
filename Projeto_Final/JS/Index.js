@@ -54,7 +54,7 @@ function LogOff() {
     data = data.toGMTString();
     // Apaga o cookie
     document.cookie = 'UserLogin=; expires = ' + data + '; path = /';
-    window.location.href = "/HTMLCSS/Index.cshtml";
+    window.location.href = "~/Index.cshtml";
 }
 
 // MUDA SLIDES DA MAIN.CSHTML

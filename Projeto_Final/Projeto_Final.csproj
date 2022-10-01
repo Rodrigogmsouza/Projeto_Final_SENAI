@@ -514,7 +514,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HTMLCSS\Index.cshtml" />
+    <Content Include="Index.cshtml" />
     <Content Include="HTMLCSS\Registro\registro.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem.cshtml" />
     <Content Include="HTMLCSS\Main\main.cshtml" />
@@ -549,6 +549,7 @@
     <Content Include="HTMLCSS\Provas\notas_aluno.cshtml" />
     <Content Include="HTMLCSS\Provas\notas_prof.cshtml" />
     <Content Include="HTMLTEMP\Checagem\check_userarea.cshtml" />
+    <Content Include="HTMLCSS\Editar\edit_user.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -561,9 +562,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HTMLCSS\Editar\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
