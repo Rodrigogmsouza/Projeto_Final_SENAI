@@ -491,6 +491,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTMLCSS\CSS\userarea.css" />
     <Content Include="HTMLCSS\CSS\registro_turma.css" />
     <Content Include="HTMLCSS\CSS\sidebar.css" />
     <Content Include="HTMLCSS\CSS\main.css" />
@@ -536,12 +537,11 @@
     <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno.cshtml" />
     <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_curso.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_sala.cshtml" />
-    <Content Include="HTMLCSS\main_user.cshtml" />
-    <Content Include="HTMLCSS\main_professor.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_user.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_turma.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_setor.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_matricula.cshtml" />
+    <Content Include="HTMLCSS\user_area.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

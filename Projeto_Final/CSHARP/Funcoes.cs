@@ -283,7 +283,7 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, pessoa.nome FROM matricula");
+            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, turma.turno, pessoa.nome FROM matricula");
             sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
             sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
             sb.AppendLine("ORDER BY pessoa.nome");
@@ -610,7 +610,111 @@ namespace Projeto_Final.CSHARP
                 return listaturma;
             }
         }
-        
+
+        // informaçoes usuario
+        public static List<pessoa> Info_User(pessoa usuario)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT * FROM pessoa");
+            sb.AppendLine("WHERE pessoa.cpf = '"+ usuario.cpf+"' ");
+
+            //Create a list to store the result
+            List<pessoa> listapessoa = new List<pessoa>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    pessoa listagempessoa = new pessoa();
+                    listagempessoa.cpf = dataReader[0] + "";
+                    listagempessoa.nome = dataReader[1] + "";
+                    listagempessoa.email = dataReader[2] + "";
+                    listagempessoa.telefone = dataReader[3] + "";
+                    listagempessoa.nivacesso = dataReader[5] + "";
+
+                    listapessoa.Add(listagempessoa);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listapessoa;
+            }
+            else
+            {
+                return listapessoa;
+            }
+        }
+
+        // informacoes usuario matricula 
+        public static List<matricula> InfoUser_matric(string usercpf)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT turma.id_turma, turma.nome_curso, turma.turno, sala.numero_sala, pessoa.nome");
+            sb.AppendLine("FROM matricula INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = turma.id_profe");
+            sb.AppendLine("INNER JOIN sala ON sala.id_sala = turma.id_sala");
+            sb.AppendLine("WHERE matricula.id_aluno = '"+usercpf+"' ");
+            
+
+
+
+
+            //Create a list to store the result
+            List<matricula> matriculas = new List<matricula>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    matricula matriculados = new matricula();
+
+                    matriculados.idmatricula = dataReader[0].ToString();
+                    matriculados.idaluno = dataReader[1].ToString();
+                    matriculados.idturma = dataReader[2].ToString();
+                    matriculados.extraum = dataReader[3].ToString();
+                    matriculados.extradois = dataReader[4].ToString();
+
+                    matriculas.Add(matriculados);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return matriculas;
+            }
+            else
+            {
+                return matriculas;
+            }
+        }
+
         // deletar salas
 
         public static void dltsala(sala Sala)

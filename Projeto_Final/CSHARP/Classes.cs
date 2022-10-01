@@ -35,6 +35,9 @@ namespace Projeto_Final.CSHARP
         public string idmatricula { get; set; }
         public string idaluno { get; set; }
         public string idturma { get; set; }
+
+        public string extraum { get; set; }
+        public string extradois { get; set; }
     }
     
     
