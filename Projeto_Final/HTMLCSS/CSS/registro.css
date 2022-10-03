@@ -12,31 +12,32 @@ body, html {
 }
 
 .content {
-
+    display: inline-block;
+    float: right;
+    padding-top: 50px;
 }
 
 .container {
-    backdrop-filter: saturate(180%);
-    backdrop-filter: blur(999px);
-    max-width: 300px;
-    height: 500px;
-    margin-left: 800px;
-    margin-top: 100px;
+    width: 400px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
 }
 
-.registro {
-    float: left;
-    width: 300px;
-    height: 500px;
-    padding: 20px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.5);
-}
-
-label {
+h6 {
     font-family: "Open Sans Hebrew", "Open Sans", sans-serif;
     font-weight: bold;
+    text-align:center;
+}
+
+
+.registro {
+    padding: 100px ;
 }
 
 input[type=email],

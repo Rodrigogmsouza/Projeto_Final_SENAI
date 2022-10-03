@@ -102,17 +102,20 @@
                     <div class="container">
                         <center>
                             <div class="registro">
+                                <h6>REGISTRO DE TURMA!</h6>
                                 <!--NOME-->
                                 <input type="text" name="nomeid" id="nomeid" class="campo_nome"
                                        placeholder="Nome Do Curso" minlenght="3" maxlength="30" required /><br />
                                 <!--TURNO-->
-                                <P>Escolha o Turno</P>
-                                <span class="material-symbols-outlined">clear_day</span>
-                                <input type="radio" id="dia" name="turno" value="matutino" required> MATUTINO<br />
-                                <span class="material-symbols-outlined">wb_twilight</span>
-                                <input type="radio" id="tarde" name="turno" value="vespertino" required> VESPERTINO<br />
-                                <span class="material-symbols-outlined">nightlight</span>
-                                <input type="radio" id="noite" name="turno" value="noturno" required> NOTURNO<br />
+                                <fieldset>
+                                    <legend>Turno</legend>
+                                    <span class="material-symbols-outlined">clear_day</span>
+                                    <input type="radio" id="dia" name="turno" value="matutino" required> MATUTINO<br />
+                                    <span class="material-symbols-outlined">wb_twilight</span>
+                                    <input type="radio" id="tarde" name="turno" value="vespertino" required> VESPERTINO<br />
+                                    <span class="material-symbols-outlined">nightlight</span>
+                                    <input type="radio" id="noite" name="turno" value="noturno" required> NOTURNO<br />
+                                </fieldset>
                                 <!--SALA-->
                                 <select name="sala" id="sala">
                                     <option value="1" selected disabled>Escolha a Sala</option>
