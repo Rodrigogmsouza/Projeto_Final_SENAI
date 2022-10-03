@@ -98,50 +98,60 @@
         </nav>
 
         <div class="content" id="content">
-
-            <br />
             <div class="lista" id="lista">
-                <center>
                     <table>
                         <tr>
-                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno_turma.cshtml">TURMA</a></th>
-                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno_curso.cshtml">CURSO</a></th>
-                            <th><a href="~/HTMLCSS/Listagem/Lista_alunos/aluno.cshtml">ALUNO</a></th>
+                            <th>CPF</th>
+                            <th>NOME</th>
+                            <th>EMAIL</th>
+                            <th>TELEFONE</th>
+                            <th>
+                                <button class="dropdown-btn">
+                                    NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
+                                </button>
+                                <div class="dropdown-container">
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
+                                </div>
+                            </th>
+                            <th>OPÇÕES</th>
                         </tr>
-                        @{List<matricula> lista = Funcoes.Listagem_Matricula_Turma();}
-
-                        @foreach (matricula matriculados in lista)
+                        @{List<pessoa> lista = Funcoes.Listagem_Professor();}
+                        @foreach (pessoa listagemprofe in lista)
                         {
-                            <tr>
-                                <td>@matriculados.idmatricula</td>
-                                <td>@matriculados.idaluno</td>
-                                <td>@matriculados.idturma</td>
-                                <td>
+                        <tr>
+                            <td>@listagemprofe.cpf</td>
+                            <td>@listagemprofe.nome</td>
+                            <td>@listagemprofe.email</td>
+                            <td>@listagemprofe.telefone</td>
+                            <td>@listagemprofe.nivacesso</td>
+                            <td>
+                                <div class="options">
                                     <form method="post" action="#editar">
-                                        <input type="text" style="visibility:hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
+                                        <input type="hidden" id="userid" name="userid" value="@listagemprofe.cpf" />
                                         <button class="btn_edit">
-                                            <span class="glyphicon glyphicon-edit"></span> Editar
+                                            <span class="glyphicon glyphicon-edit"></span>
                                         </button>
                                     </form>
-
-                                    <form method="post" action="~/HTMLTEMP/Exclusao/delete_matricula.cshtml">
-                                        <input type="text" style="visibility:hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
+                                    <form method="post" action="~/HTMLTEMP/Exclusao/delete_user.cshtml">
+                                        <input type="hidden" id="userid" name="userid" value="@listagemprofe.cpf" />
 
                                         <button class="btn_remove">
-                                            <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                            
                         }
-
                     </table>
-
-                </center>
             </div>
         </div>
     </section>
-
+    
     <script src="~/JS/Index.js">
     </script>
 </body>

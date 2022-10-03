@@ -3,6 +3,7 @@
 // FAZ A SIDEBAR FUNCIONAR
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
+
 var i;
 
 for (i = 0; i < dropdown.length; i++) {

@@ -1,73 +1,66 @@
-﻿
-body, html {
+﻿body, html {
     margin: 0;
     min-height: 100%;
-    
 }
 
 .bg {
-    background: linear-gradient(0deg, rgba(217,238,225,1) 24%, rgba(150,212,212,1) 88%);
+    background-image: url(../../IMG/bg.jpg);
 }
 
-.container {
-    margin-top: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 26px 26px rgba(0, 0, 0, 0.4);
-}
-.opcoes {
-    position: relative;
-    display: flex;
-    margin: auto;
-    padding: 0;
-    width: auto;
+.lista {
+    padding-top: 20px;
 }
 
-.opcoes a {
-    flex: 1;
-    display: block;
-    width: 50px;
-    color: white;
-    padding: 16px;
-    border: none;
-    text-decoration: none;
+.options {
+    display: inline-flex;
 }
-.opcoes a.active {
-    background-color: #78aaa6;
-    color: white;
-}
-
-.opcoes a:hover:not(.active) {
-    background-color: #b3ddd9;
-    color: white;
-}
-
-.lista a {
-    display: block;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: #808080;
-    text-decoration: none;
-}
-
-.lista a:hover {
-    background-color:lightgrey;
-}
-
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
     width: 100%;
     overflow-x: auto;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 td, th {
-    border: 1px solid #808081;
+    font-family: 'Abel';
     text-align: left;
     padding: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 tr:nth-child(even) {
-    background-color: #78aaa6;
+    background-color: #808080;
+}
+
+th a, th .dropdown-btn {
+    color: black;
+    text-decoration: none;
+    font-family: 'Abel';
+    text-align: left;
+    padding: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: contents;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+}
+
+th a:hover, th a:active{
+    color: #f1f1f1;
+}
+
+th .dropdown-container {
+    display: none;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 8px;
 }

@@ -185,12 +185,13 @@ namespace Projeto_Final.CSHARP
             }
         }
 
-        // listagem
-        public static List<pessoa> Listagem_Pessoa()
+        // listagem ADMINISTRADORES
+        public static List<pessoa> Listagem_Admins()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("SELECT * FROM pessoa");
+            sb.AppendLine("WHERE nivel_acesso = 'administrador'");
             //Create a list to store the result
             List<pessoa> listapessoa = new List<pessoa>();
 
@@ -206,14 +207,14 @@ namespace Projeto_Final.CSHARP
 
                 while (dataReader.Read())
                 {
-                    pessoa listagempessoa = new pessoa();
-                    listagempessoa.cpf = dataReader[0] + "";
-                    listagempessoa.nome = dataReader[1] + "";
-                    listagempessoa.email = dataReader[2] + "";
-                    listagempessoa.telefone = dataReader[3] + "";
-                    listagempessoa.nivacesso = dataReader[5] + "";
+                    pessoa listagemadmins = new pessoa();
+                    listagemadmins.cpf = dataReader[0] + "";
+                    listagemadmins.nome = dataReader[1] + "";
+                    listagemadmins.email = dataReader[2] + "";
+                    listagemadmins.telefone = dataReader[3] + "";
+                    listagemadmins.nivacesso = dataReader[5] + "";
 
-                    listapessoa.Add(listagempessoa);
+                    listapessoa.Add(listagemadmins);
                 }
 
                 //close Data Reader
