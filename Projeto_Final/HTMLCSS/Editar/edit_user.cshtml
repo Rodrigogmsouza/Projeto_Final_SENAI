@@ -3,7 +3,7 @@
     BancoDeDados.DBConnect();
     Boolean logado = false;
     HttpCookie cookie = Request.Cookies["UserLogin"];
-    HttpCookie cookiecpf = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
 
@@ -123,35 +123,37 @@
                             {
                                 <h3>CPF</h3>
                                 <p>@listagempessoa.cpf</p>
+                                <form method ="post" action="~/HTMLTEMP/Edicao/editin_user.cshtml" onsubmit="return checkPassword(this);" >
+                                    <input type="hidden" id="userid" name="userid" value="@listagempessoa.cpf" />
+                                    <h3>NOME</h3>
+                                    <input type="text" name="nomeid" id="nomeid" class="campo_nome"
+                                           placeholder="@listagempessoa.nome" minlenght="3" maxlength="100" /><br />
 
-                                <h3>NOME</h3>
-                                <p>@listagempessoa.nome</p>
-                                <form method="post" onsubmit="return checkPassword(this);" action="#">
                                     <h3>EMAIL</h3>
                                     <input type="email" name="emailid" id="emailid" class="campo_email"
-                                           placeholder="@listagempessoa.email" maxlength="100" required />
+                                           placeholder="@listagempessoa.email" maxlength="100" />
 
                                     <h3>TELEFONE</h3>
                                     <input type="tel" name="telid" class="campo_tel"
                                            placeholder="@listagempessoa.telefone" minxlength="11"
-                                           maxlength="14" required />
+                                           maxlength="14" />
 
                                     <h3>SENHA</h3>
                                     <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
-                                           placeholder="nova senha" minlength="6" maxlength="16" required />
+                                           placeholder="nova senha" minlength="6" maxlength="16" />
                                     <br />
                                     <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
-                                           placeholder="verifique nova senha" minlength="6" maxlength="16" required />
+                                           placeholder="verifique nova senha" minlength="6" maxlength="16" />
                                     <br />
                                     <button>
-                                        <span class="material-symbols-outlined">edit_note</span> editar
+                                        <span class="material-symbols-outlined">edit_note</span> EDITAR
                                     </button>
                                     <br />
                                 </form>
                              }
                             </center>
                         <a class="cnclbtn" href="~/HTMLCSS/UserArea/userarea_aluno.cshtml">
-                            <span class="material-symbols-outlined">arrow_back</span> voltar
+                            <span class="material-symbols-outlined">arrow_back</span>
                         </a>
 
                     </div>

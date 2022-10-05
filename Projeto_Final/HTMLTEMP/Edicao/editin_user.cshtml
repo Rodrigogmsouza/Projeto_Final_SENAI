@@ -1,19 +1,20 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
+
     pessoa Pessoa = new pessoa();
-    Pessoa.nivacesso = Request.Form["nivacesso"];
-    Pessoa.cpf = Request.Form["cpfid"];
+    Pessoa.cpf = Request.Form["userid"];
     Pessoa.nome = Request.Form["nomeid"];
     Pessoa.email = Request.Form["emailid"];
     Pessoa.telefone = Request.Form["telid"];
     Pessoa.senha = Request.Form["senhaid2"];
 
-    Funcoes.Registro_Pessoa(Pessoa);
+    Funcoes.edituser(Pessoa);
+
 
     <text>
         <script>
-            window.location.href = "/HTMLCSS/Registro/registro.cshtml";
+            window.location.href = "/HTMLCSS/Editar/edit_user.cshtml";
         </script>
     </text>
 }

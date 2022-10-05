@@ -3,7 +3,7 @@
     BancoDeDados.DBConnect();
     Boolean logado = false;
     HttpCookie cookie = Request.Cookies["UserLogin"];
-    HttpCookie cookiecpf = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
 
@@ -134,12 +134,12 @@
                                 <p>@listagempessoa.telefone</p>
 
                                 <h3>SENHA</h3>
-                                <p>**********</p>
+                                <p><small>**********</small></p>
 
                             }
                         </center>
                         <a class="editbtn" href="~/HTMLCSS/Editar/edit_user.cshtml">
-                            EDITAR <span class="material-symbols-outlined">edit_note</span>
+                            <span class="material-symbols-outlined">edit_note</span>
                         </a>
 
                     </div>

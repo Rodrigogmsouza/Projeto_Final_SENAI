@@ -84,3 +84,45 @@ hr.green-line {
     font-size: 15px;
     text-align: justify;
 }
+
+input {
+    background-color: #e6e6e6;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 12px 20px;
+}
+
+a.cnclbtn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+
+}
+
+    a.cnclbtn :hover {
+        color: #15cdca;
+    }
+
+    .userinfo button {
+        background-color: #4fe0b6;
+        border: none;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        float: right;
+    }
+
+        .userinfo button:hover {
+            background-color: #15cdca;
+        }

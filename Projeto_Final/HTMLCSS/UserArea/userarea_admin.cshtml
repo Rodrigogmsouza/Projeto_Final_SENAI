@@ -3,7 +3,7 @@
     BancoDeDados.DBConnect();
     Boolean logado = false;
     HttpCookie cookie = Request.Cookies["UserLogin"];
-    HttpCookie cookiecpf = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
 
@@ -144,34 +144,7 @@
 
                     <div class="turmainfo-container">
                         <div class="turmainfo">
-                            <h1>MATRICULA DO USUARIO</h1>
-                            <center>
-                                @{List<matricula> lista_mat = Funcoes.InfoUser_matric(usercpf);}
-                                @foreach (matricula matriculados in lista_mat)
-                                {
-                                    <h3>TURMA</h3>
-                                    <p>@matriculados.idmatricula</p>
-
-                                    <h3>CURSO</h3>
-                                    <p>@matriculados.idaluno</p>
-
-                                    <h3>TURNO</h3>
-                                    <p>@matriculados.idturma</p>
-
-                                    <h3>SALA</h3>
-                                    <p>Sala @matriculados.extraum</p>
-
-                                    <h3>PROFESSOR</h3>
-                                    <p>@matriculados.extradois</p>
-                                    <br />
-                                    <br />
-                                    <center>
-                                        <hr class="green-line" />
-                                    </center>
-                                }
-                            </center>
-
-
+                            
                         </div>
                     </div>
                 </div>

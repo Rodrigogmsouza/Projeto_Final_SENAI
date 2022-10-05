@@ -534,9 +534,6 @@
     <Content Include="HTMLTEMP\Passagem\registrando_setor.cshtml" />
     <Content Include="HTMLCSS\Registro\matricula.cshtml" />
     <Content Include="HTMLTEMP\Passagem\matriculando.cshtml" />
-    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_turma.cshtml" />
-    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno.cshtml" />
-    <Content Include="HTMLCSS\Listagem\Lista_alunos\aluno_curso.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_sala.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_user.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_turma.cshtml" />
@@ -553,6 +550,8 @@
     <Content Include="HTMLCSS\Editar\edit_user.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Professores.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Admins.cshtml" />
+    <Content Include="HTMLCSS\Listagem\listagem_matriculas.cshtml" />
+    <Content Include="HTMLTEMP\Edicao\editin_user.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

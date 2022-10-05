@@ -3,7 +3,7 @@
     BancoDeDados.DBConnect();
     Boolean logado = false;
     HttpCookie cookie = Request.Cookies["UserLogin"];
-    HttpCookie cookiecpf = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
 
