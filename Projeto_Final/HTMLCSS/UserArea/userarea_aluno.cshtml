@@ -6,15 +6,16 @@
     HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
+    pessoa usuario = new pessoa();
+
+    usuario.cpf = cookiecpf.Value.ToString();
 
     if (cookie != null)
     {
         logado = true;
     }
 
-    pessoa usuario = new pessoa();
 
-    usuario.cpf = cookiecpf.Value.ToString();
 }
 
 <!DOCTYPE html>

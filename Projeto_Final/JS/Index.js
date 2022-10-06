@@ -1,5 +1,4 @@
 ﻿
-
 // FAZ A SIDEBAR FUNCIONAR
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -41,9 +40,15 @@ function checkPassword(form) {
 
 // MUDA VISIBILIDADE DE DIV
 
-function poof(i) {
-    var a = document.getElementById(i);
-    a.style["visibility"] = 'visible';
+function poof() {
+    var matricula = document.getElementById('sidenav-matricula');
+
+    if (nivel_acesso == "administrador") {
+        matricula.removeAttribute("hidden");
+    }
+
+    return matricula;
+    
 }
 
 // LOG OFF

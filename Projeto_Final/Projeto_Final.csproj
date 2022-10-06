@@ -540,10 +540,6 @@
     <Content Include="HTMLTEMP\Exclusao\delete_setor.cshtml" />
     <Content Include="HTMLTEMP\Exclusao\delete_matricula.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_aluno.cshtml" />
-    <Content Include="HTMLCSS\Main\main_userside.cshtml" />
-    <Content Include="HTMLCSS\Main\main_teachside.cshtml" />
-    <Content Include="HTMLCSS\UserArea\userarea_prof.cshtml" />
-    <Content Include="HTMLCSS\UserArea\userarea_admin.cshtml" />
     <Content Include="HTMLCSS\Provas\notas_aluno.cshtml" />
     <Content Include="HTMLCSS\Provas\notas_prof.cshtml" />
     <Content Include="HTMLTEMP\Checagem\check_userarea.cshtml" />
@@ -551,7 +547,11 @@
     <Content Include="HTMLCSS\Listagem\Listagem_Professores.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Admins.cshtml" />
     <Content Include="HTMLCSS\Listagem\listagem_matriculas.cshtml" />
-    <Content Include="HTMLTEMP\Edicao\editin_user.cshtml" />
+    <Content Include="HTMLCSS\Editar\editin_user.cshtml" />
+    <Content Include="HTMLCSS\UserArea\userarea_prof.cshtml" />
+    <Content Include="HTMLCSS\UserArea\userarea_admin.cshtml" />
+    <Content Include="HTMLCSS\Editar\edit_user_admin.cshtml" />
+    <Content Include="HTMLCSS\Editar\edit_user_profe.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -564,7 +564,9 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="HTMLTEMP\Edicao\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

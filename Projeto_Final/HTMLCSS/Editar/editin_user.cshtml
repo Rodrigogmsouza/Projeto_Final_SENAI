@@ -1,0 +1,62 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+
+    pessoa usuario = new pessoa();
+
+    usuario.cpf = cookiecpf.Value.ToString();
+
+    string cpf = "";
+    string nome = "";
+    string email = "";
+    string telefone = "";
+    string senha = "";
+
+    List<pessoa> lista = Funcoes.Info_User(usuario);
+    foreach (pessoa listagempessoa in lista)
+    {
+        cpf = listagempessoa.cpf;
+        nome = listagempessoa.nome;
+        email = listagempessoa.email;
+        telefone = listagempessoa.telefone;
+        senha = listagempessoa.senha;
+
+    }
+
+    pessoa Pessoa = new pessoa();
+    Pessoa.cpf = Request.Form["userid"];
+    Pessoa.nome = Request.Form["nomeid"];
+    Pessoa.email = Request.Form["emailid"];
+    Pessoa.telefone = Request.Form["telid"];
+    Pessoa.senha = Request.Form["senhaid2"];
+
+    if (Pessoa.nome == "")
+    {
+        Pessoa.nome = nome;
+    }
+    if (Pessoa.email == "")
+    {
+        Pessoa.email = email;
+    }
+    if (Pessoa.telefone == "")
+    {
+        Pessoa.telefone = telefone;
+    }
+    if (Pessoa.senha == "")
+    {
+        Pessoa.senha = senha;
+    }
+
+    Funcoes.edituser(Pessoa);
+
+
+
+    <text>
+        <script>
+            window.location.href = "/HTMLTEMP/Checagem/check_userarea.cshtml";
+        </script>
+    </text>
+
+    }

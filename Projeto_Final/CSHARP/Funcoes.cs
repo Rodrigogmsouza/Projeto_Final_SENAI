@@ -769,8 +769,9 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("UPDATE pessoa SET nome = '"+Pessoa.nome+"', email = '"+Pessoa.email+"',  ");
-            sb.AppendLine("telefone = '"+Pessoa.telefone+"', senha = '"+Pessoa.telefone+"' ");
+            sb.AppendLine("telefone = '"+Pessoa.telefone+"', senha = '"+Pessoa.senha+"' ");
             sb.AppendLine("WHERE pessoa.cpf = '"+Pessoa.cpf+"' ");
+
             //open connection
             if (BancoDeDados.OpenConnection() == true)
             {

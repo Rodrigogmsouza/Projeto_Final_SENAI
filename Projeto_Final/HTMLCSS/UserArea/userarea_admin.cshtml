@@ -6,15 +6,16 @@
     HttpCookie cookiecpf = Request.Cookies["UserCpf"];
 
     string usercpf = cookiecpf.Value.ToString();
+    pessoa usuario = new pessoa();
+
+    usuario.cpf = cookiecpf.Value.ToString();
 
     if (cookie != null)
     {
         logado = true;
     }
 
-    pessoa usuario = new pessoa();
 
-    usuario.cpf = cookiecpf.Value.ToString();
 }
 
 <!DOCTYPE html>
@@ -133,23 +134,54 @@
                                 <h3>TELEFONE</h3>
                                 <p>@listagempessoa.telefone</p>
 
+                                <h3>SENHA</h3>
+                                <p><small>**********</small></p>
+
                             }
                         </center>
-                        <a class="editbtn" href="#Editar">
-                            EDITAR <span class="material-symbols-outlined">edit_note</span>
+                        <a class="editbtn" href="~/HTMLCSS/Editar/edit_user_admin.cshtml">
+                            <span class="material-symbols-outlined">edit_note</span>
                         </a>
 
                     </div>
                 </div>
 
-                    <div class="turmainfo-container">
-                        <div class="turmainfo">
-                            
-                        </div>
+                <div class="turmainfo-container">
+                    <div class="turmainfo">
+                        <h1>MATRICULA DO USUARIO</h1>
+                        <center>
+                                @{List<matricula> lista_mat = Funcoes.InfoUser_matric(usercpf);}
+                                @foreach (matricula matriculados in lista_mat)
+                                {
+                                    <h3>TURMA</h3>
+                                    <p>@matriculados.idmatricula</p>
+
+                                    <h3>CURSO</h3>
+                                    <p>@matriculados.idaluno</p>
+
+                                    <h3>TURNO</h3>
+                                    <p>@matriculados.idturma</p>
+
+                                    <h3>SALA</h3>
+                                    <p>Sala @matriculados.extraum</p>
+
+                                    <h3>PROFESSOR</h3>
+                                    <p>@matriculados.extradois</p>
+                                    <br />
+                                    <br />
+                                    <center>
+                                        <hr class="green-line" />
+                                    </center>
+                                }
+                        </center>
+
+
                     </div>
                 </div>
-            </main>
-        </section>
+
+            </div>
+        </main>
+    </section>
 
         <script src="~/JS/Index.js"></script>
     </body>

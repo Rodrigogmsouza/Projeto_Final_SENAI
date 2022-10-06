@@ -7,6 +7,15 @@
 
     HttpCookie cookie = Request.Cookies["UserLogin"];
     HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie.Value.ToString() == "administrador")
+            {
+                <text>
+                    <script>
+                        return poof();
+                    </script>
+                </text>
+            }
 }
 
 <!DOCTYPE html>
@@ -28,26 +37,30 @@
 
     <title>CENAI</title>
 </head>
-<body div class="bg">
+<body div class="bg" onload="return poof();">
     <section>
         <nav>
             <!--SIDEBAR-->
-            <div class="sidenav" onclick="Dropdownbtn()">
+            <div class="sidenav" >
+                
                 <!--PAGINA INICIAL-->
                 <a href="~/HTMLCSS/Main/main.cshtml">
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
+                
                 <!--MATRICULA-->
-                <button class="dropdown-btn">
-                    <span class="material-symbols-outlined">person_add</span>
-                    Matricula
-                    <span class="material-symbols-outlined">expand_more</span>
-                </button>
-                <!--MATRICULA OPCOES-->
-                <div class="dropdown-container">
-                    <a href="~/HTMLCSS/Registro/matricula.cshtml">Fazer Matricula</a>
-                    <a href="~/HTMLCSS/Listagem/listagem_matriculas.cshtml">Alunos Matriculados</a>
+                <div id="sidenav-matricula" >
+                    <button class="dropdown-btn">
+                        <span class="material-symbols-outlined">person_add</span>
+                        Matricula
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <!--MATRICULA OPCOES-->
+                    <div class="dropdown-container">
+                        <a href="~/HTMLCSS/Registro/matricula.cshtml">Fazer Matricula</a>
+                        <a href="~/HTMLCSS/Listagem/listagem_matriculas.cshtml">Alunos Matriculados</a>
+                    </div>
                 </div>
                 <!--REGISTRO-->
                 <button class="dropdown-btn">
@@ -239,6 +252,7 @@
             </div>
         </main>
     </section>
-    <script src="~/JS/Index.js"></script>
+    <script src="~/JS/Index.js">
+    </script>
 </body>
 </html>
