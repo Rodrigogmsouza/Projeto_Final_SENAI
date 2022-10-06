@@ -7,15 +7,6 @@
 
     HttpCookie cookie = Request.Cookies["UserLogin"];
     HttpCookie cookiecpf = Request.Cookies["UserCPF"];
-
-    if (cookie.Value.ToString() == "administrador")
-            {
-                <text>
-                    <script>
-                        return poof();
-                    </script>
-                </text>
-            }
 }
 
 <!DOCTYPE html>
@@ -44,7 +35,7 @@
             <div class="sidenav" >
                 
                 <!--PAGINA INICIAL-->
-                <a href="~/HTMLCSS/Main/main.cshtml">
+                <a class="active" href="~/HTMLCSS/Main/main.cshtml">
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
