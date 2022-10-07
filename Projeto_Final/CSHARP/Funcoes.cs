@@ -769,9 +769,9 @@ namespace Projeto_Final.CSHARP
         public static void edituser(pessoa Pessoa)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("UPDATE pessoa SET nome = '"+Pessoa.nome+"', email = '"+Pessoa.email+"',  ");
-            sb.AppendLine("cpf = '"+Pessoa.cpf+"', nivel_acesso = '"+Pessoa.nivacesso+"', ");
-            sb.AppendLine("telefone = '"+Pessoa.telefone+"', senha = '"+Pessoa.senha+"' ");
+            sb.AppendLine("UPDATE pessoa SET cpf = '"+Pessoa.cpf+"', nome = '" + Pessoa.nome+"', ");
+            sb.AppendLine("email = '"+Pessoa.email+ "', telefone = '"+Pessoa.telefone+"', ");
+            sb.AppendLine("senha = '"+Pessoa.senha+ "', nivel_acesso = '" + Pessoa.nivacesso+ "' ");
             sb.AppendLine("WHERE pessoa.cpf = '"+Pessoa.cpf+"' ");
 
             //open connection

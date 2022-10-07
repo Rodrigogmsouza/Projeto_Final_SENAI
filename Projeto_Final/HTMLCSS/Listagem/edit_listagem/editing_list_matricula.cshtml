@@ -12,7 +12,6 @@
     string nome = "";
     string email = "";
     string telefone = "";
-    string nivelacesso = "";
     string senha = "";
 
     List<pessoa> lista = Funcoes.Info_User(usuario);
@@ -23,7 +22,6 @@
         email = listagempessoa.email;
         telefone = listagempessoa.telefone;
         senha = listagempessoa.senha;
-        nivelacesso = listagempessoa.nivacesso;
     }
 
     pessoa Pessoa = new pessoa();
@@ -32,7 +30,6 @@
     Pessoa.email = Request.Form["emailid"];
     Pessoa.telefone = Request.Form["telid"];
     Pessoa.senha = Request.Form["senhaid2"];
-    Pessoa.nivacesso = nivelacesso;
 
     if (Pessoa.nome == "")
     {

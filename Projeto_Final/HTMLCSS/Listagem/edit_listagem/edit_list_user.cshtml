@@ -53,7 +53,7 @@
             </button>
             <!--REGISTRO OPCOES-->
             <div class="dropdown-container">
-                <a class="active"  href="~/HTMLTEMP/Checagem/check_registro.cshtml">Usuarios</a>
+                <a  href="~/HTMLTEMP/Checagem/check_registro.cshtml">Usuarios</a>
                 <a href="~/HTMLCSS/Registro/registro_turma.cshtml">Turmas</a>
                 <a href="~/HTMLCSS/Registro/registro_sala_setor.cshtml">Salas/Setores</a>
             </div>
@@ -65,7 +65,7 @@
             </button>
             <!--LISTAGEM OPCOES-->
             <div class="dropdown-container">
-                <a href="~/HTMLCSS/Listagem/Listagem_Alunos">Usuarios</a>
+                <a class="active"  href="~/HTMLCSS/Listagem/Listagem_Alunos">Usuarios</a>
                 <a href="~/HTMLCSS/Listagem/listagem_turma.cshtml">Turmas</a>
                 <a href="~/HTMLCSS/Listagem/listagem_sala.cshtml">Salas</a>
                 <a href="~/HTMLCSS/Listagem/listagem_setores.cshtml">Setores</a>
@@ -101,21 +101,21 @@
     </nav>
         <main>
             <div class="content">
-                <form method="post" onsubmit="return checkPassword(this);" action="~/HTMLCSS/UserArea/edit_usearea/editin_user.cshtml">
+                <form method="post" onsubmit="return checkPassword(this);" action="~/HTMLCSS/Listagem/edit_listagem/editing_list_user.cshtml">
                     <div class="container">
                         <div class="registro">
 
                             @{List<pessoa> lista = Funcoes.Info_User(usuario);}
                             @foreach (pessoa listagempessoa in lista)
                             {
-                                <h6 >
+                                <h6>
                                     EDIÇÃO DO USUARIO!
                                 </h6>
                                 <!--NIVEL DE ACESSO-->
                                 <div class="nivel">
 
-                                    <select name="nivacesso" id="nivacesso" >
-                                        <option value="1" selected disabled>Nivel de Acesso</option>
+                                    <select name="nivacesso" id="nivacesso">
+                                        <option value="1" selected disabled>@listagempessoa.nivacesso</option>
                                         <option value="usuario">Usuario</option>
                                         <option value="professor">Professor</option>
                                         <option value="administrador">Administrador</option>
@@ -126,24 +126,29 @@
                                 <input type="text" name="nomeid" id="nomeid" class="campo_nome"
                                        placeholder="@listagempessoa.nome" minlenght="3" maxlength="100" /><br />
                                 <!--CPF-->
-                                <input type="text" name="userid" id="userid" class="campo_cpf"
+                                <input type="text" name="cpfid" id="cpfid" class="campo_cpf"
                                        placeholder="@listagempessoa.cpf" maxlength="11" /><br />
                                 <!--EMAIL-->
                                 <input type="email" name="emailid" id="emailid" class="campo_email"
-                                       placeholder="@listagempessoa.email" maxlength="100"/><br />
+                                       placeholder="@listagempessoa.email" maxlength="100" /><br />
                                 <!--TELEFONE-->
                                 <input type="tel" name="telid" class="campo_tel"
                                        placeholder="@listagempessoa.telefone" minxlength="11"
                                        maxlength="14" /><br />
                                 <!--SENHA-->
                                 <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
-                                       placeholder="senha" minlength="6" maxlength="16" /><br />
+                                       placeholder="nova senha" minlength="6" maxlength="16" /><br />
                                 <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
-                                       placeholder="verifique senha" minlength="6" maxlength="16" /><br />
+                                       placeholder="verifique nova senha" minlength="6" maxlength="16" /><br />
 
                                 <!--ENVIAR-->
                                 <input type="submit" placeholder="REGISTRAR" /><br />
                             }
+
+                            <a class="cnclbtn" onclick="history.go(-1);">
+                                <span class="material-symbols-outlined">arrow_back</span>
+                            </a>
+
                         </div>
                     </div>
                 </form>
