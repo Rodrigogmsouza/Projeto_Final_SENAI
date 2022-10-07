@@ -500,10 +500,10 @@
     <Content Include="HTMLCSS\CSS\Listagem.css" />
     <Content Include="HTMLCSS\CSS\registro.css" />
     <Content Include="HTMLCSS\CSS\Index.css" />
-    <Content Include="IMG\img1.jpg" />
-    <Content Include="IMG\img2.jpg" />
-    <Content Include="IMG\img3.jpeg" />
-    <Content Include="IMG\img4.jpg" />
+    <Content Include="IMG\slide1.jpg" />
+    <Content Include="IMG\slide2.jpg" />
+    <Content Include="IMG\slide3.jpeg" />
+    <Content Include="IMG\slide4.jpg" />
     <Content Include="JS\Index.js" />
     <Content Include="IMG\bg.jpg" />
     <Content Include="IMG\cenai.png" />
@@ -524,34 +524,34 @@
     <Content Include="HTMLTEMP\Checagem\check_registro.cshtml" />
     <Content Include="HTMLTEMP\Checagem\check_listagem.cshtml" />
     <Content Include="HTMLCSS\Registro\registro_turma.cshtml" />
-    <Content Include="HTMLTEMP\Passagem\registrando.cshtml" />
-    <Content Include="HTMLTEMP\Passagem\registrando_turma.cshtml" />
+    <Content Include="HTMLCSS\Registro\registrando\registrando.cshtml" />
+    <Content Include="HTMLCSS\Registro\registrando\registrando_turma.cshtml" />
     <Content Include="HTMLCSS\Listagem\listagem_turma.cshtml" />
     <Content Include="HTMLCSS\Registro\registro_sala_setor.cshtml" />
     <Content Include="HTMLCSS\Listagem\listagem_sala.cshtml" />
-    <Content Include="HTMLTEMP\Passagem\registrando_sala.cshtml" />
+    <Content Include="HTMLCSS\Registro\registrando\registrando_sala.cshtml" />
     <Content Include="HTMLCSS\Listagem\listagem_setores.cshtml" />
-    <Content Include="HTMLTEMP\Passagem\registrando_setor.cshtml" />
+    <Content Include="HTMLCSS\Registro\registrando\registrando_setor.cshtml" />
     <Content Include="HTMLCSS\Registro\matricula.cshtml" />
-    <Content Include="HTMLTEMP\Passagem\matriculando.cshtml" />
-    <Content Include="HTMLTEMP\Exclusao\delete_sala.cshtml" />
-    <Content Include="HTMLTEMP\Exclusao\delete_user.cshtml" />
-    <Content Include="HTMLTEMP\Exclusao\delete_turma.cshtml" />
-    <Content Include="HTMLTEMP\Exclusao\delete_setor.cshtml" />
-    <Content Include="HTMLTEMP\Exclusao\delete_matricula.cshtml" />
+    <Content Include="HTMLCSS\Registro\registrando\matriculando.cshtml" />
+    <Content Include="HTMLCSS\Listagem\remove\delete_sala.cshtml" />
+    <Content Include="HTMLCSS\Listagem\remove\delete_user.cshtml" />
+    <Content Include="HTMLCSS\Listagem\remove\delete_turma.cshtml" />
+    <Content Include="HTMLCSS\Listagem\remove\delete_setor.cshtml" />
+    <Content Include="HTMLCSS\Listagem\remove\delete_matricula.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_aluno.cshtml" />
     <Content Include="HTMLCSS\Provas\notas_aluno.cshtml" />
     <Content Include="HTMLCSS\Provas\notas_prof.cshtml" />
     <Content Include="HTMLTEMP\Checagem\check_userarea.cshtml" />
-    <Content Include="HTMLCSS\Editar\edit_user.cshtml" />
+    <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Professores.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Admins.cshtml" />
     <Content Include="HTMLCSS\Listagem\listagem_matriculas.cshtml" />
-    <Content Include="HTMLCSS\Editar\editin_user.cshtml" />
+    <Content Include="HTMLCSS\UserArea\edit_usearea\editin_user.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_prof.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_admin.cshtml" />
-    <Content Include="HTMLCSS\Editar\edit_user_admin.cshtml" />
-    <Content Include="HTMLCSS\Editar\edit_user_profe.cshtml" />
+    <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user_admin.cshtml" />
+    <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user_profe.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -565,7 +565,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="HTMLTEMP\Edicao\" />
+    <Folder Include="HTMLCSS\Listagem\edit_listagem\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
