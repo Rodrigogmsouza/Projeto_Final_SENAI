@@ -546,6 +546,7 @@ namespace Projeto_Final.CSHARP
                     listagempessoa.email = dataReader[2] + "";
                     listagempessoa.telefone = dataReader[3] + "";
                     listagempessoa.senha = dataReader[4] + "";
+                    listagempessoa.nivacesso = dataReader[5].ToString();
 
                     listapessoa.Add(listagempessoa);
                 }
@@ -769,6 +770,7 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("UPDATE pessoa SET nome = '"+Pessoa.nome+"', email = '"+Pessoa.email+"',  ");
+            sb.AppendLine("cpf = '"+Pessoa.cpf+"', nivel_acesso = '"+Pessoa.nivacesso+"', ");
             sb.AppendLine("telefone = '"+Pessoa.telefone+"', senha = '"+Pessoa.senha+"' ");
             sb.AppendLine("WHERE pessoa.cpf = '"+Pessoa.cpf+"' ");
 

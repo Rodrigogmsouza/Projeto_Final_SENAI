@@ -28,7 +28,8 @@
 
     <title>CENAI</title>
 </head>
-<body div class="bg" onload="return poof();">
+<body div class="bg" onload="poof()">
+    <input type="hidden" id="nivel_acesso" value="@cookie.Value.ToString()" />
     <section>
         <nav>
             <!--SIDEBAR-->
@@ -39,9 +40,8 @@
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
-                
                 <!--MATRICULA-->
-                <div id="sidenav-matricula" >
+                <div id="sidenav-matricula" style="display:none;" >
                     <button class="dropdown-btn">
                         <span class="material-symbols-outlined">person_add</span>
                         Matricula
@@ -54,41 +54,47 @@
                     </div>
                 </div>
                 <!--REGISTRO-->
-                <button class="dropdown-btn">
-                    <span class="material-symbols-outlined">app_registration</span>
-                    Registro
-                    <span class="material-symbols-outlined">expand_more</span>
-                </button>
-                <!--REGISTRO OPCOES-->
-                <div class="dropdown-container">
-                    <a href="~/HTMLTEMP/Checagem/check_registro.cshtml">Usuarios</a>
-                    <a href="~/HTMLCSS/Registro/registro_turma.cshtml">Turmas</a>
-                    <a href="~/HTMLCSS/Registro/registro_sala_setor.cshtml">Salas/Setores</a>
+                <div id="sidenav-registro" style="display:none;">
+                    <button class="dropdown-btn">
+                        <span class="material-symbols-outlined">app_registration</span>
+                        Registro
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <!--REGISTRO OPCOES-->
+                    <div class="dropdown-container">
+                        <a href="~/HTMLTEMP/Checagem/check_registro.cshtml">Usuarios</a>
+                        <a href="~/HTMLCSS/Registro/registro_turma.cshtml">Turmas</a>
+                        <a href="~/HTMLCSS/Registro/registro_sala_setor.cshtml">Salas/Setores</a>
+                    </div>
                 </div>
                 <!--LISTAGEM-->
-                <button class="dropdown-btn">
-                    <span class="material-symbols-outlined">list_alt</span>
-                    Listagem
-                    <span class="material-symbols-outlined">expand_more</span>
-                </button>
-                <!--LISTAGEM OPCOES-->
-                <div class="dropdown-container">
-                    <a href="~/HTMLTEMP/Checagem/check_listagem.cshtml">Usuarios</a>
-                    <a href="~/HTMLCSS/Listagem/listagem_turma.cshtml">Turmas</a>
-                    <a href="~/HTMLCSS/Listagem/listagem_sala.cshtml">Salas</a>
-                    <a href="~/HTMLCSS/Listagem/listagem_setores.cshtml">Setores</a>
+                <div id="sidenav-listagem" style="display:none;">
+                    <button class="dropdown-btn">
+                        <span class="material-symbols-outlined">list_alt</span>
+                        Listagem
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <!--LISTAGEM OPCOES-->
+                    <div class="dropdown-container">
+                        <a href="~/HTMLTEMP/Checagem/check_listagem.cshtml">Usuarios</a>
+                        <a href="~/HTMLCSS/Listagem/listagem_turma.cshtml">Turmas</a>
+                        <a href="~/HTMLCSS/Listagem/listagem_sala.cshtml">Salas</a>
+                        <a href="~/HTMLCSS/Listagem/listagem_setores.cshtml">Setores</a>
+                    </div>
                 </div>
                 <!--PESQUISA-->
-                <button class="dropdown-btn">
-                    <span class="material-symbols-outlined">search</span>
-                    Pesquisa
-                    <span class="material-symbols-outlined">expand_more</span>
-                </button>
-                <!--PESQUISA OPCOES-->
-                <div class="dropdown-container">
-                    <a href="#">Usuarios</a>
-                    <a href="#">Turmas</a>
-                    <a href="#">Salas</a>
+                <div id="sidenav-pesquisa" style="display:none;">
+                    <button class="dropdown-btn">
+                        <span class="material-symbols-outlined">search</span>
+                        Pesquisa
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <!--PESQUISA OPCOES-->
+                    <div class="dropdown-container">
+                        <a href="#">Usuarios</a>
+                        <a href="#">Turmas</a>
+                        <a href="#">Salas</a>
+                    </div>
                 </div>
                 <!--PROVAS-->
                 <a href="#">

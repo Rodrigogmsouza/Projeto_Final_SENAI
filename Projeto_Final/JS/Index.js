@@ -39,16 +39,16 @@ function checkPassword(form) {
 }
 
 // MUDA VISIBILIDADE DE DIV
-
 function poof() {
-    var matricula = document.getElementById('sidenav-matricula');
-
-    if (nivel_acesso == "administrador") {
-        matricula.removeAttribute("hidden");
+    var nivel = document.getElementById("nivel_acesso").value;
+    
+    if (nivel === "administrador") {
+        document.getElementById("sidenav-matricula").style.display = ("block");
+        document.getElementById("sidenav-registro").style.display = ("block");
+        document.getElementById("sidenav-listagem").style.display = ("block");
+        document.getElementById("sidenav-pesquisa").style.display = ("block");
     }
 
-    return matricula;
-    
 }
 
 // LOG OFF

@@ -552,6 +552,7 @@
     <Content Include="HTMLCSS\UserArea\userarea_admin.cshtml" />
     <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user_admin.cshtml" />
     <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user_profe.cshtml" />
+    <Content Include="HTMLCSS\Listagem\edit_listagem\edit_list_user.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -564,9 +565,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HTMLCSS\Listagem\edit_listagem\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
