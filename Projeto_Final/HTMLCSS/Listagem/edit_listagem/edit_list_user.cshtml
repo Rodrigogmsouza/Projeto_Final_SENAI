@@ -5,7 +5,6 @@
     pessoa usuario = new pessoa();
 
     usuario.cpf = Request.Form["userid"];
-
 }
 
 <!DOCTYPE html>
@@ -104,10 +103,12 @@
                 <form method="post" onsubmit="return checkPassword(this);" action="~/HTMLCSS/Listagem/edit_listagem/editing_list_user.cshtml">
                     <div class="container">
                         <div class="registro">
-
+                            <input type="hidden" name="userid"id="userid" value="@usuario.cpf" />
                             @{List<pessoa> lista = Funcoes.Info_User(usuario);}
                             @foreach (pessoa listagempessoa in lista)
                             {
+
+
                                 <h6>
                                     EDIÇÃO DO USUARIO!
                                 </h6>

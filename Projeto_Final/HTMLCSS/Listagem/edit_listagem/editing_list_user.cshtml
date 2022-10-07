@@ -1,6 +1,8 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
+    pessoa usuario = new pessoa();
+    usuario.cpf = Request.Form["userid"];
 
     string cpf = "";
     string nome = "";
@@ -9,10 +11,8 @@
     string nivelacesso = "";
     string senha = "";
 
-    pessoa usuario = new pessoa();
 
-    usuario.cpf = Request.Form["userid"];
-
+     
 
 
     List<pessoa> lista = Funcoes.Info_User(usuario);
@@ -20,10 +20,10 @@
     {
         cpf = listagempessoa.cpf;
         nome = listagempessoa.nome;
+        nivelacesso = listagempessoa.nivacesso;
         email = listagempessoa.email;
         telefone = listagempessoa.telefone;
         senha = listagempessoa.senha;
-        nivelacesso = listagempessoa.nivacesso;
     }
 
     pessoa Pessoa = new pessoa();
@@ -54,11 +54,11 @@
     {
         Pessoa.senha = senha;
     }
-    if (Pessoa.nivacesso == "")
+    if (Pessoa.nivacesso == null)
     {
         Pessoa.nivacesso = nivelacesso;
     }
-    Funcoes.edituser(Pessoa);
+    Funcoes.edituser(Pessoa, usuario);
 
 
 

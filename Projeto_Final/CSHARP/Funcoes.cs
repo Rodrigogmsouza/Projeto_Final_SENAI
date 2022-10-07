@@ -766,13 +766,13 @@ namespace Projeto_Final.CSHARP
 
         // editar usuario
 
-        public static void edituser(pessoa Pessoa)
+        public static void edituser(pessoa Pessoa,pessoa usuario)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("UPDATE pessoa SET cpf = '"+Pessoa.cpf+"', nome = '" + Pessoa.nome+"', ");
             sb.AppendLine("email = '"+Pessoa.email+ "', telefone = '"+Pessoa.telefone+"', ");
             sb.AppendLine("senha = '"+Pessoa.senha+ "', nivel_acesso = '" + Pessoa.nivacesso+ "' ");
-            sb.AppendLine("WHERE pessoa.cpf = '"+Pessoa.cpf+"' ");
+            sb.AppendLine("WHERE pessoa.cpf = '"+usuario.cpf+"' ");
 
             //open connection
             if (BancoDeDados.OpenConnection() == true)
