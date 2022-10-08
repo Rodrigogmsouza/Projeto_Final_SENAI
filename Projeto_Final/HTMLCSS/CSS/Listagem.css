@@ -8,14 +8,16 @@
 }
 
 .lista {
+    width: auto;
     padding-top: 20px;
 }
 
 .options {
     display: inline-flex;
 }
+
 table {
-    width: 100%;
+    width: auto;
     overflow-x: auto;
     background: rgba(255, 255, 255, 0.13);
     border-radius: 16px;

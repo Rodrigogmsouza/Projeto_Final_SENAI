@@ -496,8 +496,8 @@ namespace Projeto_Final.CSHARP
                     turmas.idturma = dataReader[0] + "";
                     turmas.nome_curso = dataReader[1] + "";
                     turmas.turno = dataReader[2] + "";
-                    turmas.idsala = dataReader[3] + "";
-                    turmas.idprofe = dataReader[4] + "";
+                    turmas.idprofe = dataReader[3] + "";
+                    turmas.idsala = dataReader[4] + "";
 
                     listaturma.Add(turmas);
                 }
@@ -619,6 +619,106 @@ namespace Projeto_Final.CSHARP
             else
             {
                 return matriculas;
+            }
+        }
+
+        // matricula user especifico
+        public static List<matricula> listing_mat(matricula mat)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT matricula.id_matricula, matricula.id_aluno,");
+            sb.AppendLine("matricula.id_turma, pessoa.nome, turma.nome_curso FROM matricula");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("WHERE matricula.id_matricula = '" + mat.idmatricula + "' ");
+
+
+            //Create a list to store the result
+            List<matricula> matriculas = new List<matricula>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    matricula matriculados = new matricula();
+
+                    matriculados.idmatricula = dataReader[0].ToString();
+                    matriculados.idaluno = dataReader[1].ToString();
+                    matriculados.idturma = dataReader[2].ToString();
+                    matriculados.extraum = dataReader[3].ToString();
+                    matriculados.extradois = dataReader[4].ToString();
+
+                    matriculas.Add(matriculados);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return matriculas;
+            }
+            else
+            {
+                return matriculas;
+            }
+        }
+
+        // turma user especifico
+        public static List<turma> listing_turma(turma tma)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT * FROM turma");
+            sb.AppendLine("WHERE turma.id_turma = '"+tma.idturma+"' ");
+            //Create a list to store the result
+            List<turma> listaturma = new List<turma>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    turma turmas = new turma();
+                    turmas.idturma = dataReader[0] + "";
+                    turmas.nome_curso = dataReader[1] + "";
+                    turmas.turno = dataReader[2] + "";
+                    turmas.idsala = dataReader[3] + "";
+                    turmas.idprofe = dataReader[4] + "";
+
+                    listaturma.Add(turmas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaturma;
+            }
+            else
+            {
+                return listaturma;
             }
         }
 
@@ -766,13 +866,55 @@ namespace Projeto_Final.CSHARP
 
         // editar usuario
 
-        public static void edituser(pessoa Pessoa,pessoa usuario)
+        public static void edituser(pessoa Pessoa, pessoa usuario)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("UPDATE pessoa SET cpf = '"+Pessoa.cpf+"', nome = '" + Pessoa.nome+"', ");
-            sb.AppendLine("email = '"+Pessoa.email+ "', telefone = '"+Pessoa.telefone+"', ");
-            sb.AppendLine("senha = '"+Pessoa.senha+ "', nivel_acesso = '" + Pessoa.nivacesso+ "' ");
-            sb.AppendLine("WHERE pessoa.cpf = '"+usuario.cpf+"' ");
+            sb.AppendLine("UPDATE pessoa SET cpf = '" + Pessoa.cpf + "', nome = '" + Pessoa.nome + "', ");
+            sb.AppendLine("email = '" + Pessoa.email + "', telefone = '" + Pessoa.telefone + "', ");
+            sb.AppendLine("senha = '" + Pessoa.senha + "', nivel_acesso = '" + Pessoa.nivacesso + "' ");
+            sb.AppendLine("WHERE pessoa.cpf = '" + usuario.cpf + "' ");
+
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+        // editar turma
+
+        public static void editturma(turma Turma)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("UPDATE turma SET nome_curso = '" + Turma.nome_curso + "', ");
+            sb.AppendLine("turno = '" + Turma.turno + "', id_sala = '" + Turma.idsala + "', "); ;
+            sb.AppendLine("id_profe = '" + Turma.idprofe + " ");
+            sb.AppendLine("WHERE turma.id_turma = '" + Turma.idturma + "' ");
+
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+        // editar matricula
+
+        public static void editmat(matricula Matricula)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("UPDATE matricula SET id_aluno = '" + Matricula.idaluno + "', id_turma = '" + Matricula.idturma + "' ");
+            sb.AppendLine("WHERE matricula.id_matricula = '" + Matricula.idmatricula + "' ");
 
             //open connection
             if (BancoDeDados.OpenConnection() == true)

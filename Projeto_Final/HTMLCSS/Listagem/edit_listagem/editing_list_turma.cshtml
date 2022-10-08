@@ -1,60 +1,64 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
-    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
-    HttpCookie cookie = Request.Cookies["UserLogin"];
 
-    pessoa usuario = new pessoa();
+    turma tma = new turma();
 
-    usuario.cpf = cookiecpf.Value.ToString();
+    tma.idturma = Request.Form["turmaid"];
 
-    string cpf = "";
-    string nome = "";
-    string email = "";
-    string telefone = "";
-    string senha = "";
+    string idtma = "";
+    string curso = "";
+    string turno = "";
+    string idsala = "";
+    string idfessor = "";
 
-    List<pessoa> lista = Funcoes.Info_User(usuario);
-    foreach (pessoa listagempessoa in lista)
+    List<turma> listaturmas = Funcoes.listing_turma(tma);
+    foreach (turma turmas in listaturmas)
     {
-        cpf = listagempessoa.cpf;
-        nome = listagempessoa.nome;
-        email = listagempessoa.email;
-        telefone = listagempessoa.telefone;
-        senha = listagempessoa.senha;
+        idtma = turmas.idturma;
+        curso = turmas.nome_curso;
+        turno = turmas.turno;
+        idsala = turmas.idsala;
+        idfessor = turmas.idprofe;
     }
 
-    pessoa Pessoa = new pessoa();
-    Pessoa.cpf = Request.Form["userid"];
-    Pessoa.nome = Request.Form["nomeid"];
-    Pessoa.email = Request.Form["emailid"];
-    Pessoa.telefone = Request.Form["telid"];
-    Pessoa.senha = Request.Form["senhaid2"];
+    turma Turma = new turma();
+    Turma.idturma = Request.Form["turmaid"];
 
-    if (Pessoa.nome == "")
+    Turma.nome_curso = Request.Form["nomeid"];
+
+    Turma.turno = Request.Form["turno"];
+
+    Turma.idsala = Request.Form["sala"];
+
+    Turma.idprofe = Request.Form["professor"];
+
+    if (Turma.idturma == null)
     {
-        Pessoa.nome = nome;
+        Turma.idturma = idtma;
     }
-    if (Pessoa.email == "")
+    if (Turma.nome_curso == "")
     {
-        Pessoa.email = email;
+        Turma.nome_curso = curso;
     }
-    if (Pessoa.telefone == "")
+    if (Turma.turno == "")
     {
-        Pessoa.telefone = telefone;
+        Turma.turno = turno;
     }
-    if (Pessoa.senha == "")
+    if (Turma.idsala == null)
     {
-        Pessoa.senha = senha;
+        Turma.idsala = idsala;
+    }
+    if (Turma.idprofe == null)
+    {
+        Turma.idprofe = idfessor;
     }
 
-    Funcoes.edituser(Pessoa);
-
-
+    Funcoes.editturma(Turma);
 
     <text>
         <script>
-            window.location.href = "/HTMLTEMP/Checagem/check_userarea.cshtml";
+            window.location.href = "/HTMLCSS/Listagem/listagem_turma.cshtml";
         </script>
     </text>
 

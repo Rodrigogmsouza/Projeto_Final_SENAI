@@ -1,61 +1,45 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
-    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
-    HttpCookie cookie = Request.Cookies["UserLogin"];
 
-    pessoa usuario = new pessoa();
+    matricula mat = new matricula();
 
-    usuario.cpf = cookiecpf.Value.ToString();
+    mat.idmatricula = Request.Form["matid"];
 
-    string cpf = "";
-    string nome = "";
-    string email = "";
-    string telefone = "";
-    string senha = "";
+    string idmat = "";
+    string idaluno = "";
+    string idturma = "";
 
-    List<pessoa> lista = Funcoes.Info_User(usuario);
-    foreach (pessoa listagempessoa in lista)
+    List<matricula> lista_mat = Funcoes.listing_mat(mat);
+    foreach (matricula matriculados in lista_mat)
     {
-        cpf = listagempessoa.cpf;
-        nome = listagempessoa.nome;
-        email = listagempessoa.email;
-        telefone = listagempessoa.telefone;
-        senha = listagempessoa.senha;
+        idmat = matriculados.idmatricula;
+        idaluno = matriculados.idaluno;
+        idturma = matriculados.idturma;
     }
 
-    pessoa Pessoa = new pessoa();
-    Pessoa.cpf = Request.Form["userid"];
-    Pessoa.nome = Request.Form["nomeid"];
-    Pessoa.email = Request.Form["emailid"];
-    Pessoa.telefone = Request.Form["telid"];
-    Pessoa.senha = Request.Form["senhaid2"];
+    matricula Matricula = new matricula();
+    Matricula.idmatricula = Request.Form["matid"];
+    Matricula.idaluno = Request.Form["idaluno"];
+    Matricula.idturma = Request.Form["idturma"];
 
-    if (Pessoa.nome == "")
+    if (Matricula.idmatricula == null)
     {
-        Pessoa.nome = nome;
+        Matricula.idmatricula = idmat;
     }
-    if (Pessoa.email == "")
+    if (Matricula.idaluno == null)
     {
-        Pessoa.email = email;
+        Matricula.idaluno = idaluno;
     }
-    if (Pessoa.telefone == "")
+    if (Matricula.idturma == null)
     {
-        Pessoa.telefone = telefone;
-    }
-    if (Pessoa.senha == "")
-    {
-        Pessoa.senha = senha;
+        Matricula.idturma = idturma;
     }
 
-    Funcoes.edituser(Pessoa);
-
-
-
+    Funcoes.editmat(Matricula);
     <text>
         <script>
-            window.location.href = "/HTMLTEMP/Checagem/check_userarea.cshtml";
+            window.location.href = "/HTMLCSS/Listagem/listagem_matriculas.cshtml";
         </script>
     </text>
-
-    }
+}

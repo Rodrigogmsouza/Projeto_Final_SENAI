@@ -21,8 +21,8 @@ namespace Projeto_Final.CSHARP
         public string idturma { get; set; }
         public string nome_curso { get; set; }
         public string turno { get; set; }
-        public string idsala { get; set; }
         public string idprofe { get; set; }
+        public string idsala { get; set; }
     }
 
     public class sala

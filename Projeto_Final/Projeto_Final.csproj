@@ -557,6 +557,8 @@
     <Content Include="HTMLCSS\Listagem\edit_listagem\editing_list_user.cshtml" />
     <Content Include="HTMLCSS\Listagem\edit_listagem\editing_list_turma.cshtml" />
     <Content Include="HTMLCSS\Listagem\edit_listagem\editing_list_matricula.cshtml" />
+    <Content Include="HTMLCSS\Listagem\edit_listagem\edit_list_turma.cshtml" />
+    <Content Include="HTMLCSS\Listagem\edit_listagem\edit_list_matricula.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
