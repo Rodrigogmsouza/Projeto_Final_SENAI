@@ -1,6 +1,21 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+    Boolean logado = false;
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text>
+            <script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -98,7 +113,7 @@
         </nav>
 
         <div class="content" id="content">
-            <div class="lista" id="lista" >
+            <div class="lista" id="lista">
                 <center>
                     <table>
                         <tr>
@@ -120,17 +135,17 @@
                                             </button>
                                         </form>
                                     </div>
-                                    
+
                                 </td>
                             </tr>
                         }
                     </table>
-                    
+
                 </center>
             </div>
         </div>
     </section>
-    
+
     <script src="~/JS/Index.js">
     </script>
 </body>

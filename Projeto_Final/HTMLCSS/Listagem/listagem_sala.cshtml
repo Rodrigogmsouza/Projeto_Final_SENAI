@@ -1,8 +1,21 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+    Boolean logado = false;
 
-    sala Sala = new sala();
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text>
+            <script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -117,7 +130,7 @@
                                         <form method="post" action="~/HTMLCSS/Listagem/remove/delete_sala.cshtml">
                                             <input type="hidden" id="salaid" name="salaid" value="@salas.idsala" />
                                             <button>
-                                                <span class="glyphicon glyphicon-remove-circle"></span> 
+                                                <span class="glyphicon glyphicon-remove-circle"></span>
                                             </button>
                                         </form>
                                     </div>
@@ -125,12 +138,12 @@
                             </tr>
                         }
                     </table>
-                    
+
                 </center>
             </div>
         </div>
     </section>
-    
+
     <script src="~/JS/Index.js">
     </script>
 </body>

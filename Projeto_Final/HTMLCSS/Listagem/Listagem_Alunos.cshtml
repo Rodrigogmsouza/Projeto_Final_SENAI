@@ -1,6 +1,21 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+    Boolean logado = false;
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text>
+            <script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -120,38 +135,38 @@
                     @{List<pessoa> lista = Funcoes.Listagem_Alunos();}
                     @foreach (pessoa listagemalunos in lista)
                     {
-                    <tr>
-                        <td>@listagemalunos.cpf</td>
-                        <td>@listagemalunos.nome</td>
-                        <td>@listagemalunos.email</td>
-                        <td>@listagemalunos.telefone</td>
-                        <td>@listagemalunos.nivacesso</td>
-                        <td>
-                            <div class="options">
-                                <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_user.cshtml">
-                                    <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
-                                    <button class="btn_edit">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </button>
-                                </form>
-                                <form method="post" action="~/HTMLCSS/Listagem/remove/delete_user.cshtml">
-                                    <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
+                        <tr>
+                            <td>@listagemalunos.cpf</td>
+                            <td>@listagemalunos.nome</td>
+                            <td>@listagemalunos.email</td>
+                            <td>@listagemalunos.telefone</td>
+                            <td>@listagemalunos.nivacesso</td>
+                            <td>
+                                <div class="options">
+                                    <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_user.cshtml">
+                                        <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
+                                        <button class="btn_edit">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </button>
+                                    </form>
+                                    <form method="post" action="~/HTMLCSS/Listagem/remove/delete_user.cshtml">
+                                        <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
 
-                                    <button class="btn_remove">
-                                        <span class="glyphicon glyphicon-remove-circle"></span>
-                                    </button>
-                                </form>
-                            </div>
-                                
-                        </td>
-                    </tr>
-                            
+                                        <button class="btn_remove">
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </td>
+                        </tr>
+
                     }
                 </table>
             </div>
         </div>
     </section>
-    
+
     <script src="~/JS/Index.js"></script>
 </body>
 </html>

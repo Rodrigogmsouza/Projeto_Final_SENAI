@@ -1,6 +1,21 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+    Boolean logado = false;
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text>
+            <script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -98,7 +113,7 @@
         </nav>
 
         <div class="content" id="content">
-            
+
             <div class="lista" id="lista">
                 <center>
                     <table>
@@ -113,36 +128,38 @@
                         @{List<turma> lista = Funcoes.Listagem_Turmas();}
                         @foreach (turma turmas in lista)
                         {
-                        <tr>
-                            <td>@turmas.idturma</td>
-                            <td>@turmas.nome_curso</td>
-                            <td>@turmas.turno</td>
-                            <td>@turmas.idprofe</td>
-                            <td>@turmas.idsala</td>
-                            <td><div class="options">
-                                    <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_turma.cshtml">
-                                        <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
-                                        <button class="btn_edit">
-                                            <span class="glyphicon glyphicon-edit"></span> 
-                                        </button>
-                                    </form>
-                                    <form method="post" action="~/HTMLCSS/Listagem/remove/delete_turma.cshtml">
-                                        <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
-                                        <button class="btn_remove">
-                                            <span class="glyphicon glyphicon-remove-circle"></span>
-                                        </button>
-                                    </form>
-                                </div></td>
-                        </tr>
-                            
+                            <tr>
+                                <td>@turmas.idturma</td>
+                                <td>@turmas.nome_curso</td>
+                                <td>@turmas.turno</td>
+                                <td>@turmas.idprofe</td>
+                                <td>@turmas.idsala</td>
+                                <td>
+                                    <div class="options">
+                                        <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_turma.cshtml">
+                                            <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
+                                            <button class="btn_edit">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </button>
+                                        </form>
+                                        <form method="post" action="~/HTMLCSS/Listagem/remove/delete_turma.cshtml">
+                                            <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
+                                            <button class="btn_remove">
+                                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+
                         }
                     </table>
-                    
+
                 </center>
             </div>
         </div>
     </section>
-    
+
     <script src="~/JS/Index.js">
     </script>
 </body>

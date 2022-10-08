@@ -1,6 +1,21 @@
 ﻿@using Projeto_Final.CSHARP
 @{
     BancoDeDados.DBConnect();
+    Boolean logado = false;
+
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text>
+            <script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -99,27 +114,27 @@
 
         <div class="content" id="content">
             <div class="lista" id="lista">
-                    <table>
-                        <tr>
-                            <th>CPF</th>
-                            <th>NOME</th>
-                            <th>EMAIL</th>
-                            <th>TELEFONE</th>
-                            <th>
-                                <button class="dropdown-btn">
-                                    NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
-                                </button>
-                                <div class="dropdown-container">
-                                    <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
-                                    <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
-                                    <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
-                                </div>
-                            </th>
-                            <th>OPÇÕES</th>
-                        </tr>
-                        @{List<pessoa> lista = Funcoes.Listagem_Professor();}
-                        @foreach (pessoa listagemprofe in lista)
-                        {
+                <table>
+                    <tr>
+                        <th>CPF</th>
+                        <th>NOME</th>
+                        <th>EMAIL</th>
+                        <th>TELEFONE</th>
+                        <th>
+                            <button class="dropdown-btn">
+                                NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
+                            </button>
+                            <div class="dropdown-container">
+                                <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
+                                <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
+                                <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
+                            </div>
+                        </th>
+                        <th>OPÇÕES</th>
+                    </tr>
+                    @{List<pessoa> lista = Funcoes.Listagem_Professor();}
+                    @foreach (pessoa listagemprofe in lista)
+                    {
                         <tr>
                             <td>@listagemprofe.cpf</td>
                             <td>@listagemprofe.nome</td>
@@ -142,16 +157,16 @@
                                         </button>
                                     </form>
                                 </div>
-                                
+
                             </td>
                         </tr>
-                            
-                        }
-                    </table>
+
+                    }
+                </table>
             </div>
         </div>
     </section>
-    
+
     <script src="~/JS/Index.js">
     </script>
 </body>

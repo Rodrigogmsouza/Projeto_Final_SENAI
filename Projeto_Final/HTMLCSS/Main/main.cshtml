@@ -1,12 +1,21 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
-    
-    BancoDeDados.DBConnect();
 
-    //Cria o obj cookie e recebe o mesmo pelo obj Request
+    BancoDeDados.DBConnect();
+    Boolean logado = false;
 
     HttpCookie cookie = Request.Cookies["UserLogin"];
     HttpCookie cookiecpf = Request.Cookies["UserCPF"];
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
+    else
+    {
+        <text><script>window.location.href = "/Index.cshtml";</script></text>
+    }
+
 }
 
 <!DOCTYPE html>
@@ -111,13 +120,13 @@
                 </div>
                 <!--NOTAS-->
                 <div id="sidenav-notas" style="display:none;">
-                    <a href="#">
+                    <a href="~/HTMLCSS/Provas/listar_notas_aluno.cshtml">
                         <span class="material-symbols-outlined">scoreboard</span>
                         Suas Notas
                     </a>
                 </div>
                 <!--AREA DO USUARIO-->
-                <a href="~/HTMLTEMP/Checagem/check_userarea.cshtml">
+                <a href="~/HTMLCSS/UserArea/userarea.cshtml">
                     <span class="material-symbols-outlined">account_circle</span>
                     Área do Usuario
                 </a>

@@ -47,16 +47,19 @@ function poof() {
         document.getElementById("sidenav-registro").style.display = ("block");
         document.getElementById("sidenav-listagem").style.display = ("block");
         document.getElementById("sidenav-pesquisa").style.display = ("block");
-        document.getElementById("sidenav-provas").style.display = ("block");
     }
 
     if (nivel === "professor") {
-        document.getElementById("sidenav-pesquisa").style.display = ("block");
         document.getElementById("sidenav-provas").style.display = ("block");
+        document.getElementById("prof-container").style.display = ("block");
+
+        
+
     }
 
     if (nivel === "usuario") {
         document.getElementById("sidenav-notas").style.display = ("block");
+        document.getElementById("aluno-container").style.display = ("block");
     }
 
 }
@@ -77,6 +80,7 @@ function LogOff() {
 
 let slideIndex = 0;
 showSlides();
+
 
 function showSlides() {
     let i;

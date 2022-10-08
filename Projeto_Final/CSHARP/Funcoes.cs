@@ -599,7 +599,7 @@ namespace Projeto_Final.CSHARP
             sb.AppendLine("turma.nome_curso, turma.id_turma FROM provas");
             sb.AppendLine("INNER JOIN matricula ON provas.id_matricula = matricula.id_matricula");
             sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
-            sb.AppendLine("INNER JOIN turma ON turma.id_turma = provas.id_turma");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
             sb.AppendLine("WHERE matricula.id_aluno = '" + Prova.extra + "'");
 
             //Create a list to store the result
@@ -622,8 +622,6 @@ namespace Projeto_Final.CSHARP
                     provas.nota = dataReader[1] + "";
                     provas.idmatricula = dataReader[2] + "";
                     provas.idturma = dataReader[3] + "";
-                    provas.extra = dataReader[4] + "";
-                    provas.extrados = dataReader[5] + "";
 
                     listaprova.Add(provas);
                 }

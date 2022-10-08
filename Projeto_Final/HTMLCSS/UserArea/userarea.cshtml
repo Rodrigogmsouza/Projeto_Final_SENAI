@@ -20,7 +20,7 @@
             <script>window.location.href = "/Index.cshtml";</script></text>
     }
 
-    
+
 }
 
 <!DOCTYPE html>
@@ -155,37 +155,23 @@
                             {
                                 <h3>CPF</h3>
                                 <p>@listagempessoa.cpf</p>
-                                <form method="post" action="editin_user.cshtml" onsubmit="return checkPassword(this);">
-                                    <input type="hidden" id="userid" name="userid" value="@listagempessoa.cpf" />
-                                    <h3>NOME</h3>
-                                    <input type="text" name="nomeid" id="nomeid" class="campo_nome"
-                                           placeholder="@listagempessoa.nome" minlenght="3" maxlength="100" /><br />
 
-                                    <h3>EMAIL</h3>
-                                    <input type="email" name="emailid" id="emailid" class="campo_email"
-                                           placeholder="@listagempessoa.email" maxlength="100" />
+                                <h3>NOME</h3>
+                                <p>@listagempessoa.nome</p>
 
-                                    <h3>TELEFONE</h3>
-                                    <input type="tel" name="telid" class="campo_tel"
-                                           placeholder="@listagempessoa.telefone" minxlength="11"
-                                           maxlength="14" />
+                                <h3>EMAIL</h3>
+                                <p>@listagempessoa.email</p>
 
-                                    <h3>SENHA</h3>
-                                    <input type="password" id="senhaid1" name="senhaid1" class="campo_senha1"
-                                           placeholder="nova senha" minlength="6" maxlength="16" />
-                                    <br />
-                                    <input type="password" id="senhaid2" name="senhaid2" class="campo_senha2"
-                                           placeholder="verifique nova senha" minlength="6" maxlength="16" />
-                                    <br />
-                                    <button>
-                                        <span class="material-symbols-outlined">edit_note</span> EDITAR
-                                    </button>
-                                    <br />
-                                </form>
+                                <h3>TELEFONE</h3>
+                                <p>@listagempessoa.telefone</p>
+
+                                <h3>SENHA</h3>
+                                <p><small>**********</small></p>
+
                             }
                         </center>
-                        <a class="cnclbtn" href="~/HTMLCSS/UserArea/userarea.cshtml">
-                            <span class="material-symbols-outlined">arrow_back</span>
+                        <a class="editbtn" href="~/HTMLCSS/UserArea/edit_usearea/edit_user.cshtml">
+                            <span class="material-symbols-outlined">edit_note</span>
                         </a>
 
                     </div>
@@ -256,9 +242,12 @@
                     </div>
                 </div>
             </div>
+
         </main>
     </section>
 
-    <script src="~/JS/Index.js"></script>
+    <script src="~/JS/Index.js">
+
+    </script>
 </body>
 </html>
