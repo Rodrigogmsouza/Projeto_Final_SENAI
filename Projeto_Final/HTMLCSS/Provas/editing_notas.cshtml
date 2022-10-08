@@ -1,0 +1,47 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+
+    prova pva = new prova();
+
+    pva.idprova = Request.Form["provaid"];
+
+    string idprova = "";
+    string nota = "";
+    string idmatricula = "";
+
+    List<prova> lista = Funcoes.Listing_Notas(pva);
+    foreach (prova prova_atual in lista)
+    {
+        idprova = pva.idprova;
+        nota = pva.nota;
+        idmatricula = pva.extra;
+    }
+
+        prova Prova = new prova();
+
+        Prova.idprova = Request.Form["provaid"];
+        Prova.nota = Request.Form["notaid"];
+        Prova.idmatricula = Request.Form["idmatricula"];
+
+        if (Prova.idprova == null)
+        {
+            Prova.idprova = idprova;
+        }
+        if (Prova.nota == null)
+        {
+            Prova.nota = nota;
+        }
+        if (Prova.idmatricula == null)
+        {
+            Prova.idmatricula = idmatricula;
+        }
+
+        Funcoes.editnota(Prova);
+
+        <text>
+            <script>
+                window.location.href = "/HTMLCSS/Provas/listar_notas_prof.cshtml";
+            </script>
+        </text>
+    }

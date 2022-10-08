@@ -1,0 +1,16 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+
+    prova Prova = new prova();
+    Prova.idprova = Request.Form["provaid"];
+
+    Funcoes.dltnota(Prova);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Provas/listar_notas_prof.cshtml";
+        </script>
+    </text>
+}

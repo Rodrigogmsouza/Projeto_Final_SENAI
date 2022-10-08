@@ -1,0 +1,17 @@
+﻿@using Projeto_Final.CSHARP;
+@{
+    BancoDeDados.DBConnect();
+    prova Prova = new prova();
+
+    Prova.nota = Request.Form["notaid"];
+    Prova.idmatricula = Request.Form["idmatricula"];
+
+    Funcoes.Registro_Nota(Prova);
+    
+
+    <text>
+        <script>
+            window.location.href = "/HTMLCSS/Provas/registrar_notas.cshtml";
+        </script>
+    </text>
+}

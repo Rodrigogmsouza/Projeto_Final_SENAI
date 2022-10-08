@@ -162,6 +162,24 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // registro nota
+        public static void Registro_Nota(prova Prova)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("INSERT INTO provas (nota, id_matricula)");
+            sb.AppendLine("VALUES ('" + Prova.nota + "', '"+ Prova.idmatricula+"')");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+        }
+        
         // matricula
 
         public static void Matricula(matricula Matricula)
@@ -517,6 +535,115 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // listagem PROVAS P/ PROFESSOR
+
+        public static List<prova> Lista_Notas(prova Prova)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT provas.id_prova, provas.nota, pessoa.nome, ");
+            sb.AppendLine("turma.nome_curso, turma.id_turma FROM provas");
+            sb.AppendLine("INNER JOIN matricula ON provas.id_matricula = matricula.id_matricula");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("WHERE turma.id_profe = '" + Prova.extrados + "'");
+
+            //Create a list to store the result
+            List<prova> listaprova = new List<prova>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    prova provas = new prova();
+                    provas.idprova = dataReader[0] + "";
+                    provas.nota = dataReader[1] + "";
+                    provas.idmatricula = dataReader[2] + "";
+                    provas.idturma = dataReader[3] + "";
+                    provas.extra = dataReader[4] + "";
+
+                    listaprova.Add(provas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaprova;
+
+            }
+            else
+            {
+                return listaprova;
+            }
+        }
+
+        // listagem PROVAS P/ ALUNOS
+
+        public static List<prova> Lista_Notas_user(prova Prova)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT provas.id_prova, provas.nota, ");
+            sb.AppendLine("turma.nome_curso, turma.id_turma FROM provas");
+            sb.AppendLine("INNER JOIN matricula ON provas.id_matricula = matricula.id_matricula");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = provas.id_turma");
+            sb.AppendLine("WHERE matricula.id_aluno = '" + Prova.extra + "'");
+
+            //Create a list to store the result
+            List<prova> listaprova = new List<prova>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    prova provas = new prova();
+                    provas.idprova = dataReader[0] + "";
+                    provas.nota = dataReader[1] + "";
+                    provas.idmatricula = dataReader[2] + "";
+                    provas.idturma = dataReader[3] + "";
+                    provas.extra = dataReader[4] + "";
+                    provas.extrados = dataReader[5] + "";
+
+                    listaprova.Add(provas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaprova;
+
+            }
+            else
+            {
+                return listaprova;
+            }
+        }
+
         // informaçoes usuario
         public static List<pessoa> Info_User(pessoa usuario)
         {
@@ -656,6 +783,110 @@ namespace Projeto_Final.CSHARP
                     matriculados.idturma = dataReader[2].ToString();
                     matriculados.extraum = dataReader[3].ToString();
                     matriculados.extradois = dataReader[4].ToString();
+
+                    matriculas.Add(matriculados);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return matriculas;
+            }
+            else
+            {
+                return matriculas;
+            }
+        }
+
+        // nota user especifico
+        public static List<prova> Listing_Notas(prova pva)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT provas.id_prova, provas.nota, pessoa.nome, ");
+            sb.AppendLine("turma.nome_curso, provas.id_matricula FROM provas");
+            sb.AppendLine("INNER JOIN matricula ON provas.id_matricula = matricula.id_matricula");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("WHERE provas.id_prova = '" + pva.idprova + "'");
+
+            //Create a list to store the result
+            List<prova> listaprova = new List<prova>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    prova provas = new prova();
+                    provas.idprova = dataReader[0] + "";
+                    provas.nota = dataReader[1] + "";
+                    provas.idmatricula = dataReader[2] + "";
+                    provas.idturma = dataReader[3] + "";
+                    provas.extra = dataReader[4].ToString();
+
+                    listaprova.Add(provas);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaprova;
+
+            }
+            else
+            {
+                return listaprova;
+            }
+        }
+
+        // matricula professor especifico
+        public static List<matricula> listing_mat_prof(matricula mat)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT matricula.id_matricula, pessoa.nome,");
+            sb.AppendLine("turma.nome_curso FROM matricula");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("WHERE turma.id_profe = '" + mat.extraum + "' ");
+
+
+            //Create a list to store the result
+            List<matricula> matriculas = new List<matricula>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    matricula matriculados = new matricula();
+
+                    matriculados.idmatricula = dataReader[0].ToString();
+                    matriculados.idaluno = dataReader[1].ToString();
+                    matriculados.idturma = dataReader[2].ToString();
 
                     matriculas.Add(matriculados);
                 }
@@ -845,6 +1076,24 @@ namespace Projeto_Final.CSHARP
 
         }
 
+        // deletar nota
+        public static void dltnota(prova Prova)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("DELETE FROM provas WHERE");
+            sb.AppendLine("provas.id_prova = '" + Prova.idprova + "' ");
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
         // deletar matricula
 
         public static void dltmatricula(matricula Matricula)
@@ -895,6 +1144,27 @@ namespace Projeto_Final.CSHARP
             sb.AppendLine("turno = '" + Turma.turno + "', id_sala = '" + Turma.idsala + "', "); ;
             sb.AppendLine("id_profe = '" + Turma.idprofe + " ");
             sb.AppendLine("WHERE turma.id_turma = '" + Turma.idturma + "' ");
+
+            //open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                cmd.ExecuteReader();
+                //close connection
+                BancoDeDados.CloseConnection();
+            }
+
+        }
+
+        // editar nota
+
+        public static void editnota(prova Prova)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("UPDATE provas SET nota = '" + Prova.nota + "', ");
+            sb.AppendLine("id_matricula = '" + Prova.idmatricula + "' ");
+            sb.AppendLine("WHERE provas.id_prova = '" + Prova.idprova + "' ");
 
             //open connection
             if (BancoDeDados.OpenConnection() == true)

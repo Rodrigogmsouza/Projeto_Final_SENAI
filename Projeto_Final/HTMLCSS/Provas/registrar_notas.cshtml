@@ -1,7 +1,19 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
-    matricula Matricula = new matricula();
+    Boolean logado = false;
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
+
+    matricula mat = new matricula();
+    string usercpf = cookiecpf.Value.ToString();
+
+    mat.extraum = usercpf;
+
+    if (cookie != null)
+    {
+        logado = true;
+    }
 }
 
 <!DOCTYPE html>
@@ -97,31 +109,24 @@
     </nav>
         <main>
             <div class="content">
-                <form method="post" action="~/HTMLTEMP/Passagem/matriculando.cshtml">
+                <form method="post" action="~/HTMLCSS/Provas/registrando_nota.cshtml">
                     <div class="container">
                         <center>
                             <div class="registro">
-                                <!--ALUNO-->
-                                <select name="idaluno" id="idaluno">
-                                    <option value="1" disabled selected>ESCOLHA O ALUNO</option>
-                                    @{List<pessoa> lista_alunos = Funcoes.Listagem_Alunos(); }
-                                    @foreach (pessoa listagemalunos in lista_alunos)
-                                    {
-                                        <option value="@listagemalunos.cpf">@listagemalunos.nome</option>
-                                    }
-                                </select>
-                                <!--TURMA-->
-                                <select name="idturma" id="idturma">
-                                    <option value="1" disabled selected>ESCOLHA A TURMA</option>
-                                    @{List<turma> lista = Funcoes.Listagem_Turmas();}
-                                    @foreach (turma turmas in lista)
-                                    { 
-                                        <option value="@turmas.idturma">@turmas.nome_curso</option>
 
+                                <input type="text" id="notaid" name="notaid" placeholder="Nota (/100)" maxlength="3" required /> 
+
+                                <select name="idmatricula" id="idmatricula">
+                                    <option value="1" disabled selected>ESCOLHA O ALUNO</option>
+                                    @{List<matricula> lista_matricula = Funcoes.listing_mat_prof(mat);}
+                                    @foreach (matricula matri in lista_matricula)
+                                    {
+                                        <option value="@matri.idmatricula">@matri.idaluno || @matri.idturma</option>
                                     }
-                                </select>
+                                    </select>
+                                
                                 <!--ENVIAR-->
-                                <input type="submit" placeholder="MATRICULAR" /><br />
+                                <input type="submit" placeholder="DAR NOTA" /><br />
 
                             </div>
                         </center>

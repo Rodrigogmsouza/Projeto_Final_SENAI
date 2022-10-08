@@ -41,7 +41,15 @@ namespace Projeto_Final.CSHARP
         public string extradois { get; set; }
     }
     
-    
+    public class prova
+    {
+        public string idprova { get; set; }
+        public string nota { get; set; }
+        public string idmatricula { get; set; }
+        public string idturma { get; set; }
+        public string extra { get; set; }
+        public string extrados { get; set; }
+    }
 
 
     public class setor

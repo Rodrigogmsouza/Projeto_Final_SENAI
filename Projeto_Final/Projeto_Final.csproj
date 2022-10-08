@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Projeto_Final</RootNamespace>
     <AssemblyName>Projeto_Final</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
@@ -505,6 +505,7 @@
     <Content Include="IMG\slide2.jpg" />
     <Content Include="IMG\slide3.jpeg" />
     <Content Include="IMG\slide4.jpg" />
+    <Content Include="IMG\userarea_bg.jpg" />
     <Content Include="JS\Index.js" />
     <Content Include="IMG\bg.jpg" />
     <Content Include="IMG\cenai.png" />
@@ -541,8 +542,7 @@
     <Content Include="HTMLCSS\Listagem\remove\delete_setor.cshtml" />
     <Content Include="HTMLCSS\Listagem\remove\delete_matricula.cshtml" />
     <Content Include="HTMLCSS\UserArea\userarea_aluno.cshtml" />
-    <Content Include="HTMLCSS\Provas\notas_aluno.cshtml" />
-    <Content Include="HTMLCSS\Provas\notas_prof.cshtml" />
+    <Content Include="HTMLCSS\Provas\registrar_notas.cshtml" />
     <Content Include="HTMLTEMP\Checagem\check_userarea.cshtml" />
     <Content Include="HTMLCSS\UserArea\edit_usearea\edit_user.cshtml" />
     <Content Include="HTMLCSS\Listagem\Listagem_Professores.cshtml" />
@@ -559,6 +559,12 @@
     <Content Include="HTMLCSS\Listagem\edit_listagem\editing_list_matricula.cshtml" />
     <Content Include="HTMLCSS\Listagem\edit_listagem\edit_list_turma.cshtml" />
     <Content Include="HTMLCSS\Listagem\edit_listagem\edit_list_matricula.cshtml" />
+    <Content Include="HTMLCSS\Provas\listar_notas_prof.cshtml" />
+    <Content Include="HTMLCSS\Provas\listar_notas_aluno.cshtml" />
+    <Content Include="HTMLCSS\Provas\registrando_nota.cshtml" />
+    <Content Include="HTMLCSS\Provas\delete_nota.cshtml" />
+    <Content Include="HTMLCSS\Provas\edit_notas.cshtml" />
+    <Content Include="HTMLCSS\Provas\editing_notas.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

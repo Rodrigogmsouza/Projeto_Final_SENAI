@@ -33,15 +33,15 @@
     <section>
         <nav>
             <!--SIDEBAR-->
-            <div class="sidenav" >
-                
+            <div class="sidenav">
+
                 <!--PAGINA INICIAL-->
                 <a class="active" href="~/HTMLCSS/Main/main.cshtml">
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
                 <!--MATRICULA-->
-                <div id="sidenav-matricula" style="display:none;" >
+                <div id="sidenav-matricula" style="display:none;">
                     <button class="dropdown-btn">
                         <span class="material-symbols-outlined">person_add</span>
                         Matricula
@@ -97,10 +97,25 @@
                     </div>
                 </div>
                 <!--PROVAS-->
-                <a href="#">
-                    <span class="material-symbols-outlined">quiz</span>
-                    Provas
-                </a>
+                <div id="sidenav-provas" style="display:none;">
+                    <button class="dropdown-btn">
+                        <span class="material-symbols-outlined">quiz</span>
+                        Provas
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <!--PESQUISA OPCOES-->
+                    <div class="dropdown-container">
+                        <a href="~/HTMLCSS/Provas/registrar_notas.cshtml">Dar Nota</a>
+                        <a href="~/HTMLCSS/Provas/listar_notas_prof.cshtml">Ver Notas</a>
+                    </div>
+                </div>
+                <!--NOTAS-->
+                <div id="sidenav-notas" style="display:none;">
+                    <a href="#">
+                        <span class="material-symbols-outlined">scoreboard</span>
+                        Suas Notas
+                    </a>
+                </div>
                 <!--AREA DO USUARIO-->
                 <a href="~/HTMLTEMP/Checagem/check_userarea.cshtml">
                     <span class="material-symbols-outlined">account_circle</span>

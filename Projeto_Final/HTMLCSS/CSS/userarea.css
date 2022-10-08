@@ -6,7 +6,9 @@
 }
 
 .bg {
-    background-color: #eeeeee;
+    background-image: url(../../IMG/userarea_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .userinfo-container {

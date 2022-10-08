@@ -1,7 +1,17 @@
 ﻿@using Projeto_Final.CSHARP;
 @{
     BancoDeDados.DBConnect();
-    matricula Matricula = new matricula();
+    Boolean logado = false;
+    HttpCookie cookie = Request.Cookies["UserLogin"];
+    HttpCookie cookiecpf = Request.Cookies["UserCpf"];
+
+    matricula mat = new matricula();
+    string usercpf = cookiecpf.Value.ToString();
+
+    mat.extraum = usercpf;
+
+    prova pva = new prova();
+    pva.idprova = Request.Form["provaid"];
 }
 
 <!DOCTYPE html>
@@ -97,33 +107,31 @@
     </nav>
         <main>
             <div class="content">
-                <form method="post" action="~/HTMLTEMP/Passagem/matriculando.cshtml">
+                <form method="post" action="~/HTMLCSS/Provas/editing_notas.cshtml">
                     <div class="container">
                         <center>
                             <div class="registro">
-                                <!--ALUNO-->
-                                <select name="idaluno" id="idaluno">
-                                    <option value="1" disabled selected>ESCOLHA O ALUNO</option>
-                                    @{List<pessoa> lista_alunos = Funcoes.Listagem_Alunos(); }
-                                    @foreach (pessoa listagemalunos in lista_alunos)
-                                    {
-                                        <option value="@listagemalunos.cpf">@listagemalunos.nome</option>
-                                    }
-                                </select>
-                                <!--TURMA-->
-                                <select name="idturma" id="idturma">
-                                    <option value="1" disabled selected>ESCOLHA A TURMA</option>
-                                    @{List<turma> lista = Funcoes.Listagem_Turmas();}
-                                    @foreach (turma turmas in lista)
-                                    { 
-                                        <option value="@turmas.idturma">@turmas.nome_curso</option>
+                                <input type="hidden" id="provaid" name="provaid" value="@pva.idprova" />
+                                @{List<prova> lista = Funcoes.Listing_Notas(pva);}
+                                @foreach (prova prova_atual in lista)
+                                {
+                                    <input type="text" id="notaid" name="notaid" placeholder="Nota (@prova_atual.nota/100)" maxlength="3" />
 
-                                    }
-                                </select>
-                                <!--ENVIAR-->
-                                <input type="submit" placeholder="MATRICULAR" /><br />
-
-                            </div>
+                                    <select name="idmatricula" id="idmatricula">
+                                        <option value="1" disabled selected>@prova_atual.idmatricula || @prova_atual.idturma</option>
+                                        @{List<matricula> lista_matricula = Funcoes.listing_mat_prof(mat);}
+                                        @foreach (matricula matri in lista_matricula)
+                                        {
+                                            <option value="@matri.idmatricula">@matri.idaluno || @matri.idturma</option>
+                                        }
+                                    </select>
+                                            }
+                                    <!--ENVIAR-->
+                                    <input type="submit" placeholder="MUDAR NOTA" /><br />
+                                    <a class="cnclbtn" onclick="history.go(-1);">
+                                        <span class="material-symbols-outlined">arrow_back</span>
+                                    </a>
+                                </div>
                         </center>
                     </div>
                 </form>
