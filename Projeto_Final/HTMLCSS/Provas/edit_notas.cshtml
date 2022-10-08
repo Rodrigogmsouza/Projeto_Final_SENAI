@@ -111,27 +111,29 @@
                     <div class="container">
                         <center>
                             <div class="registro">
+
+
                                 <input type="hidden" id="provaid" name="provaid" value="@pva.idprova" />
                                 @{List<prova> lista = Funcoes.Listing_Notas(pva);}
                                 @foreach (prova prova_atual in lista)
                                 {
                                     <input type="text" id="notaid" name="notaid" placeholder="Nota (@prova_atual.nota/100)" maxlength="3" />
 
-                                    <select name="idmatricula" id="idmatricula">
-                                        <option value="1" disabled selected>@prova_atual.idmatricula || @prova_atual.idturma</option>
+                                    <select name="matriculaid" id="matriculaid">
+                                        <option value="@prova_atual.idmatricula" disabled selected>@prova_atual.idturma || @prova_atual.extra</option>
                                         @{List<matricula> lista_matricula = Funcoes.listing_mat_prof(mat);}
                                         @foreach (matricula matri in lista_matricula)
                                         {
                                             <option value="@matri.idmatricula">@matri.idaluno || @matri.idturma</option>
                                         }
                                     </select>
-                                            }
+
                                     <!--ENVIAR-->
-                                    <input type="submit" placeholder="MUDAR NOTA" /><br />
-                                    <a class="cnclbtn" onclick="history.go(-1);">
-                                        <span class="material-symbols-outlined">arrow_back</span>
-                                    </a>
-                                </div>
+                                    <input type="submit" placeholder="MUDAR NOTA" /><br />}
+                                <a class="cnclbtn" onclick="history.go(-1);">
+                                    <span class="material-symbols-outlined">arrow_back</span>
+                                </a>
+                            </div>
                         </center>
                     </div>
                 </form>

@@ -807,8 +807,8 @@ namespace Projeto_Final.CSHARP
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT provas.id_prova, provas.nota, pessoa.nome, ");
-            sb.AppendLine("turma.nome_curso, provas.id_matricula FROM provas");
+            sb.AppendLine("SELECT provas.id_prova, provas.nota, provas.id_matricula, pessoa.nome, ");
+            sb.AppendLine("turma.nome_curso FROM provas");
             sb.AppendLine("INNER JOIN matricula ON provas.id_matricula = matricula.id_matricula");
             sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
             sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
@@ -1197,6 +1197,9 @@ namespace Projeto_Final.CSHARP
             }
 
         }
+
+        
+
 
     }
 }
