@@ -46,15 +46,11 @@ function poof() {
         document.getElementById("sidenav-matricula").style.display = ("block");
         document.getElementById("sidenav-registro").style.display = ("block");
         document.getElementById("sidenav-listagem").style.display = ("block");
-        document.getElementById("sidenav-pesquisa").style.display = ("block");
     }
 
     if (nivel === "professor") {
         document.getElementById("sidenav-provas").style.display = ("block");
         document.getElementById("prof-container").style.display = ("block");
-
-        
-
     }
 
     if (nivel === "usuario") {

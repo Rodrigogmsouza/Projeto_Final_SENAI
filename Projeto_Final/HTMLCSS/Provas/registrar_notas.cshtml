@@ -37,15 +37,14 @@
 
     <title>CENAI</title>
 </head>
-<body div class="bg" onload="poof()">
-    <input type="hidden" id="nivel_acesso" value="@cookie.Value.ToString()" />
+<body div class="bg"  onload="poof()">
     <section>
         <nav>
+            <input type="hidden" id="nivel_acesso" value="@cookie.Value.ToString()" />
             <!--SIDEBAR-->
             <div class="sidenav">
-
                 <!--PAGINA INICIAL-->
-                <a href="~/HTMLCSS/Main/main.cshtml">
+                <a class="active" href="~/HTMLCSS/Main/main.cshtml">
                     <span class="material-symbols-outlined">home</span>
                     Pagina Inicial
                 </a>
@@ -91,20 +90,6 @@
                         <a href="~/HTMLCSS/Listagem/listagem_setores.cshtml">Setores</a>
                     </div>
                 </div>
-                <!--PESQUISA-->
-                <div id="sidenav-pesquisa" style="display:none;">
-                    <button class="dropdown-btn">
-                        <span class="material-symbols-outlined">search</span>
-                        Pesquisa
-                        <span class="material-symbols-outlined">expand_more</span>
-                    </button>
-                    <!--PESQUISA OPCOES-->
-                    <div class="dropdown-container">
-                        <a href="#">Usuarios</a>
-                        <a href="#">Turmas</a>
-                        <a href="#">Salas</a>
-                    </div>
-                </div>
                 <!--PROVAS-->
                 <div id="sidenav-provas" style="display:none;">
                     <button class="dropdown-btn">
@@ -114,13 +99,13 @@
                     </button>
                     <!--PESQUISA OPCOES-->
                     <div class="dropdown-container">
-                        <a class="active" href="~/HTMLCSS/Provas/registrar_notas.cshtml">Dar Nota</a>
+                        <a href="~/HTMLCSS/Provas/registrar_notas.cshtml">Dar Nota</a>
                         <a href="~/HTMLCSS/Provas/listar_notas_prof.cshtml">Ver Notas</a>
                     </div>
                 </div>
                 <!--NOTAS-->
                 <div id="sidenav-notas" style="display:none;">
-                    <a href="#">
+                    <a href="~/HTMLCSS/Provas/listar_notas_aluno.cshtml">
                         <span class="material-symbols-outlined">scoreboard</span>
                         Suas Notas
                     </a>
@@ -138,7 +123,6 @@
             </div>
 
 
-        </nav>
         </nav>
         <main>
             <div class="content">
