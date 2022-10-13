@@ -152,14 +152,18 @@
                                     <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_matricula.cshtml">
                                         <input type="hidden" id="matid" name="matid" value="@matriculados.idmatricula" />
                                         <button class="btn_edit">
-                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <span class="material-symbols-outlined">
+                                                edit_square
+                                            </span>
                                         </button>
                                     </form>
                                     <form method="post" action="~/HTMLCSS/Listagem/remove/delete_matricula.cshtml">
                                         <input type="hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
 
                                         <button class="btn_remove">
-                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                            <span class="material-symbols-outlined">
+                                                delete
+                                            </span>
                                         </button>
                                     </form>
                                 </div>

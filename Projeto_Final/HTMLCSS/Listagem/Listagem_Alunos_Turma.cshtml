@@ -6,6 +6,10 @@
     HttpCookie cookie = Request.Cookies["UserLogin"];
     HttpCookie cookiecpf = Request.Cookies["UserCPF"];
 
+    turma Turma = new turma();
+
+    Turma.idturma = Request.Form["turmaid"];
+
     if (cookie != null)
     {
         logado = true;
@@ -126,65 +130,43 @@
         </nav>
 
         <div class="content" id="content">
+            
             <div class="lista" id="lista">
-                <table>
-                    <tr>
-                        <th>CPF</th>
-                        <th>NOME</th>
-                        <th>EMAIL</th>
-                        <th>TELEFONE</th>
-                        <th>
-                            <button class="dropdown-btn">
-                                NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
-                            </button>
-                            <div class="dropdown-container">
-                                <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
-                                <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
-                                <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
-                            </div>
-                        </th>
-                        <th>OPÇÕES</th>
-                    </tr>
-                    @{List<pessoa> lista = Funcoes.Listagem_Admins();}
-                    @foreach (pessoa listagemadmins in lista)
-                    {
+                
+                <center>
+                    <table>
+                        
                         <tr>
-                            <td>@listagemadmins.cpf</td>
-                            <td>@listagemadmins.nome</td>
-                            <td>@listagemadmins.email</td>
-                            <td>@listagemadmins.telefone</td>
-                            <td>@listagemadmins.nivacesso</td>
-                            <td>
-                                <div class="options">
-                                    <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_user.cshtml">
-                                        <input type="hidden" id="userid" name="userid" value="@listagemadmins.cpf" />
-                                        <button class="btn_edit">
-                                            <span class="material-symbols-outlined">
-                                                edit_square
-                                            </span>
-                                        </button>
-                                    </form>
-                                    <form method="post" action="~/HTMLCSS/Listagem/remove/delete_user.cshtml">
-                                        <input type="hidden" id="userid" name="userid" value="@listagemadmins.cpf" />
-
-                                        <button class="btn_remove">
-                                            <span class="material-symbols-outlined">
-                                                delete
-                                            </span>
-                                        </button>
-                                    </form>
-                                </div>
-
-                            </td>
+                            <th>
+                                <a class="cnclbtn" href="~/HTMLCSS/Listagem/listagem_turma.cshtml">
+                                    <span class="material-symbols-outlined">
+                                        close
+                                    </span>
+                                </a>
+                            </th>
+                            <th>MATRICULA</th>
+                            <th>CPF</th>
+                            <th>NOME</th>
+                            <th>EMAIL</th>
                         </tr>
+                        @{List<pessoa> lista = Funcoes.Listagem_Alunos_Turma(Turma);}
+                        @foreach (pessoa listagemalunos in lista)
+                        {
+                            <tr>
+                                <td>  </td>
+                                <td>@listagemalunos.cpf</td>
+                                <td>@listagemalunos.nome</td>
+                                <td>@listagemalunos.email</td>
+                                <td>@listagemalunos.telefone</td>
+                            </tr>
 
-                    }
-                </table>
+                        }
+                    </table>
+                </center>
             </div>
         </div>
     </section>
 
-    <script src="~/JS/Index.js">
-    </script>
+    <script src="~/JS/Index.js"></script>
 </body>
 </html>

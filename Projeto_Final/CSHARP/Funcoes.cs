@@ -441,6 +441,55 @@ namespace Projeto_Final.CSHARP
             }
         }
 
+        // listagem ALUNOS
+        public static List<pessoa> Listagem_Alunos_Turma(turma Turma)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("SELECT matricula.id_matricula, pessoa.cpf, ");
+            sb.AppendLine("pessoa.nome, pessoa.email FROM matricula");
+            sb.AppendLine("INNER JOIN turma ON turma.id_turma = matricula.id_turma");
+            sb.AppendLine("INNER JOIN pessoa ON pessoa.cpf = matricula.id_aluno");
+            sb.AppendLine("WHERE turma.id_turma = '"+ Turma.idturma +"' ");
+
+            //Create a list to store the result
+            List <pessoa> listaalunos = new List<pessoa>();
+
+            //Open connection
+            if (BancoDeDados.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), BancoDeDados.conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+
+                while (dataReader.Read())
+                {
+                    pessoa listagemalunos = new pessoa();
+                    listagemalunos.cpf = dataReader[0] + "";
+                    listagemalunos.nome = dataReader[1] + "";
+                    listagemalunos.email = dataReader[2] + "";
+                    listagemalunos.telefone = dataReader[3] + "";
+                    listaalunos.Add(listagemalunos);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                BancoDeDados.CloseConnection();
+
+                //return list to be displayed
+                return listaalunos;
+            }
+            else
+            {
+                return listaalunos;
+            }
+        }
+
         // listagem SETORES
 
         public static List<setor> Listagem_Setor()

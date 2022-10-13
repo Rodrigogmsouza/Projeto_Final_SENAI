@@ -29,8 +29,6 @@
     <!--ICONES-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,1,-25" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--css-->
     <link rel="stylesheet" href="~/HTMLCSS/CSS/sidebar.css" />
     <link rel="stylesheet" href="~/HTMLCSS/CSS/Listagem.css" />
@@ -127,6 +125,7 @@
         <div class="content" id="content">
 
             <div class="lista" id="lista">
+                
                 <center>
                     <table>
                         <tr>
@@ -148,16 +147,28 @@
                                 <td>@turmas.idsala</td>
                                 <td>
                                     <div class="options">
+                                        <form method="post" action="~/HTMLCSS/Listagem/Listagem_Alunos_Turma.cshtml">
+                                            <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
+                                            <button class="btn_alunos">
+                                                <span class="material-symbols-outlined">
+                                                    groups
+                                                </span>
+                                            </button>
+                                        </form>
                                         <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_turma.cshtml">
                                             <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
                                             <button class="btn_edit">
-                                                <span class="glyphicon glyphicon-edit"></span>
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
                                             </button>
                                         </form>
                                         <form method="post" action="~/HTMLCSS/Listagem/remove/delete_turma.cshtml">
                                             <input type="hidden" id="turmaid" name="turmaid" value="@turmas.idturma" />
                                             <button class="btn_remove">
-                                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span>
                                             </button>
                                         </form>
                                     </div>
