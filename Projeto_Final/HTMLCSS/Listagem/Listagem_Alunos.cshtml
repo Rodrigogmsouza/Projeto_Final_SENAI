@@ -127,59 +127,61 @@
 
         <div class="content" id="content">
             <div class="lista" id="lista">
-                <table>
-                    <tr>
-                        <th>CPF</th>
-                        <th>NOME</th>
-                        <th>EMAIL</th>
-                        <th>TELEFONE</th>
-                        <th>
-                            <button class="dropdown-btn">
-                                NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
-                            </button>
-                            <div class="dropdown-container">
-                                <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
-                                <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
-                                <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
-                            </div>
-                        </th>
-                        <th>OPÇÕES</th>
-                    </tr>
-                    @{List<pessoa> lista = Funcoes.Listagem_Alunos();}
-                    @foreach (pessoa listagemalunos in lista)
-                    {
+                <center>
+                    <table>
                         <tr>
-                            <td>@listagemalunos.cpf</td>
-                            <td>@listagemalunos.nome</td>
-                            <td>@listagemalunos.email</td>
-                            <td>@listagemalunos.telefone</td>
-                            <td>@listagemalunos.nivacesso</td>
-                            <td>
-                                <div class="options">
-                                    <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_user.cshtml">
-                                        <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
-                                        <button class="btn_edit">
-                                            <span class="material-symbols-outlined">
-                                                edit_square
-                                            </span>
-                                        </button>
-                                    </form>
-                                    <form method="post" action="~/HTMLCSS/Listagem/remove/delete_user.cshtml">
-                                        <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
-
-                                        <button class="btn_remove">
-                                            <span class="material-symbols-outlined">
-                                                delete
-                                            </span>
-                                        </button>
-                                    </form>
+                            <th>CPF</th>
+                            <th>NOME</th>
+                            <th>EMAIL</th>
+                            <th>TELEFONE</th>
+                            <th>
+                                <button class="dropdown-btn">
+                                    NIVEL DE ACESSO<span class="material-symbols-outlined">expand_more</span>
+                                </button>
+                                <div class="dropdown-container">
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Admins.cshtml">administrador</a><br />
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Alunos.cshtml">usuario</a><br />
+                                    <a href="~/HTMLCSS/Listagem/Listagem_Professores.cshtml">professor</a><br />
                                 </div>
-
-                            </td>
+                            </th>
+                            <th>OPÇÕES</th>
                         </tr>
+                        @{List<pessoa> lista = Funcoes.Listagem_Alunos();}
+                        @foreach (pessoa listagemalunos in lista)
+                        {
+                            <tr>
+                                <td>@listagemalunos.cpf</td>
+                                <td>@listagemalunos.nome</td>
+                                <td>@listagemalunos.email</td>
+                                <td>@listagemalunos.telefone</td>
+                                <td>@listagemalunos.nivacesso</td>
+                                <td>
+                                    <div class="options">
+                                        <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_user.cshtml">
+                                            <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
+                                            <button class="btn_edit">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <form method="post" action="~/HTMLCSS/Listagem/remove/delete_user.cshtml">
+                                            <input type="hidden" id="userid" name="userid" value="@listagemalunos.cpf" />
 
-                    }
-                </table>
+                                            <button class="btn_remove">
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        }
+                    </table>
+                </center>
             </div>
         </div>
     </section>

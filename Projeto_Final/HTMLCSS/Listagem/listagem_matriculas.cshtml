@@ -129,50 +129,52 @@
 
         <div class="content" id="content">
             <div class="lista" id="lista">
-                <table>
-                    <tr>
-                        <th>MATRICULA</th>
-                        <th>ALUNO</th>
-                        <th>CPF</th>
-                        <th>TURMA</th>
-                        <th>CURSO</th>
-                        <th>OPÇÕES</th>
-                    </tr>
-                    @{List<matricula> lista = Funcoes.Listagem_Matricula();}
-                    @foreach (matricula matriculados in lista)
-                    {
+                <center>
+                    <table>
                         <tr>
-                            <td>@matriculados.idmatricula</td>
-                            <td>@matriculados.idaluno</td>
-                            <td>@matriculados.idturma</td>
-                            <td>@matriculados.extraum</td>
-                            <td>@matriculados.extradois</td>
-                            <td>
-                                <div class="options">
-                                    <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_matricula.cshtml">
-                                        <input type="hidden" id="matid" name="matid" value="@matriculados.idmatricula" />
-                                        <button class="btn_edit">
-                                            <span class="material-symbols-outlined">
-                                                edit_square
-                                            </span>
-                                        </button>
-                                    </form>
-                                    <form method="post" action="~/HTMLCSS/Listagem/remove/delete_matricula.cshtml">
-                                        <input type="hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
-
-                                        <button class="btn_remove">
-                                            <span class="material-symbols-outlined">
-                                                delete
-                                            </span>
-                                        </button>
-                                    </form>
-                                </div>
-
-                            </td>
+                            <th>MATRICULA</th>
+                            <th>ALUNO</th>
+                            <th>CPF</th>
+                            <th>TURMA</th>
+                            <th>CURSO</th>
+                            <th>OPÇÕES</th>
                         </tr>
+                        @{List<matricula> lista = Funcoes.Listagem_Matricula();}
+                        @foreach (matricula matriculados in lista)
+                        {
+                            <tr>
+                                <td>@matriculados.idmatricula</td>
+                                <td>@matriculados.idaluno</td>
+                                <td>@matriculados.idturma</td>
+                                <td>@matriculados.extraum</td>
+                                <td>@matriculados.extradois</td>
+                                <td>
+                                    <div class="options">
+                                        <form method="post" action="~/HTMLCSS/Listagem/edit_listagem/edit_list_matricula.cshtml">
+                                            <input type="hidden" id="matid" name="matid" value="@matriculados.idmatricula" />
+                                            <button class="btn_edit">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <form method="post" action="~/HTMLCSS/Listagem/remove/delete_matricula.cshtml">
+                                            <input type="hidden" id="matriculaid" name="matriculaid" value="@matriculados.idmatricula" />
 
-                    }
-                </table>
+                                            <button class="btn_remove">
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        }
+                    </table>
+                </center>
             </div>
         </div>
     </section>
