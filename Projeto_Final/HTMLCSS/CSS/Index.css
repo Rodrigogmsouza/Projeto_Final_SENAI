@@ -55,7 +55,9 @@ input[type=password], input[type=text]{
 
 
 input[type=submit] {
-    background-color: #c5f6f1;
+    background-color: hotpink;
+    color: #38404d;
+    font-weight: bold;
     border: none;
     width: 200px;
     padding: 12px 20px;
@@ -65,7 +67,7 @@ input[type=submit] {
 }
 
     input[type=submit]:hover {
-        background-color: #b3ddd9;
+        background-color: #ff50a7;
     }
 
 
