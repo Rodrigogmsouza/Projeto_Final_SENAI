@@ -131,7 +131,7 @@
                                 <!--ALUNO-->
                                 <select name="idaluno" id="idaluno">
                                     <option value="1" disabled selected>ESCOLHA O ALUNO</option>
-                                    @{List<pessoa> lista_alunos = Funcoes.Listagem_Alunos(); }
+                                    @{List<pessoa> lista_alunos = Funcoes.Listagem_Alunos(); } 
                                     @foreach (pessoa listagemalunos in lista_alunos)
                                     {
                                         <option value="@listagemalunos.cpf">@listagemalunos.nome</option>
@@ -149,7 +149,6 @@
                                 </select>
                                 <!--ENVIAR-->
                                 <input type="submit" placeholder="MATRICULAR" /><br />
-
                             </div>
                         </center>
                     </div>
