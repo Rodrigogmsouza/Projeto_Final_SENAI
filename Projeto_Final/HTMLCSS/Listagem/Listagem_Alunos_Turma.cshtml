@@ -143,15 +143,24 @@
                                     </span>
                                 </a>
                             </th>
+                            <th>
+                                <button class="dwnld_btn" onclick="window.print();">
+                                    <span class="material-symbols-outlined">
+                                        download
+                                    </span>
+                                </button>
+                            </th>
                             <th>MATRICULA</th>
                             <th>CPF</th>
                             <th>NOME</th>
                             <th>EMAIL</th>
+
                         </tr>
                         @{List<pessoa> lista = Funcoes.Listagem_Alunos_Turma(Turma);}
                         @foreach (pessoa listagemalunos in lista)
                         {
                             <tr>
+                                <td>  </td>
                                 <td>  </td>
                                 <td>@listagemalunos.cpf</td>
                                 <td>@listagemalunos.nome</td>

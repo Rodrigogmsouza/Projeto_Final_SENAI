@@ -5,6 +5,8 @@ var dropdown = document.getElementsByClassName("dropdown-btn");
 
 var i;
 
+var content = document.getElementById("content");
+
 for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function () {
         this.classList.toggle("active");
