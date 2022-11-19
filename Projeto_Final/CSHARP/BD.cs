@@ -26,7 +26,7 @@ namespace Projeto_Final.CSHARP
         public static void Initialize()
         {
             //server = "localhost";
-            server = "localhost";
+            server = "10.200.118.79";
             //database = "connectcsharptomysql";
             database = "rodrigo_pf";
             //uid = "username";
